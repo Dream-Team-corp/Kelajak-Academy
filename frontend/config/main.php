@@ -11,18 +11,21 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'name' => 'Kelajak Academy',
+    'language' => 'uz',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'csrfParam' => '_csrf-kelajak-academy',
+            'baseUrl' => ''
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-kelajak_academy', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'kelajak-academy-site',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -36,14 +39,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'scriptUrl' => '/index.php',
             'rules' => [
+                'main/<action>' => 'site/<action>',
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
