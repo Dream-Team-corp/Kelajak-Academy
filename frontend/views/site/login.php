@@ -1,41 +1,39 @@
-<?php
 
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-/** @var \common\models\LoginForm $model */
-
-use yii\bootstrap5\Html;
-use yii\bootstrap5\ActiveForm;
-
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div class="my-1 mx-0" style="color:#999;">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-md-7"></div> -->
+            <div class="col-md-6 offset-md-3 order-md-last">
+                <div class="login-wrap p-4 p-md-5">
+                    <h3 class="mb-4">Register Now</h3>
+                    <form action="#" class="signup-form">
+                        <div class="form-group">
+                            <label class="label" for="name">Full Name</label>
+                            <input type="text" class="form-control" placeholder="John Doe" />
+                        </div>
+                        <div class="form-group">
+                            <label class="label" for="email">Email Address</label>
+                            <input type="text" class="form-control" placeholder="johndoe@gmail.com" />
+                        </div>
+                        <div class="form-group">
+                            <label class="label" for="password">Password</label>
+                            <input id="password-field" type="password" class="form-control" placeholder="Password" />
+                        </div>
+                        <div class="form-group">
+                            <label class="label" for="password">Confirm Password</label>
+                            <input id="password-field" type="password" class="form-control" placeholder="Confirm Password" />
+                        </div>
+                        <div class="form-group d-flex justify-content-end mt-4">
+                            <button type="submit" class="btn btn-primary submit">
+                                <span class="fa fa-paper-plane"></span>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-center">
+                        Already have an account? <a href="#signin">Sign In</a>
+                    </p>
                 </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
-</div>
+</section>

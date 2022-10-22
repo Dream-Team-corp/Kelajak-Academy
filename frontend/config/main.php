@@ -12,6 +12,7 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'name' => 'Kelajak Academy',
+    'defaultRoute' => 'main',
     'language' => 'uz',
     'components' => [
         'request' => [
