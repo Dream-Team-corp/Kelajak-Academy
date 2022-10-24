@@ -125,7 +125,7 @@ use yii\helpers\Html;
         </li>
         
         <li class="nav-item">
-            <?= Html::a('<i class="fas fa-sign-out-alt text-danger"></i>', ['/control/main/logout'], ['data-method' => 'post', 'class' => 'nav-link']) ?>
+            <?= Html::a('<i class="fas fa-sign-out-alt text-danger"></i>', ['/site/logout'], ['data-method' => 'post', 'class' => 'nav-link']) ?>
         </li>
         
     </ul>

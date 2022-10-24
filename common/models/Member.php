@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "member".
@@ -33,6 +34,15 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
     const TEACHER = 10;
     const PUPIL = 5;
     const PARENT = 0;
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class
+            ]
+        ];
+    }
 
     /**
      * {@inheritdoc}

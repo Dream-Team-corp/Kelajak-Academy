@@ -30,7 +30,7 @@
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
                     ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/control/main/index']],
-                    ['label' => 'O\'qituvchilar' , 'icon' => 'chalkboard-teacher', 'url' => ['/control/main/index']],
+                    ['label' => 'O\'qituvchilar' , 'icon' => 'chalkboard-teacher', 'url' => ['/control/teacher/index']],
                     ['label' => 'O\'quvchilar' , 'icon' => 'graduation-cap', 'url' => ['/control/main/index']],
                     ['label' => 'Kurslar' , 'icon' => 'book', 'url' => ['/control/main/index']],
                     ['label' => 'Qabulxona xodimlari' , 'icon' => 'circle', 'url' => ['/control/manager/index']],

@@ -2,12 +2,12 @@
 
 namespace frontend\modules\teacher\controllers;
 
-use yii\web\Controller;
+use frontend\modules\control\controllers\BaseController;
 
 /**
  * Default controller for the `teacher` module
  */
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
     /**
      * Renders the index view for the module

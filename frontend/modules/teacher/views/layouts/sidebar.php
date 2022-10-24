@@ -12,8 +12,11 @@ use yii\helpers\Url;
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="<?= Yii::getAlias('@defaultImage') .'/'. Yii::$app->user->identity->photo ?>" class="img-circle elevation-2">
+            </div>
             <div class="info">
-                <a href="#" class="d-block text-uppercase ml-1"><i class="fa fa-user mr-2"></i>Salom</a>
+                <a href="#" class="d-block text-uppercase ml-1"><?= Yii::$app->user->identity->first_name ?></a>
             </div>
         </div>
         <div class="form-inline">
@@ -34,8 +37,8 @@ use yii\helpers\Url;
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
                     ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/manager/default/index']],
-                    ['label' => 'Aktiv o\'qituvchilar' , 'icon' => 'circle', 'iconClassAdded' => 'text-info', 'url' => ['/manager/member/index']],
-                    ['label' => 'Qabuldagi o\'quvchilar' , 'icon' => 'circle', 'iconClassAdded' => 'text-warning', 'url' => ['/control/main/index']],
+                    ['label' => 'Aktiv o\'qituvchilar', 'icon' => 'circle', 'iconClassAdded' => 'text-info', 'url' => ['/manager/member/index']],
+                    ['label' => 'Qabuldagi o\'quvchilar', 'icon' => 'circle', 'iconClassAdded' => 'text-warning', 'url' => ['/control/main/index']],
                 ],
             ]);
             ?>

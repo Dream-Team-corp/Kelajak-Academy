@@ -30,4 +30,24 @@ class UseMember extends Member
     {
         return '<img src="' . Yii::getAlias('@getAdminImg') . "/" . $this->photo . '" width="30px" style="height:30px" class="border rounded-circle border-2 border-primary">';
     }
+
+    public function signUp()
+    {
+        $this->generateAuthKey();
+
+        if (!empty($this->first_name) && !empty($this->last_name)) {
+
+            $username = $this->first_name . '_' . $this->last_name;
+
+            if (empty($this->findByUsername($username))) {
+                $this->username = $username;
+            } else {
+                $this->username = $username . rand(1000, 9999);
+            }
+            $this->setPassword($this->username);
+        }
+        $this->photo = 'user.png';
+
+        return $this->save() ? true : false;
+    }
 }
