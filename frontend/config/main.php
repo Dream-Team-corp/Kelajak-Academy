@@ -14,13 +14,24 @@ return [
     'name' => 'Kelajak Academy',
     'defaultRoute' => 'main',
     'language' => 'uz',
+    'modules' => [
+        'control' => [
+            'class' => 'frontend\modules\control\Control',
+        ],
+        'manager' => [
+            'class' => 'frontend\modules\manager\Manager',
+        ],
+        'teacher' => [
+            'class' => 'frontend\modules\teacher\Teacher',
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-kelajak-academy',
             'baseUrl' => ''
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\Member',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-kelajak_academy', 'httpOnly' => true],
         ],
@@ -40,7 +51,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -49,7 +60,7 @@ return [
                 'main/<action>' => 'site/<action>',
             ],
         ],
-        
+
     ],
     'params' => $params,
 ];
