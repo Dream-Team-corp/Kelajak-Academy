@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\LoginForm;
+use PDO;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -64,7 +65,13 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-
+    public function actionSetting()
+    {
+        return $this->render('setting');
+    }
+    public function actionUsers(){
+        return $this->render('users');
+    }
     /**
      * Login action.
      *
