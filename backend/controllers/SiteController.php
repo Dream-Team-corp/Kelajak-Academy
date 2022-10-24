@@ -29,7 +29,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'users','setting','help'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -70,6 +70,7 @@ class SiteController extends Controller
         return $this->render('setting');
     }
     public function actionUsers(){
+        
         return $this->render('users');
     }
     /**
