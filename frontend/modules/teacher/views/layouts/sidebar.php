@@ -36,9 +36,12 @@ use yii\helpers\Url;
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
-                    ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/manager/default/index']],
-                    ['label' => 'Aktiv o\'qituvchilar', 'icon' => 'circle', 'iconClassAdded' => 'text-info', 'url' => ['/manager/member/index']],
-                    ['label' => 'Qabuldagi o\'quvchilar', 'icon' => 'circle', 'iconClassAdded' => 'text-warning', 'url' => ['/control/main/index']],
+                    ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/teacher/default/index']],
+                    ['label' => 'Guruhlarim', 'icon' => 'users', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
+                    ['label' => 'Kurs reklamalari', 'icon' => 'ad', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/course/index']],
+                    ['label' => 'To\'lovlar', 'icon' => 'money-bill-wave', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
+                    ['label' => 'Chat', 'icon' => 'comments', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
+                    ['label' => 'Yordam', 'icon' => 'question-circle', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                 ],
             ]);
             ?>

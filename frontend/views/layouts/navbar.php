@@ -16,8 +16,8 @@ $route = Yii::$app->controller->route;
                 <li class="nav-item <?= ($route == '/' || $route == 'main/index') ? 'active' : '' ?>">
                     <a href="<?= Url::home() ?>" class="nav-link">Asosiy</a>
                 </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">Biz haqimizda</a>
+                <li class="nav-item <?= ($route == 'site/about') ? 'active' : '' ?>">
+                    <a href="<?= Url::to(['/site/about']) ?>" class="nav-link">Biz haqimizda</a>
                 </li>
                 <li class="nav-item">
                     <a href="course.html" class="nav-link">Kurslar</a>

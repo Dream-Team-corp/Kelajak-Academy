@@ -12,9 +12,7 @@ use yii\widgets\Pjax;
 $this->title = 'O\'qituvchilar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-index card card-outline card-primary p-2 px-4">
-
-
+<div class="card card-outline card-primary p-2">
     <p>
         <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i>', ['create'], ['class' => 'h2 text-white btn btn-success']) ?>
     </p>
@@ -24,7 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'summary' => '',
             'tableOptions' => [
-                'class' => 'table table-bordered'
+                'class' => 'table table-bordered',
+                'id' => 'all-pupil'
             ],
             'dataProvider' => $dataProvider,
             'columns' => [

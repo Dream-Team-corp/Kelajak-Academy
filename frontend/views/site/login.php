@@ -2,7 +2,7 @@
 
 use yii\bootstrap5\ActiveForm;
 
-
+$this->title = Yii::$app->name." - Login";
 ?>
 
 <section class="ftco-section">
