@@ -5,7 +5,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\widgets\ListView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,6 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="table-responsive">
         <?= GridView::widget([
             'summary' => '',
+            'tableOptions' => [
+                'class' => 'table table-bordered'
+            ],
             'dataProvider' => $dataProvider,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
@@ -31,11 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'first_name',
                 'last_name',
                 'username',
-                [
-                    'attribute' => 'photo',
-                    'value' => "adminimg",
-                    'format' => 'html'
-                ],
+                'tel_number',
                 [
                     'attribute' => 'password',
                     'value' => 'username',

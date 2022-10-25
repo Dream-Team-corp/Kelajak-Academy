@@ -8,8 +8,11 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="<?= Yii::getAlias('@defaultImage') . '/user.png' ?>" class="img-circle elevation-2">
+            </div>
             <div class="info">
-                <a href="#" class="d-block text-uppercase ml-1"><i class="fa fa-user mr-2"></i><?= Yii::$app->user->identity->username ?></a>
+                <a href="#" class="d-block text-uppercase ml-1"><?= Yii::$app->user->identity->username ?></a>
             </div>
         </div>
         <div class="form-inline">
@@ -30,10 +33,10 @@
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
                     ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/control/main/index']],
-                    ['label' => 'O\'qituvchilar' , 'icon' => 'chalkboard-teacher', 'url' => ['/control/teacher/index']],
-                    ['label' => 'O\'quvchilar' , 'icon' => 'graduation-cap', 'url' => ['/control/main/index']],
-                    ['label' => 'Kurslar' , 'icon' => 'book', 'url' => ['/control/main/index']],
-                    ['label' => 'Qabulxona xodimlari' , 'icon' => 'circle', 'url' => ['/control/manager/index']],
+                    ['label' => 'O\'qituvchilar', 'icon' => 'chalkboard-teacher', 'url' => ['/control/teacher/index']],
+                    ['label' => 'O\'quvchilar', 'icon' => 'graduation-cap', 'url' => ['/control/member/index']],
+                    ['label' => 'Kurslar', 'icon' => 'book', 'url' => ['/control/main/index']],
+                    ['label' => 'Qabulxona xodimlari', 'icon' => 'circle', 'url' => ['/control/manager/index']],
                     ['label' => 'Yii2 PROVIDED', 'header' => true],
                     ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],

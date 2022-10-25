@@ -1,10 +1,14 @@
 $(function () {
   $("#all-pupil")
     .DataTable({
-      responsive: true,
+      paging: true,
       lengthChange: false,
+      searching: false,
+      ordering: true,
       autoWidth: false,
-      buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      responsive: true,
+      info:false,
+      buttons: ["excel", "pdf", "print"],
     })
     .buttons()
     .container()

@@ -26,6 +26,13 @@ return [
         ],
     ],
     'components' => [
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV2' => '6Lez8qkiAAAAAEI1iklQ2bZQ29fQmeeXdMWoL-Oc',
+            'secretV2' => '6Lez8qkiAAAAADheVglZC8kgMbYpJJigYS5GX7gM',
+            'siteKeyV3' => 'your siteKey v3',
+            'secretV3' => 'your secret key v3',
+        ],
         'request' => [
             'csrfParam' => '_csrf-kelajak-academy',
             'baseUrl' => ''

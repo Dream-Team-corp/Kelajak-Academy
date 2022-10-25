@@ -21,7 +21,7 @@ class UseMember extends Member
         if ($this->status == self::STATUS_ACTIVE) {
             return '<span class="badge badge-success">Faol</span>';
         } elseif ($this->status == self::STATUS_INACTIVE) {
-            return "<span class='badge badge-warning'>Faol emas</span>";
+            return "<span class='badge badge-warning'>Qabulda</span>";
         } else {
             return '<span class="badge badge-danger">O\'chirilgan</span>';
         }

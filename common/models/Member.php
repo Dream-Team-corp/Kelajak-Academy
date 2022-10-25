@@ -79,7 +79,7 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
             'username' => 'Foydalanuvchi nomi',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Parol',
-            'tel_number' => 'Telefon Number',
+            'tel_number' => 'Telefon Raqami',
             'photo' => 'Rasm',
             'status' => 'Holati',
             'type' => 'Type',
