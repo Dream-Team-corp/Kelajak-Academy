@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Course Categories', 'url' => ['ind
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="course-category-view">
+<div class="card card-outline card-danger p-3">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -34,8 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'image',
             'tag',
             'status',
-            'created_at',
-            'updated_at',
         ],
     ]) ?>
 

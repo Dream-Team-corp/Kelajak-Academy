@@ -10,15 +10,13 @@ use yii\widgets\Pjax;
 /** @var common\models\search\CourseCategory $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Course Categories';
+$this->title = 'Kategoriyalar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="course-category-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="card card-outline card-success p-3">
 
     <p>
-        <?= Html::a('Create Course Category', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="fa fa-plus" aria-hidden="true"></i>', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

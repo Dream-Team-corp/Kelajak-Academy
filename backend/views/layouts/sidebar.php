@@ -34,6 +34,7 @@
         <nav class="mt-2">
             <?php
 
+                            use yii\bootstrap5\Html;
                             use yii\helpers\Url;
 
             echo \hail812\adminlte\widgets\Menu::widget([
@@ -43,7 +44,7 @@
                     ['label' => 'Sozlamalar', 'url'=>'site/setting', 'icon' => 'fas fa-cog',],
                     ['label' => 'Foydalanuvchilar', 'url'=>Url::to(['site/users']), 'icon' => 'fas fa-user',],
                     ['label' => 'Yordam', 'url'=>Url::to(['site/help']), 'icon' => 'fas fa-question',],
-                    ['label' => 'Katigoriyalar', 'url'=>Url::to(['course_category/index']), 'icon' => 'fas fa-category',],
+                    ['label' => 'Katigoriyalar', 'url'=>Url::to(['course-category/index']), 'icon' => 'fas fa-category',],
                     ['label' => 'Login', 'url'=>Url::to(['site/login']), 'icon' => 'fas ',],
                     
                 ],
