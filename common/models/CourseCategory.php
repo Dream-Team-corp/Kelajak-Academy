@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "course_category".
@@ -24,7 +25,12 @@ class CourseCategory extends \yii\db\ActiveRecord
     {
         return 'course_category';
     }
-
+    public function behaviors()
+    {
+        return [
+            'class'=> TimestampBehavior::class
+        ];
+    }
     /**
      * {@inheritdoc}
      */
@@ -61,4 +67,22 @@ class CourseCategory extends \yii\db\ActiveRecord
     {
         return new \common\models\search\CourseCategoryQuery(get_called_class());
     }
+    public function getStatus(){
+        if($this->status == 1){
+            return '<span class="badge badge-success">Faol</span>';
+        }
+        else{
+            return '<span class="badge badge-danger">Nofaol</span>';
+        }
+        
+    }
+    public function getImage(){
+        if($this->image != ''){
+            return '<img src="'.Yii::getAlias('@defaultImage').'/'.$this->image.'" style="width: 120px;height:100px;">';
+        }
+        else{
+            return 'Qiymatlanmagan';
+        }
+    }
 }
+?>

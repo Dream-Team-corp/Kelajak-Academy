@@ -9,10 +9,15 @@ $this->title = 'Kategoriya yaratish';
 $this->params['breadcrumbs'][] = ['label' => 'Kurs kategoriyalari', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="card card-outline card-info p-3">
+<div class="row">
+    <div class="col-8 offset-2">
+        <div class="card card-outline card-info p-3">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
 
+        </div>        
+    </div>
 </div>
+

@@ -13,11 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card card-outline card-danger p-3">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('<i class="fa fa-pen" aria-hidden="true"></i>', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="fa fa-trash" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -29,11 +27,30 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'title',
-            'image',
-            'tag',
-            'status',
+            [
+                'attribute'=> 'image',
+                'label'=>'<h3 class="bold">Rasmingiz</h3>',
+                'value'=> $model->Image,
+                'format'=> 'html',
+            ],
+            [
+                'attribute'=> 'id',
+            ],
+            [
+                'attribute'=> 'title',
+                'label'=> 'Sarlavha'
+            ],
+            [
+                'attribute'=> 'tag',
+                'label'=> 'Qidiruv'
+            ],
+            [
+                'attribute'=> 'status',
+                'label'=> 'Faoliyati',
+                'value'=> $model->Status,
+                'format'=> 'html',
+
+            ],
         ],
     ]) ?>
 
