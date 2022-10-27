@@ -37,7 +37,7 @@ use yii\helpers\Url;
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
                     ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/teacher/default/index']],
-                    ['label' => 'Guruhlarim', 'icon' => 'users', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
+                    ['label' => 'Guruhlarim', 'icon' => 'users', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/group/index']],
                     ['label' => 'Kurs reklamalari', 'icon' => 'ad', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/course/index']],
                     ['label' => 'To\'lovlar', 'icon' => 'money-bill-wave', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                     ['label' => 'Chat', 'icon' => 'comments', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],

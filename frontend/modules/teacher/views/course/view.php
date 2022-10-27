@@ -33,13 +33,31 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            'image',
-            'price',
-            'category_id',
-            'user_id',
-            'status',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return "<img src='" . Yii::getAlias('@defaultImage') . "/" . $model->image . "' class='w-50'>";
+                }
+            ],
+            [
+                'attribute' => 'price',
+                'value' => function ($model) {
+                    return number_format($model->price, '0', ' ', ' ')." so'm";
+                }
+            ],
+            [
+                'attribute' => 'category_id',
+                'value' => $model->category->title
+            ],
+            [
+                'attribute' => 'status',
+                'value' => $model->statusLabel,
+                'format' => 'html',
+
+            ],
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
 

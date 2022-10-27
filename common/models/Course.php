@@ -118,4 +118,10 @@ class Course extends \yii\db\ActiveRecord
             return false;
         }
     }
+    public function getStatusLabel(){
+        if($this->status = 1){
+            return "<span class='badge badge-success'>Faol</span>";
+        } 
+        return "<span class='badge badge-danger'>Nofaol</span>";
+    }
 }
