@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'summary'=>'',
         'columns' => [
             'id',
             [
@@ -43,11 +44,23 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'created_at',
             //'updated_at',
+                
             [
-                'class' => ActionColumn::className(),
+                'class' => ActionColumn::class,
                 'urlCreator' => function ($action, CourseCategory $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                 },
+                 'buttons'=>[
+                    'view'=>function ($url) {
+                        return Html::a('<i class="fa fa-eye" aria-hidden="true"></i>', $url, ['class' => 'view btn btn-primary py-0']);
+                    },
+                    'update'=>function ($url) {
+                        return Html::a('<i class="fa fa-pen text-white" aria-hidden="true"></i>', $url, ['class' => ' update btn btn-warning mx-2 py-0']);
+                    },
+                    'delete'=>function ($url) {
+                        return Html::a('<i class="fa fa-trash" aria-hidden="true"></i>', $url, ['class' => 'delete btn btn-danger py-0', 'data-method' => 'post']);
+                    },
+                ],
             ],
         ],
     ]); ?>

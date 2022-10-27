@@ -88,7 +88,23 @@ class CourseCategoryController extends Controller
             'model' => $model,
         ]);
     }
-
+    public function actionImg($id){
+        $model = $this->findModel($id);
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $model->image = UploadedFile::getInstance($model, 'image');
+                if ($model->image->saveAs(Yii::getAlias('@saveImage').'/'.time().$model->image)) {
+                    $model->image = time().$model->image;
+                    if($model->save()){
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }   
+                }
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+        return $this->render('img',['model'=>$model]);
+    }
     /**
      * Updates an existing CourseCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -101,13 +117,9 @@ class CourseCategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post())) {
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if ($model->image != '' && $model->image->saveAs(Yii::getAlias('@saveImage').'/'.time().$model->image)) {
-                $model->image= time().$model->image;
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
-            }
         }
 
         return $this->render('update', [

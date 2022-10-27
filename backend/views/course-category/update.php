@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = 'Update';
     <div class="col-8 offset-2">
         <div class="card card-outline card-primary p-3">
 
-            <?= $this->render('_form', [
+            <?= $this->render('_update', [
                 'model' => $model,
             ]) ?>
 

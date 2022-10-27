@@ -7,14 +7,16 @@ use yii\widgets\DetailView;
 /** @var common\models\CourseCategory $model */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Course Categories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Kurs kategoriyalari', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="card card-outline card-danger p-3">
 
     <p>
+        <?= Html::a('<i class="fa fa-chevron-left" aria-hidden="true"></i>', ['index'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('<i class="fa fa-pen" aria-hidden="true"></i>', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="fas fa-image"></i>', ['img', 'id' => $model->id], ['class' => 'btn btn-info']) ?>
         <?= Html::a('<i class="fa fa-trash" aria-hidden="true"></i>', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [

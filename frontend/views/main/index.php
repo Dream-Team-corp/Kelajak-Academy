@@ -1,3 +1,7 @@
+<?php
+
+use yii\widgets\ListView;
+?>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center pb-4">
@@ -7,54 +11,15 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-3 col-lg-2">
-                <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-1.jpg)">
-                    <div class="text w-100 text-center">
-                        <h3>IT &amp; Software</h3>
-                        <span>100 course</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-2">
-                <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-9.jpg)">
-                    <div class="text w-100 text-center">
-                        <h3>Music</h3>
-                        <span>100 course</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-2">
-                <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-3.jpg)">
-                    <div class="text w-100 text-center">
-                        <h3>Photography</h3>
-                        <span>100 course</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-2">
-                <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-5.jpg)">
-                    <div class="text w-100 text-center">
-                        <h3>Marketing</h3>
-                        <span>100 course</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-2">
-                <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-8.jpg)">
-                    <div class="text w-100 text-center">
-                        <h3>Health</h3>
-                        <span>100 course</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-2">
-                <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-6.jpg)">
-                    <span class="text w-100 text-center">
-                        <h3>Audio Video</h3>
-                        <span>100 course</span>
-                    </span>
-                </a>
-            </div>
+                <?= ListView::widget([
+                        'dataProvider'=> $model,
+                        'itemView'=> '_courseCategory',
+                        'layout' => "{items}",
+                        'options'=>[
+                            'class'=> 'owl-carousel'
+                        ],
+                    ]);
+                ?>
             <div class="col-md-12 text-center mt-5">
                 <a href="#" class="btn btn-secondary">See All Courses</a>
             </div>
