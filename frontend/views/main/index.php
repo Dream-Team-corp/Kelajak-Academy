@@ -16,7 +16,7 @@ use yii\widgets\ListView;
                         'itemView'=> '_courseCategory',
                         'layout' => "{items}",
                         'options'=>[
-                            'class'=> 'owl-carousel'
+                            'class'=> 'row justify-content-center'
                         ],
                     ]);
                 ?>
