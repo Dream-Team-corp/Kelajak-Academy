@@ -2,8 +2,7 @@
 
 namespace backend\controllers;
 
-use common\models\LoginForm;
-use PDO;
+use backend\models\UserForm;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -29,7 +28,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users','setting','help'],
+                        'actions' => ['logout', 'index', 'users', 'setting', 'help'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -69,8 +68,9 @@ class SiteController extends Controller
     {
         return $this->render('setting');
     }
-    public function actionUsers(){
-        
+    public function actionUsers()
+    {
+
         return $this->render('users');
     }
     /**
@@ -86,7 +86,7 @@ class SiteController extends Controller
 
         $this->layout = 'main-login';
 
-        $model = new LoginForm();
+        $model = new UserForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }

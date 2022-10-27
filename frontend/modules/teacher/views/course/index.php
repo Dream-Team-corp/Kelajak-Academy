@@ -1,53 +1,32 @@
 <?php
 
-use common\models\Course;
 use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
+use yii\widgets\ListView;
+
 /** @var yii\web\View $this */
 /** @var common\models\search\CourseQuery $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Courses';
+$this->title = 'Kurs reklamalari';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="course-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="card card-outline card-primary p-2">
 
     <p>
-        <?= Html::a('Create Course', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="fa fa-plus"></i>', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
+   <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'description:ntext',
-            'image',
-            'price',
-            //'category_id',
-            //'user_id',
-            //'created_at',
-            //'updated_at',
-            [
-                'class' => ActionColumn::class,
-                'urlCreator' => function ($action, Course $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
+        'itemView' => '_courseItem',
+        'layout' => "{items}",
+        'options' => [
+            'class' => 'row fade-left'
         ],
+        'itemOptions' => [
+            'class' => 'col-10 my-1 offset-1 col-sm-6 offset-sm-0 col-md-6 offset-md-0 col-lg-6 offset-lg-0 col-xl-3'
+        ],
+        'emptyText' => ''
     ]); ?>
-
-    <?php Pjax::end(); ?>
 
 </div>

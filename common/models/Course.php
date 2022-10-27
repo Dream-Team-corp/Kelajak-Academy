@@ -3,6 +3,9 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "course".
@@ -14,6 +17,7 @@ use Yii;
  * @property int $price
  * @property int|null $category_id
  * @property int|null $user_id
+ * @property int|null $status
  * @property int|null $created_at
  * @property int|null $updated_at
  *
@@ -22,6 +26,25 @@ use Yii;
  */
 class Course extends \yii\db\ActiveRecord
 {
+
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
+
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+            ],
+            [
+                'class' => BlameableBehavior::class,
+                'createdByAttribute' => 'user_id',
+                'updatedByAttribute' => false,
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -38,8 +61,9 @@ class Course extends \yii\db\ActiveRecord
         return [
             [['title', 'description', 'price'], 'required'],
             [['description'], 'string'],
-            [['price', 'category_id', 'user_id', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'image'], 'string', 'max' => 255],
+            [['price', 'category_id', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['title'], 'string', 'max' => 255],
+            [['image'], 'image', 'extensions' => ['jpg', 'jpeg', 'png'], 'maxSize' => 1024 * 1024, 'minWidth' => 1000, 'minHeight' => 667],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => CourseCategory::class, 'targetAttribute' => ['category_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Member::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -52,14 +76,15 @@ class Course extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'image' => 'Image',
-            'price' => 'Price',
-            'category_id' => 'Category ID',
-            'user_id' => 'User ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title' => 'Sarlavha',
+            'description' => 'Tavsif',
+            'image' => 'Rasm',
+            'price' => 'Narxi',
+            'category_id' => 'Kategoriyasi',
+            'user_id' => 'O\'qituvchi',
+            'status' => 'Holati',
+            'created_at' => 'Qo\'shilagan vaqti',
+            'updated_at' => 'Oxirgi o\'zgarish',
         ];
     }
 
@@ -83,12 +108,14 @@ class Course extends \yii\db\ActiveRecord
         return $this->hasOne(Member::class, ['id' => 'user_id']);
     }
 
-    /**
-     * {@inheritdoc}
-     * @return \common\models\search\CourseQuery the active query used by this AR class.
-     */
-    // public static function find()
-    // {
-    //     return new \common\models\search\CourseQuery(get_called_class());
-    // }
+    public function saveImage()
+    {
+        $image = UploadedFile::getInstanceByName('Course[image]');
+
+        if ($image->saveAs(Yii::getAlias('@saveImage') . '/' . time().'.'.$image->extension, true)){
+            return time().'.'.$image->extension;
+        } else {
+            return false;
+        }
+    }
 }

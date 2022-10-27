@@ -5,17 +5,20 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Course $model */
 
-$this->title = 'Update Course: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Courses', 'url' => ['index']];
+$this->title = 'Tahrirlash';
+$this->params['breadcrumbs'][] = ['label' => 'Kurslar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Tahrirlash';
 ?>
-<div class="course-update">
+<div class="row">
+    <div class="col-md-6 offset-md-3">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <div class="card card-outline card-success p-2">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
 
+        </div>
+    </div>
 </div>

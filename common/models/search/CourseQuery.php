@@ -17,7 +17,7 @@ class CourseQuery extends Course
     public function rules()
     {
         return [
-            [['id', 'price', 'category_id', 'user_id', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'price', 'category_id', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'description', 'image'], 'safe'],
         ];
     }
@@ -40,7 +40,7 @@ class CourseQuery extends Course
      */
     public function search($params)
     {
-        $query = Course::find();
+        $query = Course::find()->where(['status' => self::STATUS_ACTIVE]);
 
         // add conditions that should always apply here
 
@@ -62,6 +62,7 @@ class CourseQuery extends Course
             'price' => $this->price,
             'category_id' => $this->category_id,
             'user_id' => $this->user_id,
+            'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

@@ -20,6 +20,7 @@ class m221025_112550_create_course_table extends Migration
             'price' => $this->integer()->notNull(),
             'category_id' => $this->integer(),
             'user_id' => $this->integer(),
+            'status' => $this->boolean()->defaultValue(false),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
         ]);

@@ -5,6 +5,7 @@ namespace frontend\modules\teacher\controllers;
 use common\models\Course;
 use common\models\search\CourseQuery;
 use frontend\modules\control\controllers\BaseController;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -12,6 +13,7 @@ use yii\web\NotFoundHttpException;
  */
 class CourseController extends BaseController
 {
+
 
     /**
      * Lists all Course models.
@@ -52,8 +54,11 @@ class CourseController extends BaseController
         $model = new Course();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $model->image = $model->saveImage();
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -75,8 +80,14 @@ class CourseController extends BaseController
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post())) {
+
+            if (!empty($model->image)) {
+                $model->image = $model->saveImage();
+            } else {
+                $model->image = $model->getOldAttribute('image');
+            }
+            return $model->save() ? $this->redirect(['view', 'id' => $model->id]) : $model->loadDefaultValues();
         }
 
         return $this->render('update', [
