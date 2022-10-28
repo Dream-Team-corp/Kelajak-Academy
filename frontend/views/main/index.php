@@ -18,6 +18,9 @@ use yii\widgets\ListView;
                         'options'=>[
                             'class'=> 'row justify-content-center'
                         ],
+                        'itemOptions'=>[
+                            'class'=> 'col-md-3 col-lg-2'
+                        ],
                     ]);
                 ?>
             <div class="col-md-12 text-center mt-5">
