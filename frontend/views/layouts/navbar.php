@@ -19,11 +19,11 @@ $route = Yii::$app->controller->route;
                 <li class="nav-item <?= ($route == 'site/about') ? 'active' : '' ?>">
                     <a href="<?= Url::to(['/site/about']) ?>" class="nav-link">Biz haqimizda</a>
                 </li>
-                <li class="nav-item">
-                    <a href="course.html" class="nav-link">Kurslar</a>
+                <li class="nav-item <?= ($route == 'course/index') ? 'active' : '' ?>">
+                    <a href="<?= Url::to(['/course/index']) ?>" class="nav-link">Kurslar</a>
                 </li>
-                <li class="nav-item">
-                    <a href="instructor.html" class="nav-link">O'qituvchilar</a>
+                <li class="nav-item <?= ($route == 'teachers/index') ? 'active' : '' ?>">
+                    <a href="<?= Url::to(['/teachers/index']) ?>" class="nav-link">O'qituvchilar</a>
                 </li>
                 <li class="nav-item <?= ($route == 'site/contact') ? 'active' : '' ?>">
                     <a href="<?= Url::to(['/site/contact']) ?>" class="nav-link">Bo'g'lanish</a>

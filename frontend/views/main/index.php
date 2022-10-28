@@ -11,15 +11,18 @@ use yii\widgets\ListView;
             </div>
         </div>
         <div class="row justify-content-center">
-                <?= ListView::widget([
-                        'dataProvider'=> $model,
-                        'itemView'=> '_courseCategory',
-                        'layout' => "{items}",
-                        'options'=>[
-                            'class'=> 'row justify-content-center'
-                        ],
-                    ]);
-                ?>
+            <?= ListView::widget([
+                'dataProvider' => $model,
+                'itemView' => '_courseCategory',
+                'layout' => "{items}",
+                'options' => [
+                    'class' => 'row justify-content-center'
+                ],
+                'itemOptions' => [
+                    'class' => 'col-md-3 col-lg-2'
+                ]
+            ]);
+            ?>
             <div class="col-md-12 text-center mt-5">
                 <a href="#" class="btn btn-secondary">See All Courses</a>
             </div>
@@ -35,99 +38,19 @@ use yii\widgets\ListView;
                 <h2 class="mb-4">Pick Your Course</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-1.jpg)">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-2.jpg)">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-3.jpg)">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-4.jpg)">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-5.jpg)">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-6.jpg)">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?=
+        ListView::widget([
+            'dataProvider' => $course,
+            'itemView' => '_courseItem',
+            'layout' => "{items}",
+            'options' => [
+                'class' => 'row'
+            ],
+            'itemOptions' => [
+                'class' => 'col-md-4 ftco-animate'
+            ]
+        ])
+        ?>
     </div>
 </section>
 

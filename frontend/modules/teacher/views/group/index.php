@@ -1,11 +1,8 @@
 <?php
 
-use common\models\Group;
 use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\widgets\ListView;
 
 /** @var yii\web\View $this */
 /** @var common\models\search\GroupQuery $searchModel */
@@ -21,31 +18,20 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    <?php //echo $this->render('_search', ['model' => $searchModel]); 
     ?>
 
-    <?= GridView::widget([
+    <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'tableOptions' => [
-            'class' => 'table table-bordered'
+        'itemView' => '_groupItem',
+        'layout' => "{items}",
+        'options' => [
+            'class' => 'row fade-left'
         ],
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            // 'id',
-            'name',
-            'course_id',
-            'status',
-            'created_at:date',
-            //'updated_at',
-            [
-                'class' => ActionColumn::class,
-                'urlCreator' => function ($action, Group $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                }
-            ],
+        'itemOptions' => [
+            'class' => 'col-10 my-1 offset-1 col-sm-6 offset-sm-0 col-md-6 offset-md-0 col-lg-6 offset-lg-0 col-xl-3'
         ],
+        'emptyText' => ''
     ]); ?>
 
     <?php Pjax::end(); ?>

@@ -3,8 +3,10 @@
 namespace frontend\modules\teacher\controllers;
 
 use common\models\Group;
+use common\models\GroupPupilList;
 use common\models\search\GroupQuery;
 use frontend\modules\control\controllers\BaseController;
+use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -37,8 +39,12 @@ class GroupController extends BaseController
      */
     public function actionView($id)
     {
+        $model = new ActiveDataProvider([
+            'query' => GroupPupilList::find()->where(['group_id' => $id])
+        ]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
@@ -53,7 +59,7 @@ class GroupController extends BaseController
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();
@@ -76,7 +82,7 @@ class GroupController extends BaseController
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

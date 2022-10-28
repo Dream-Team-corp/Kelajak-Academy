@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Course;
 use common\models\CourseCategory;
 use yii\data\ActiveDataProvider;
 
@@ -11,10 +12,16 @@ class MainController extends \yii\web\Controller
     {
         $model = new ActiveDataProvider(
             [
-                'query' => CourseCategory::find()->where(['status'=> 1])->orderBy(['id'=> SORT_DESC]),
+                'query' => CourseCategory::find()->where(['status' => 1])->orderBy(['id' => SORT_DESC]),
             ]
         );
-        return $this->render('index',['model'=>$model]);
-    }
+        $course = new ActiveDataProvider([
+            'query' => Course::find()->where(['status' => Course::STATUS_ACTIVE])->orderBy(['id' => SORT_DESC])->limit(6)
+        ]);
+        foreach ($model->getModels() as $k) {
+            $this->view->registerMetaTag(['name' => 'keywords', 'content' => $k->tag]);
+        }
 
+        return $this->render('index', ['model' => $model, 'course' => $course]);
+    }
 }
