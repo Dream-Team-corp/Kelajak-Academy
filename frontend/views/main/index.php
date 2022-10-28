@@ -11,6 +11,7 @@ use yii\widgets\ListView;
             </div>
         </div>
         <div class="row justify-content-center">
+<<<<<<< HEAD
             <?= ListView::widget([
                 'dataProvider' => $model,
                 'itemView' => '_courseCategory',
@@ -23,6 +24,20 @@ use yii\widgets\ListView;
                 ]
             ]);
             ?>
+=======
+                <?= ListView::widget([
+                        'dataProvider'=> $model,
+                        'itemView'=> '_courseCategory',
+                        'layout' => "{items}",
+                        'options'=>[
+                            'class'=> 'row justify-content-center'
+                        ],
+                        'itemOptions'=>[
+                            'class'=> 'col-md-3 col-lg-2'
+                        ],
+                    ]);
+                ?>
+>>>>>>> 484d0ea9df65bb418545c3e2208413f6dd195ac7
             <div class="col-md-12 text-center mt-5">
                 <a href="#" class="btn btn-secondary">See All Courses</a>
             </div>
