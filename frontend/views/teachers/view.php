@@ -1,4 +1,7 @@
 <?php
+
+use yii\widgets\ListView;
+
 $this->title = 'O\'qituvchi - ' . $model->teacher->first_name . ' ' . $model->teacher->last_name;
 
 $this->params['breadcrumbs'][] = ['label' => 'O\'qituvchilar', 'url' => ['index']];
@@ -11,7 +14,7 @@ $this->params['breadcrumbs'][] = ['label' => 'O\'qituvchilar', 'url' => ['index'
             <div class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
                 <div class="staff-2 w-100">
                     <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch d-flex align-items-end" style="background-image: url(<?= Yii::getAlias('@defaultImage').'/'.$model->image ?>);">
+                        <div class="img align-self-stretch d-flex align-items-end" style="background-image: url(<?= Yii::getAlias('@defaultImage') . '/' . $model->image ?>);">
                             <div class="text mb-4 text-md-center">
                                 <h3><?= $model->teacher->first_name . ' ' . $model->teacher->last_name ?></h3>
                                 <span class="position mb-2"><?= $model->job ?></span>
@@ -48,98 +51,18 @@ $this->params['breadcrumbs'][] = ['label' => 'O\'qituvchilar', 'url' => ['index'
                 <h2 class="mb-4"><?= $model->teacher->first_name . ' ' . $model->teacher->last_name ?> ning kurslari</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-1.jpg);">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-2.jpg);">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-3.jpg);">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-4.jpg);">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-5.jpg);">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url(images/work-6.jpg);">
-                        <span class="price">Software</span>
-                    </a>
-                    <div class="text p-4">
-                        <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                        <p class="advisor">Advisor <span>Tony Garret</span></p>
-                        <ul class="d-flex justify-content-between">
-                            <li><span class="flaticon-shower"></span>2300</li>
-                            <li class="price">$199</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?=
+        ListView::widget([
+            'dataProvider' => $course,
+            'itemView' => '_courseItem',
+            'layout' => "{items}",
+            'options' => [
+                'class' => 'row'
+            ],
+            'itemOptions' => [
+                'class' => 'col-md-4 ftco-animate'
+            ]
+        ])
+        ?>
     </div>
 </section>

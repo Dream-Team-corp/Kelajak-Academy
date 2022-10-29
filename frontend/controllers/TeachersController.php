@@ -24,7 +24,7 @@ class TeachersController extends \yii\web\Controller
         $model = $this->findModel($id);
 
         $course = new ActiveDataProvider([
-            'query' => Course::find()->where(['user_id'])->orderBy(['id'=> SORT_DESC])
+            'query' => Course::find()->where(['user_id'=> $model->teacher_id])->orderBy(['id'=> SORT_DESC])
         ]);
 
         return $this->render('view', [
