@@ -20,22 +20,9 @@ use yii\widgets\ListView;
                 ],
                 'itemOptions' => [
                     'class' => 'col-md-3 col-lg-2'
-                ]
+                ],
             ]);
             ?>
-
-                <?= ListView::widget([
-                        'dataProvider'=> $model,
-                        'itemView'=> '_courseCategory',
-                        'layout' => "{items}",
-                        'options'=>[
-                            'class'=> 'row justify-content-center'
-                        ],
-                        'itemOptions'=>[
-                            'class'=> 'col-md-3 col-lg-2'
-                        ],
-                    ]);
-                ?>
             <div class="col-md-12 text-center mt-5">
                 <a href="#" class="btn btn-secondary">See All Courses</a>
             </div>
