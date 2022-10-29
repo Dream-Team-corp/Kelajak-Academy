@@ -29,8 +29,7 @@ class DefaultController extends BaseController
     public function actionProfileSetting()
     {
 
-        $model = (empty(TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]))) ? Yii::$app->user->id : TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]);
-
+        $model = (empty(TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]))) ? new TeacherAbout() : TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]);
         if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
 
             $model->image = $model->saveImage();
