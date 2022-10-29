@@ -127,6 +127,25 @@ class TeacherAbout extends \yii\db\ActiveRecord
         return implode(' ', $arr);
     }
 
+    public function getSocialLinkFront()
+    {
+
+        $contact = [
+            'facebook' => $this->facebook,
+            'instagram' => $this->instagram,
+            'youtube' => $this->youtube,
+            'telegram' => $this->telegram,
+            'google' => $this->email,
+        ];
+        $arr = [];
+        foreach ($contact as $k => $v) {
+            if (!empty($contact[$k])) {
+                $arr[] = "<li class='ftco-animate'><a href='" . $v . "' target='_blank'><i class='fab fsx fa-" . $k . "'> </i></a></li>\n";
+            }
+        }
+        return implode(' ', $arr);
+    }
+
     /**
      * {@inheritdoc}
      * @return TeacherAboutQuery the active query used by this AR class.
