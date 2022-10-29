@@ -5,6 +5,7 @@ namespace common\models\search;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Course;
+use Yii;
 
 /**
  * CourseQuery represents the model behind the search form of `common\models\Course`.
@@ -40,7 +41,7 @@ class CourseQuery extends Course
      */
     public function search($params)
     {
-        $query = Course::find()->where(['status' => self::STATUS_ACTIVE]);
+        $query = Course::find()->where(['status' => self::STATUS_ACTIVE, 'user_id' => Yii::$app->user->id]);
 
         // add conditions that should always apply here
 

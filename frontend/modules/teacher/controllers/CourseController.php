@@ -5,7 +5,6 @@ namespace frontend\modules\teacher\controllers;
 use common\models\Course;
 use common\models\search\CourseQuery;
 use frontend\modules\control\controllers\BaseController;
-use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
 /**
