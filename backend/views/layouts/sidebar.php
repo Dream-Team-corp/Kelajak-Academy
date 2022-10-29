@@ -13,7 +13,7 @@
                 <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"></a>
+                <a href="#" class="d-block"><?=Yii::$app->user->identity->username?></a>
             </div>
         </div>
 
@@ -43,9 +43,9 @@
                     ['label' => 'Asosiy','url'=>Url::to(['site/index']), 'icon' => 'fas fa-home',],
                     ['label' => 'Sozlamalar', 'url'=>'site/setting', 'icon' => 'fas fa-cog',],
                     ['label' => 'Foydalanuvchilar', 'url'=>Url::to(['site/users']), 'icon' => 'fas fa-user',],
-                    ['label' => 'Yordam', 'url'=>Url::to(['site/help']), 'icon' => 'fas fa-question',],
-                    ['label' => 'Katigoriyalar', 'url'=>Url::to(['course-category/index']), 'icon' => 'fas fa-category',],
-                    ['label' => 'Login', 'url'=>Url::to(['site/login']), 'icon' => 'fas ',],
+                    ['label' => 'Yordam', 'url'=>Url::to(['site/help']), 'icon' => 'fas fa-plus',],
+                    ['label' => 'Katigoriyalar', 'url'=>Url::to(['course-category/index']), 'icon' => 'fas fa-book-medical',],
+                    ['label' => 'Login', 'url'=>Url::to(['site/login']), 'icon' => 'fas fa-sign-out-alt',],
                     
                 ],
             ]);

@@ -73,6 +73,7 @@ class ManagerController extends BaseController
             if ($model->load($this->request->post())) {
                 $model->setPassword($model->username);
                 $model->generateAuthKey();
+                $model->status = 10;
                 $model->type = $model::Maneger;
                 if ( $model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);

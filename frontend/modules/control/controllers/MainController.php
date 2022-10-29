@@ -4,6 +4,7 @@ namespace frontend\modules\control\controllers;
 
 use common\models\AdminForm;
 use Yii;
+use yii\helpers\VarDumper;
 
 /**
  * Default controller for the `control` module

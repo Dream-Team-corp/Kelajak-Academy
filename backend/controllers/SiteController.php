@@ -73,6 +73,11 @@ class SiteController extends Controller
 
         return $this->render('users');
     }
+    public function actionHelp()
+    {
+
+        return $this->render('help');
+    }
     /**
      * Login action.
      *

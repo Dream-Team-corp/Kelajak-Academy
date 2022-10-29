@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\VarDumper;
 
 /**
  * Login form
@@ -73,7 +74,7 @@ class AdminForm extends Model
         if ($this->_user === null) {
             $this->_user = Admin::findByUsername($this->username);
         }
-
+        
         return ($this->_user->type === Admin::Admin) ? $this->_user : null;
     }
 }
