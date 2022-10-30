@@ -44,8 +44,8 @@ class AdminForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+            if (!$user || !$user->validatePassword($this->password) || $user->type != 10) {
+                $this->addError($attribute, 'Foydalanuvchi nomi yoki parol noto\'g\'ri .');
             }
         }
     }
@@ -75,6 +75,6 @@ class AdminForm extends Model
             $this->_user = Admin::findByUsername($this->username);
         }
         
-        return ($this->_user->type === Admin::Admin) ? $this->_user : null;
+        return $this->_user;
     }
 }

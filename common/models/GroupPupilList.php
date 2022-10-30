@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "group_pupil_list".
@@ -24,13 +25,23 @@ class GroupPupilList extends \yii\db\ActiveRecord
         return 'group_pupil_list';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'updatedAtAttribute' => false
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['group_id', 'pupil_id'], 'integer'],
+            [['group_id', 'pupil_id', 'created_at'], 'integer'],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::class, 'targetAttribute' => ['group_id' => 'id']],
             [['pupil_id'], 'exist', 'skipOnError' => true, 'targetClass' => Member::class, 'targetAttribute' => ['pupil_id' => 'id']],
         ];
@@ -66,5 +77,15 @@ class GroupPupilList extends \yii\db\ActiveRecord
     public function getPupil()
     {
         return $this->hasOne(Member::class, ['id' => 'pupil_id']);
+    }
+
+    public function getPupilList()
+    {
+        $list = Member::findAll(['type' => Member::PUPIL]);
+        $arr = [];
+        foreach ($list as $k) {
+            $arr[] = $k->id = $k->first_name . ' ' . $k->last_name;
+        }
+        return $arr;
     }
 }

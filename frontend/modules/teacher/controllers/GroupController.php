@@ -6,7 +6,9 @@ use common\models\Group;
 use common\models\GroupPupilList;
 use common\models\search\GroupQuery;
 use frontend\modules\control\controllers\BaseController;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -102,6 +104,15 @@ class GroupController extends BaseController
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionAddPupil($id) {
+        $model = new GroupPupilList();
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())){
+            VarDumper::dump( $model, $depth = 10, $highlight = true);
+            return false;
+        }
+        return $this->render('add-pupil', compact('model'));
     }
 
     /**

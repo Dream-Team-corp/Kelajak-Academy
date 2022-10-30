@@ -43,7 +43,7 @@ class ManagerForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            if (!$user || !$user->validatePassword($this->password)) {
+            if (!$user || !$user->validatePassword($this->password) || $user->type != 9) {
                 $this->addError($attribute, 'Incorrect username or password.');
             }
         }
@@ -74,6 +74,6 @@ class ManagerForm extends Model
             $this->_user = Admin::findByUsername($this->username);
         }
 
-        return ($this->_user->type === Admin::Maneger) ? $this->_user : null;
+        return $this->_user;
     }
 }

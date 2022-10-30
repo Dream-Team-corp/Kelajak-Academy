@@ -18,6 +18,7 @@ class DefaultController extends BaseController
     {
         return $this->render('index');
     }
+    
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -44,7 +45,6 @@ class DefaultController extends BaseController
      */
     public function actionLogout()
     {
-        session_destroy();
         Yii::$app->user->logout();
 
         return $this->goHome();
