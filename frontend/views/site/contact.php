@@ -38,12 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'verifyCode')->widget(ReCaptcha2::class, [
                                             'siteKey' => '6Lez8qkiAAAAAEI1iklQ2bZQ29fQmeeXdMWoL-Oc'
-                                        ]) ?>
+                                        ])->label('Tasdiqlash kodi:') ?>
                                         
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="submit" value="Send Message" class="btn btn-primary">
+                                            <input type="submit" value="Xabar yuborish" class="btn btn-primary">
                                             <div class="submitting"></div>
                                         </div>
                                     </div>
