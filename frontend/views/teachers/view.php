@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = ['label' => 'O\'qituvchilar', 'url' => ['index'
                 <div class="staff-2 w-100">
                     <div class="img-wrap d-flex align-items-stretch">
                         <div class="img align-self-stretch d-flex align-items-end" style="background-image: url(<?= Yii::getAlias('@defaultImage') . '/' . $model->image ?>);">
-                            <div class="text mb-4 text-md-center">
+                            <div class="text mb-4 text-md-center" style="background: rgba(255,255,255, 0.9);">
                                 <h3><?= $model->teacher->first_name . ' ' . $model->teacher->last_name ?></h3>
                                 <span class="position mb-2"><?= $model->job ?></span>
                                 <div class="faded">

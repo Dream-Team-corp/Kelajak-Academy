@@ -1,5 +1,7 @@
 <?php
 
+use yii\widgets\ListView;
+
 $this->title = "Kurslarimiz";
 
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="sidebar-box bg-white p-4 ftco-animate">
-                    <h3 class="heading-sidebar">Course Category</h3>
+                    <h3 class="heading-sidebar">Kurs toifasi</h3>
                     <form action="#" class="browse-form">
                         <label for="option-category-1"><input type="checkbox" id="option-category-1" name="vehicle" value="" checked> Design &amp; Illustration</label><br>
                         <label for="option-category-2"><input type="checkbox" id="option-category-2" name="vehicle" value=""> Web Development</label><br>
@@ -32,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="sidebar-box bg-white p-4 ftco-animate">
-                    <h3 class="heading-sidebar">Course Instructor</h3>
+                    <h3 class="heading-sidebar">Kurs o'qituvchisi</h3>
                     <form action="#" class="browse-form">
                         <label for="option-instructor-1"><input type="checkbox" id="option-instructor-1" name="vehicle" value="" checked> Ronald Jackson</label><br>
                         <label for="option-instructor-2"><input type="checkbox" id="option-instructor-2" name="vehicle" value=""> John Dee</label><br>
@@ -44,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="sidebar-box bg-white p-4 ftco-animate">
-                    <h3 class="heading-sidebar">Course Type</h3>
+                    <h3 class="heading-sidebar">Kurs turi</h3>
                     <form action="#" class="browse-form">
                         <label for="option-course-type-1"><input type="checkbox" id="option-course-type-1" name="vehicle" value="" checked> Basic</label><br>
                         <label for="option-course-type-2"><input type="checkbox" id="option-course-type-2" name="vehicle" value=""> Intermediate</label><br>
@@ -53,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="sidebar-box bg-white p-4 ftco-animate">
-                    <h3 class="heading-sidebar">Software</h3>
+                    <h3 class="heading-sidebar">Dasturlash</h3>
                     <form action="#" class="browse-form">
                         <label for="option-software-1"><input type="checkbox" id="option-software-1" name="vehicle" value="" checked> Adobe Photoshop</label><br>
                         <label for="option-software-2"><input type="checkbox" id="option-software-2" name="vehicle" value=""> Adobe Illustrator</label><br>
@@ -64,8 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
             <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
+                    <!-- <div class="col-md-6 d-flex align-items-stretch ftco-animate">
                         <div class="project-wrap">
                             <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-1.jpg);">
                                 <span class="price">Software</span>
@@ -79,84 +80,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap">
-                            <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-2.jpg);">
-                                <span class="price">Software</span>
-                            </a>
-                            <div class="text p-4">
-                                <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                                <p class="advisor">Advisor <span>Tony Garret</span></p>
-                                <ul class="d-flex justify-content-between">
-                                    <li><span class="flaticon-shower"></span>2300</li>
-                                    <li class="price">$199</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap">
-                            <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-3.jpg);">
-                                <span class="price">Software</span>
-                            </a>
-                            <div class="text p-4">
-                                <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                                <p class="advisor">Advisor <span>Tony Garret</span></p>
-                                <ul class="d-flex justify-content-between">
-                                    <li><span class="flaticon-shower"></span>2300</li>
-                                    <li class="price">$199</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap">
-                            <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-4.jpg);">
-                                <span class="price">Software</span>
-                            </a>
-                            <div class="text p-4">
-                                <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                                <p class="advisor">Advisor <span>Tony Garret</span></p>
-                                <ul class="d-flex justify-content-between">
-                                    <li><span class="flaticon-shower"></span>2300</li>
-                                    <li class="price">$199</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap">
-                            <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-5.jpg);">
-                                <span class="price">Software</span>
-                            </a>
-                            <div class="text p-4">
-                                <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                                <p class="advisor">Advisor <span>Tony Garret</span></p>
-                                <ul class="d-flex justify-content-between">
-                                    <li><span class="flaticon-shower"></span>2300</li>
-                                    <li class="price">$199</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap">
-                            <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-6.jpg);">
-                                <span class="price">Software</span>
-                            </a>
-                            <div class="text p-4">
-                                <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                                <p class="advisor">Advisor <span>Tony Garret</span></p>
-                                <ul class="d-flex justify-content-between">
-                                    <li><span class="flaticon-shower"></span>2300</li>
-                                    <li class="price">$199</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </div> -->
+                    <?= ListView::widget([
+                            'dataProvider' => $course,
+                            'itemView' => '_courseItem',
+                            'layout' => "{items}",
+                            'options' => [
+                                'class' => 'row'
+                            ],
+                            'itemOptions' => [
+                                'class' => 'col-md-6 col-lg-5 d-flex align-items-stretch ftco-animate'
+                            ]
+                            ]);
+                        ?>
+                   
                 <div class="row mt-5">
                     <div class="col">
                         <div class="block-27">
