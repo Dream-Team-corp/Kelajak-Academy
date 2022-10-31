@@ -14,6 +14,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Guruhlarim', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<style>
+    .select2-selection__choice {
+        background-color: blue !important;
+    }
+</style>
 <?= $this->render('add-pupil', ['model' => $pupils]) ?>
 <div class="card card-success p-3">
 
@@ -33,6 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->pupil->last_name . ' ' . $model->pupil->first_name;
                 }
             ],
+            [
+                'attribute' => 'phone',
+                'label' => 'Telefon Raqami',
+                'value' => 'pupil.tel_number'
+            ],
             'created_at:datetime',
             [
                 'class' => ActionColumn::class
@@ -43,3 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
 </div>
+<?php
+$this->registerJs('$(function() {$(".select2").select2();});');
+?>

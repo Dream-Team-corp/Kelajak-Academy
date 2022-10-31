@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use Symfony\Component\CssSelector\Exception\InternalErrorException;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -70,14 +71,29 @@ class GroupPupilList extends \yii\db\ActiveRecord
         return $this->hasOne(Group::class, ['id' => 'group_id']);
     }
 
-    public function add($gr_id, $pupils_id){
-        
-        for($i = 0; $i < count($pupils_id); $i++){
-            $this->group_id = $gr_id;
-            $this->pupil_id = $pupils_id[$i];
-            $this->save();
-        }
+    public function add($gr_id, $pupil_id)
+    {
+        $pupil = Member::findOne($pupil_id);
 
+        if ($pupil->status == $pupil::STATUS_INACTIVE) {
+            $pupil->status = $pupil::STATUS_ACTIVE;
+
+            $this->pupil_id = $pupil->id;
+            $this->group_id = $gr_id;
+            if ($pupil->save() && $this->save()) {
+                return true;
+            } else {
+                throw new InternalErrorException("Serverning ichki xatosi!!!", 500);
+            }
+        } else{
+            $this->pupil_id = $pupil->id;
+            $this->group_id = $gr_id;
+            if ($this->save()) {
+                return true;
+            } else {
+                throw new InternalErrorException("Serverning ichki xatosi!!!", 500);
+            }
+        }
     }
 
     /**

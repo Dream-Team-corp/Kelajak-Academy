@@ -11,6 +11,8 @@ use Yii;
 use yii\data\ActiveDataProvider;
 use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
+use common\models\UseMember;
+
 
 /**
  * GroupController implements the CRUD actions for Group model.
@@ -75,6 +77,7 @@ class GroupController extends BaseController
             'model' => $model,
         ]);
     }
+
     public function actionDate()
     {
         $model = new Coursegroupdate();
@@ -129,14 +132,45 @@ class GroupController extends BaseController
         return $this->redirect(['index']);
     }
 
-    public function actionAddPupil($id) {
+    /**
+     * It takes the id of a group and adds a pupil to that group.
+     * 
+     * @param id the id of the group
+     * 
+     * @return The return value of the action is the response object.
+     */
+    public function actionAddPupil($id)
+    {
         $model = new GroupPupilList();
-        if (Yii::$app->request->isPost){
-            $pupils_id = Yii::$app->request->post('pupil');
-            $model->add($id, $pupils_id);
-            return $this->redirect(['index']);
+        if (Yii::$app->request->isPost) {
+            $pupil_id = Yii::$app->request->post('pupil');
+            if ($model->add($id, $pupil_id)) {
+                return $this->redirect(Yii::$app->request->referrer);
+            } else {
+                VarDumper::dump($model->errors);
+                return false;
+            }
         }
         return $this->render('add-pupil', compact('model'));
+    }
+
+    public function actionNewPupil($id)
+    {
+        $model = new UseMember();
+        $group = new GroupPupilList();
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->type = $model::PUPIL;
+            $model->status = $model::STATUS_ACTIVE;
+            if ($model->signUp() && $group->add($id, $model->id)) {
+                return $this->redirect(['view', 'id' => $id]);
+            } else {
+                $model->loadDefaultValues();
+            }
+        }
+
+        return $this->render('_pupil-form', [
+            'model' => $model
+        ]);
     }
 
     /**

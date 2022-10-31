@@ -24,8 +24,8 @@ class m221031_102254_create_courseGroupDate_table extends Migration
             'course_id' => $this->integer(),
             'group_id' => $this->integer(),
         ]);
-        $this->addForeignKey('fk-to-group', 'courseGroupDate', 'group_id', 'group', 'id', "CASCADE", "CASCADE");
-        $this->addForeignKey('fk-to-course', 'courseGroupDate', 'course_id', 'course', 'id', "CASCADE", "CASCADE");
+        $this->addForeignKey('fk-to-groupsDate', 'courseGroupDate', 'group_id', 'group', 'id', "CASCADE", "CASCADE");
+        $this->addForeignKey('fk-to-course-date', 'courseGroupDate', 'course_id', 'course', 'id', "CASCADE", "CASCADE");
     }
 
     /**

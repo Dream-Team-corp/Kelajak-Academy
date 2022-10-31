@@ -34,7 +34,7 @@ class Coursegroupdate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['dushanba', 'seshanba', 'chorshanba', 'payshanba', 'juma', 'shanba', 'yakshanba', 'course_id', 'group_id'], 'integer'],
+            [['dushanba', 'seshanba', 'chorshanba', 'payshanba', 'juma', 'shanba', 'yakshanba', 'course_id', 'group_id'], 'string'],
         ];
     }
 
