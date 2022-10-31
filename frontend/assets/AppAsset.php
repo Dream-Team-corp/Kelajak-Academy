@@ -40,7 +40,6 @@ class AppAsset extends AssetBundle
         "js/jquery.animateNumber.min.js",
         "js/bootstrap-datepicker.js",
         "js/scrollax.min.js",
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false",
         "js/google-map.js",
         "js/main.js",
     ];

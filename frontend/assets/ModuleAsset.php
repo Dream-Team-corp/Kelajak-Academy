@@ -15,7 +15,7 @@ class ModuleAsset extends AssetBundle
         'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css',
         'plugins/datatables-responsive/css/responsive.bootstrap4.min.css',
         'plugins/datatables-buttons/css/buttons.bootstrap4.min.css',
-        
+        'plugins/select2/css/select2.min.css'
     ];
     public $js = [
         'plugins/chart.js/Chart.min.js',
@@ -31,6 +31,7 @@ class ModuleAsset extends AssetBundle
         'plugins/datatables-buttons/js/buttons.html5.min.js',
         'plugins/datatables-buttons/js/buttons.print.min.js',
         'plugins/datatables-buttons/js/buttons.colVis.min.js',
+        'plugins/select2/js/select2.full.min.js',
         'js/app.js'
     ];
     public $depends = [

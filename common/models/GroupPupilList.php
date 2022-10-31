@@ -54,8 +54,9 @@ class GroupPupilList extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'group_id' => 'Group ID',
-            'pupil_id' => 'Pupil ID',
+            'group_id' => 'Guruhi',
+            'pupil_id' => 'O\'quvchi',
+            'created_at' => 'Qo\'shilgan vaqti'
         ];
     }
 
@@ -67,6 +68,16 @@ class GroupPupilList extends \yii\db\ActiveRecord
     public function getGroup()
     {
         return $this->hasOne(Group::class, ['id' => 'group_id']);
+    }
+
+    public function add($gr_id, $pupils_id){
+        
+        for($i = 0; $i < count($pupils_id); $i++){
+            $this->group_id = $gr_id;
+            $this->pupil_id = $pupils_id[$i];
+            $this->save();
+        }
+
     }
 
     /**
@@ -81,11 +92,6 @@ class GroupPupilList extends \yii\db\ActiveRecord
 
     public function getPupilList()
     {
-        $list = Member::findAll(['type' => Member::PUPIL]);
-        $arr = [];
-        foreach ($list as $k) {
-            $arr[] = $k->id = $k->first_name . ' ' . $k->last_name;
-        }
-        return $arr;
+        return  Member::findAll(['type' => Member::PUPIL]);
     }
 }

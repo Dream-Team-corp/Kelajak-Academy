@@ -1,5 +1,6 @@
 <?php
 
+use yii\bootstrap4\LinkPager as Bootstrap4LinkPager;
 use yii\widgets\ListView;
 
 $this->title = "Kurslarimiz";
@@ -66,49 +67,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
             <div class="col-lg-9">
-                    <!-- <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap">
-                            <a href="#" class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/work-1.jpg);">
-                                <span class="price">Software</span>
-                            </a>
-                            <div class="text p-4">
-                                <h3><a href="#">Design for the web with adobe photoshop</a></h3>
-                                <p class="advisor">Advisor <span>Tony Garret</span></p>
-                                <ul class="d-flex justify-content-between">
-                                    <li><span class="flaticon-shower"></span>2300</li>
-                                    <li class="price">$199</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
-                    <?= ListView::widget([
-                            'dataProvider' => $course,
-                            'itemView' => '_courseItem',
-                            'layout' => "{items}",
-                            'options' => [
-                                'class' => 'row'
-                            ],
-                            'itemOptions' => [
-                                'class' => 'col-md-6 col-lg-5 d-flex align-items-stretch ftco-animate'
-                            ]
-                            ]);
-                        ?>
-                   
-                <div class="row mt-5">
-                    <div class="col">
-                        <div class="block-27">
-                            <ul>
-                                <li><a href="#">&lt;</a></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&gt;</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <?= ListView::widget([
+                    'dataProvider' => $course,
+                    'itemView' => '_courseItem',
+                    'layout' => "{items}",
+                    'options' => [
+                        'class' => 'row'
+                    ],
+                    'itemOptions' => [
+                        'class' => 'col-md-6 col-lg-5 d-flex align-items-stretch ftco-animate'
+                    ],
+                    'pager' => [
+                        'class' => Bootstrap4LinkPager::class,
+                    ]
+                ]);
+                ?>
             </div>
         </div>
 </section>

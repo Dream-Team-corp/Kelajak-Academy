@@ -14,26 +14,32 @@ $this->params['breadcrumbs'][] = ['label' => 'Guruhlarim', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<?= $this->render('add-pupil', ['model' => $pupils]) ?>
 <div class="card card-success p-3">
-<p>
-    <?= Html::a('O\'quvchi qo\'shish', Url::to(['/teacher/group/add-pupil', 'id' => Yii::$app->request->get('id')]), ['class' => 'btn btn-primary']) ?>
-</p>
-<?=
+
+    <?=
     GridView::widget([
         'dataProvider' => $model,
+        'summary' => '',
+        'tableOptions' => [
+            'class' => 'table table-bordered',
+            'id' => 'all-pupil'
+        ],
         'columns' => [
             [
                 'attribute' => 'fish',
                 'label' => 'F.I.SH',
-                'value' => 'pupil.first_name'
+                'value' => function ($model) {
+                    return $model->pupil->last_name . ' ' . $model->pupil->first_name;
+                }
             ],
             'created_at:datetime',
             [
                 'class' => ActionColumn::class
             ]
-            
+
         ]
     ])
-?>
+    ?>
 
 </div>

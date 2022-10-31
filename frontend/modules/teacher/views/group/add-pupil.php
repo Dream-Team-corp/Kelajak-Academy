@@ -1,28 +1,36 @@
 <?php
 
-use kartik\form\ActiveForm;
-use kartik\select2\Select2;
-use yii\helpers\VarDumper;
+use yii\helpers\Url;
 
-VarDumper::dump($model->pupilList, 10, true);
 ?>
-
+<style>
+    .select2-selection__choice {
+        background-color: blue !important;
+    }
+</style>
 <div class="row">
     <div class="col-md-6 offset-md-3">
-        <div class="card p-3">
-            <?php $form = ActiveForm::begin() ?>
-            <?= $form->field($model, 'pupil_id')->widget(Select2::class, [
-                'data' => $model->pupilList,
-                'size' => Select2::SMALL,
-                'theme' => Select2::THEME_KRAJEE_BS5,
-                'maintainOrder' => true,
-                'options' => [
-                    'multiple' => true,
-                    'placeholder' => 'O\'quvchini tanlang...'
-                ]
-            ])  ?>
-            <button type="submit" class="btn btn-success">Saqlash</button>
-            <?php ActiveForm::end(); ?>
+        <div class="card card-default p-3">
+            <form action="<?= Url::toRoute(['/teacher/group/add-pupil', 'id' => Yii::$app->request->get('id')]) ?>" method="post">
+                <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->csrfToken ?>">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Multiple</label>
+                        <select class="select2" name="pupil" data-placeholder="Select a State" style="width: 100%">
+                            <?php foreach ($model->pupilList as $k) :  ?>
+                                <option value="<?= $k->id ?>"><?= $k->first_name . ' ' . $k->last_name ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-flat"> Qo'shish </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<?php
+$this->registerJs('$(function() {$(".select2").select2();});');
+?>

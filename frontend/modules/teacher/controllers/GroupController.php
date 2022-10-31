@@ -45,8 +45,11 @@ class GroupController extends BaseController
             'query' => GroupPupilList::find()->where(['group_id' => $id])
         ]);
 
+        $pupils = new GroupPupilList();
+
         return $this->render('view', [
             'model' => $model,
+            'pupils' => $pupils
         ]);
     }
 
@@ -108,9 +111,10 @@ class GroupController extends BaseController
 
     public function actionAddPupil($id) {
         $model = new GroupPupilList();
-        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())){
-            VarDumper::dump( $model, $depth = 10, $highlight = true);
-            return false;
+        if (Yii::$app->request->isPost){
+            $pupils_id = Yii::$app->request->post('pupil');
+            $model->add($id, $pupils_id);
+            return $this->redirect(['index']);
         }
         return $this->render('add-pupil', compact('model'));
     }
