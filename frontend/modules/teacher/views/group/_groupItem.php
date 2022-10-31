@@ -32,6 +32,7 @@ use yii\helpers\Html;
     <div class="card-footer d-flex justify-content-between">
         <a href="" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
         <a href="" class="btn btn-info btn-sm"><i class="fa fa-pen"></i></a>
+        <a href="<?=Url::to(['date', 'group_id'=>$model->id, 'course_id'=> $model->course_id])?>" class="btn btn-primary btn-sm"><i class="fa fa-calendar-plus" aria-hidden="true"></i></a>
         <?= Html::a('<i class="fa fa-trash"></i>', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm',
             'data' => [

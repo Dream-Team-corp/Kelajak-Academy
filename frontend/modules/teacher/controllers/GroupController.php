@@ -2,6 +2,7 @@
 
 namespace frontend\modules\teacher\controllers;
 
+use app\models\Coursegroupdate;
 use common\models\Group;
 use common\models\GroupPupilList;
 use common\models\search\GroupQuery;
@@ -71,7 +72,26 @@ class GroupController extends BaseController
             'model' => $model,
         ]);
     }
+    public function actionDate()
+    {
+        $model = new Coursegroupdate();
 
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $model->group_id = $_GET['group_id'];
+                $model->course_id = $_GET['course_id'];
+                if ($model->save()) {
+                    return $this->redirect(['index']);
+                }
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
+        return $this->render('date', [
+            'model' => $model,
+        ]);
+    }
     /**
      * Updates an existing Group model.
      * If update is successful, the browser will be redirected to the 'view' page.
