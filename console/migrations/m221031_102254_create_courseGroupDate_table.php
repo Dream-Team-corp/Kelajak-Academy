@@ -33,8 +33,8 @@ class m221031_102254_create_courseGroupDate_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-to-group', 'courseGroupDate');
-        $this->dropForeignKey('fk-to-course', 'courseGroupDate');
+        $this->dropForeignKey('fk-to-groupDate', 'courseGroupDate');
+        $this->dropForeignKey('fk-to-course-date', 'courseGroupDate');
         $this->dropTable('{{%courseGroupDate}}');
     }
 }

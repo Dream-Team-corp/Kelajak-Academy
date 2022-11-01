@@ -2,6 +2,8 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\helpers\VarDumper;
+
 ?>
 
 <div class="card card-primary card-outline">
@@ -11,20 +13,7 @@ use yii\helpers\Html;
     </div>
     <div class="card-body">
         <b>Kurs vaqtlari</b>
-        <table class="table">
-            <tr>
-                <th>Dushanba</th>
-                <td>12:00</td>
-            </tr>
-            <tr>
-                <th>Dushanba</th>
-                <td>12:00</td>
-            </tr>
-            <tr>
-                <th>Dushanba</th>
-                <td>12:00</td>
-            </tr>
-        </table>
+        <?=$model->date?>
         <a href="<?= Url::to(['view', 'id' => $model->id]) ?>" class="btn btn-block btn-primary btn-flat mt-3">
             O'quvchilar ro'yhati <i class="fas fa-angle-right ml-1"></i>
         </a>
@@ -32,7 +21,7 @@ use yii\helpers\Html;
     <div class="card-footer d-flex justify-content-between">
         <a href="" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
         <a href="" class="btn btn-info btn-sm"><i class="fa fa-pen"></i></a>
-        <a href="<?=Url::to(['date', 'group_id'=>$model->id, 'course_id'=> $model->course_id])?>" class="btn btn-primary btn-sm"><i class="fa fa-calendar-plus" aria-hidden="true"></i></a>
+        <a href="<?=Url::to([($model->date == '') ? 'date/create' : 'date/update', 'id'=>$model->id, 'course_id'=> $model->course_id])?>" class="btn btn-primary btn-sm"><i class="fa fa-calendar-plus" aria-hidden="true"></i></a>
         <?= Html::a('<i class="fa fa-trash"></i>', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm',
             'data' => [

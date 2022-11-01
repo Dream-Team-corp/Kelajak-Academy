@@ -46,6 +46,21 @@ class ContactForm extends Model
         ];
     }
 
+    public function save() {
+        $contact = new Contact();
+        $contact->username = $this->name;
+        $contact->email = $this->email;
+        $contact->title = $this->subject;
+        $contact->body = $this->body;
+        $contact->status = $this->body;
+        if ($contact->save()) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     /**
      * Sends an email to the specified email address using the information collected by this model.
      *

@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use app\models\Coursegroupdate;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -106,5 +107,56 @@ class Group extends \yii\db\ActiveRecord
     public function getCourseList()
     {
         return Course::findAll(['status' => Course::STATUS_ACTIVE, 'user_id' => Yii::$app->user->id]);
+    }
+    public function getDate(){
+        
+        $date = Coursegroupdate::find()->where(['group_id'=> $this->id])->one();
+        $days = '';
+        $days .= '<table class="table">';
+        if ($date->dushanba != "") {
+            $days .= '<tr>
+                        <th>Dushanba</th>
+                        <td>'.$date->dushanba.'</td>
+                      </tr>';
+        }
+        if ($date->seshanba != "") {
+            $days .= '<tr>
+                        <th>Seshanba</th>
+                        <td>'.$date->seshanba.'</td>
+                      </tr>';
+        }
+        if ($date->chorshanba != "") {
+            $days .= '<tr>
+                        <th>Chorshanba</th>
+                        <td>'.$date->chorshanba.'</td>
+                      </tr>';
+        }
+        if ($date->payshanba != "") {
+            $days .= '<tr>
+                        <th>Payshanba</th>
+                        <td>'.$date->payshanba.'</td>
+                      </tr>';
+        }
+        if ($date->juma != "") {
+            $days .= '<tr>
+                        <th>Juma</th>
+                        <td>'.$date->juma.'</td>
+                      </tr>';
+        }
+        if ($date->shanba != "") {
+            $days .= '<tr>
+                        <th>Shanba</th>
+                        <td>'.$date->shanba.'</td>
+                      </tr>';
+        }
+        if ($date->yakshanba != "") {
+            $days .= '<tr>
+                        <th>Yakshanba</th>
+                        <td>'.$date->yakshanba.'</td>
+                      </tr>';
+        }
+        $days .= '</table>';
+        return $days;
+        
     }
 }
