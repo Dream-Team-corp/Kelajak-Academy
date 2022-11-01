@@ -3,7 +3,9 @@
 namespace backend\controllers;
 
 use backend\models\UserForm;
+use frontend\models\Contact;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -75,8 +77,10 @@ class SiteController extends Controller
     }
     public function actionHelp()
     {
-
-        return $this->render('help');
+        $help = new ActiveDataProvider([
+            'query' => Contact::find()->where(['status'=> 0]),
+        ]);
+        return $this->render('help', ['help'=>$help]);
     }
     /**
      * Login action.

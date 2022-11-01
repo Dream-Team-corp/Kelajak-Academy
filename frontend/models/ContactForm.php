@@ -14,6 +14,7 @@ class ContactForm extends Model
     public $email;
     public $subject;
     public $body;
+    public $rating;
     public $reCaptcha;
 
 
@@ -24,10 +25,11 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'subject', 'body','rating'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
+            ['rating', 'integer', 'min'=>0, 'max'=>10],
             [
                 ['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::class,
                 'secret' => '6Lez8qkiAAAAADheVglZC8kgMbYpJJigYS5GX7gM',
@@ -52,7 +54,8 @@ class ContactForm extends Model
         $contact->email = $this->email;
         $contact->title = $this->subject;
         $contact->body = $this->body;
-        $contact->status = $this->body;
+        $contact->status = 0;
+        $contact->rating = $this->rating;
         if ($contact->save()) {
             return true;
         }
@@ -78,3 +81,4 @@ class ContactForm extends Model
             ->send();
     }
 }
+?>

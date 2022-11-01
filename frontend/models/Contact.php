@@ -32,6 +32,11 @@ class Contact extends \yii\db\ActiveRecord
             [['username', 'email'], 'string', 'max' => 64],
             [['title'], 'string', 'max' => 32],
             [['body'], 'string', 'max' => 255],
+            [['name', 'email', 'subject', 'body','rating'], 'required'],
+            // email has to be a valid email address
+            ['email', 'email'],
+            // verifyCode needs to be entered correctly
+            ['rating', 'integer', 'min'=>0, 'max'=>10],
         ];
     }
 

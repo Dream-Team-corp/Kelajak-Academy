@@ -19,6 +19,7 @@ class m221101_120549_create_contact_table extends Migration
             'title' => $this->string(32),
             'body' => $this->string(255),
             'status' => $this->integer(),
+            'rating' => $this->integer(),
         ]);
     }
 

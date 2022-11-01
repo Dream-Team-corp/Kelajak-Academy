@@ -5,8 +5,11 @@
 /** @var \frontend\models\ContactForm $model */
 
 use himiklab\yii2\recaptcha\ReCaptcha2;
+use kartik\file\FileInput;
+use kartik\rating\StarRating as RatingStarRating;
+use kartik\widgets\StarRating;
 use yii\bootstrap5\Html;
-use yii\bootstrap5\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\captcha\Captcha;
 
 $this->title = 'Biz bilan Bog\'lanish';
@@ -35,6 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'body')->textarea(['rows' => 6, 'cols' => '30'])->label('Asosiy qism:') ?>
                                     </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                    <?= $form->field($model, 'rating')->textInput()->label('Xizmatimizni baholang:')?>
+                                    </div>
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'verifyCode')->widget(ReCaptcha2::class, [
                                             'siteKey' => '6Lez8qkiAAAAAEI1iklQ2bZQ29fQmeeXdMWoL-Oc'
@@ -55,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
                             <div class="info-wrap bg-primary w-100 p-md-5 p-4">
                                 <h3>Keling, aloqaga chiqamiz</h3>
-                                <p class="mb-4">Biz har qanday taklifga yoki shunchaki suhbatlashishga tayyormiz</p>
+                                <p class="mb-4">Biz har qanday savollar yoki takliflarga e'tibor qaratamiz</p>
                                 <div class="dbox w-100 d-flex align-items-start">
                                     <div class="icon d-flex align-items-center justify-content-center">
                                         <span class="fa fa-map-marker"></span>
