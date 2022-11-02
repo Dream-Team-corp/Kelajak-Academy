@@ -2,6 +2,9 @@
 
 namespace app\models;
 
+use common\models\Course;
+use common\models\CourseCategory;
+use common\models\Group;
 use Yii;
 
 /**
@@ -34,7 +37,8 @@ class Coursegroupdate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['dushanba', 'seshanba', 'chorshanba', 'payshanba', 'juma', 'shanba', 'yakshanba', 'course_id', 'group_id'], 'string'],
+            [['dushanba', 'seshanba', 'chorshanba', 'payshanba', 'juma', 'shanba', 'yakshanba', ], 'string'],
+            [['course_id', 'group_id'], 'integer'],
         ];
     }
 
@@ -55,5 +59,11 @@ class Coursegroupdate extends \yii\db\ActiveRecord
             'course_id' => Yii::t('app', 'Course ID'),
             'group_id' => Yii::t('app', 'Group ID'),
         ];
+    }
+    public function getCname(){
+        $course = Course::findOne($this->course_id);
+        $kategory = CourseCategory::findOne($course->category_id);
+        $group = Group::findOne($this->group_id);
+        return $kategory->title. 'ning '. $group->name.' guruhi ';
     }
 }
