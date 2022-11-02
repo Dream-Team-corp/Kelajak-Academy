@@ -7,7 +7,6 @@
 use himiklab\yii2\recaptcha\ReCaptcha2;
 use kartik\file\FileInput;
 use kartik\rating\StarRating as RatingStarRating;
-use kartik\widgets\StarRating;
 use yii\bootstrap5\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\captcha\Captcha;
@@ -38,8 +37,32 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'body')->textarea(['rows' => 6, 'cols' => '30'])->label('Asosiy qism:') ?>
                                     </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                    <?= $form->field($model, 'rating')->textInput()->label('Xizmatimizni baholang:')?>
+                                    <div class="col-md-12">
+                                    <?= $form->field($model, 'rating')->widget(RatingStarRating::class, [
+                                        'pluginOptions' => [
+                                            'min' => 0,
+                                            'max' => 10,
+                                            'step' => 2,
+                                            'size' => 'lg',
+                                            'starClear' => '',
+                                            'starCaptions' => [
+                                                0 => 'Reting berilmadi!!!',
+                                                2 => 'Juda yomon',
+                                                4 => 'Yomon',
+                                                6 => 'Yaxshi',
+                                                8 => 'Zo\'r',
+                                                10 => 'Juda zo\'r',
+                                            ],
+                                            'starCaptionClasses' => [
+                                                0 => 'text-danger',
+                                                2 => 'text-danger',
+                                                4 => 'text-warning',
+                                                6 => 'text-info',
+                                                8 => 'text-primary',
+                                                10 => 'text-success',
+                                            ],
+                                        ],
+                                    ])->label('Xizmatimizni baholang:')?>
                                     </div>
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'verifyCode')->widget(ReCaptcha2::class, [

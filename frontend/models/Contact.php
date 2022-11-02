@@ -12,6 +12,8 @@ use Yii;
  * @property string|null $email
  * @property string|null $title
  * @property string|null $body
+ * @property int|null $status
+ * @property int|null $rating
  */
 class Contact extends \yii\db\ActiveRecord
 {
@@ -29,14 +31,11 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['status'], 'integer'],
             [['username', 'email'], 'string', 'max' => 64],
             [['title'], 'string', 'max' => 32],
             [['body'], 'string', 'max' => 255],
-            [['name', 'email', 'subject', 'body','rating'], 'required'],
-            // email has to be a valid email address
-            ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['rating', 'integer', 'min'=>0, 'max'=>10],
+            [['rating'],'integer', 'min'=>1,'max'=>10],
         ];
     }
 
@@ -51,6 +50,8 @@ class Contact extends \yii\db\ActiveRecord
             'email' => Yii::t('app', 'Email'),
             'title' => Yii::t('app', 'Title'),
             'body' => Yii::t('app', 'Body'),
+            'status' => Yii::t('app', 'Status'),
+            'rating' => Yii::t('app', 'Rating'),
         ];
     }
 }

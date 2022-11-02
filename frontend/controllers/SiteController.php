@@ -131,8 +131,9 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
+            if ($model->rating != '' && $model->email != '' && $model->save()) {
                 Yii::$app->session->setFlash('success', 'Fikringiz uchun rahmat!');
+                return $this->goHome();
             } else {
                 Yii::$app->session->setFlash('error', 'Fikringiz saqlanmadi!');
             }

@@ -149,7 +149,8 @@ use yii\widgets\ListView;
             <div class="col-md-12">
                 <?=ListView::widget([
                     'dataProvider' => $contact,
-                    'itemView' => '_courseItem',
+                    'itemView' => '_contact',
+                    'emptyText'=> '',
                     'layout' => "{items}",
                     'options' => [
                         'class' => 'carousel-testimony owl-carousel'
