@@ -39,7 +39,7 @@ use yii\helpers\Url;
                     ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/teacher/default/index']],
                     ['label' => 'Guruhlarim', 'icon' => 'users', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/group/index']],
                     ['label' => 'Kurs reklamalari', 'icon' => 'ad', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/course/index']],
-                    ['label' => 'To\'lovlar', 'icon' => 'money-bill-wave', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
+                    ['label' => 'To\'lovlar', 'icon' => 'money-bill-wave', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/bil/index']],
                     ['label' => 'Chat', 'icon' => 'comments', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                     ['label' => 'Yordam', 'icon' => 'question-circle', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                 ],
