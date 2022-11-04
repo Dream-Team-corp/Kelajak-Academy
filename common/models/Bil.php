@@ -22,6 +22,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Bil extends \yii\db\ActiveRecord
 {
+    const CASH = 1;
+    const ONLINE = 0;
     /**
      * {@inheritdoc}
      */
@@ -69,7 +71,14 @@ class Bil extends \yii\db\ActiveRecord
             'created_at' => 'To\'lov vaqti',
         ];
     }
+    public function getTypeLabel(){
+        if ($this->type == self::CASH){
+            return "<span class='badge badge-info'>Naqd pul</span>";
+        } else{
+            return "<span class='badge badge-primary'>Online</span>";
+        }
 
+    }
     /**
      * Gets query for [[Group]].
      *
@@ -79,7 +88,9 @@ class Bil extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Group::class, ['id' => 'group_id']);
     }
-
+    public function getGroupList(){
+        return Group::findAll(['teacher_id' => Yii::$app->user->id]);
+    }
     /**
      * Gets query for [[Pupil]].
      *
@@ -89,6 +100,8 @@ class Bil extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Member::class, ['id' => 'pupil_id']);
     }
+
+
 
     /**
      * Gets query for [[Teacher]].

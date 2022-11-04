@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
+            'summary' => false,
             'tableOptions' => [
                 'class' => 'table',
                 'id' => 'all-pupil'
@@ -38,23 +39,39 @@ $this->params['breadcrumbs'][] = $this->title;
                 // 'id',
                 [
                     'attribute' => 'pupil_id',
-                    'label' => 'F.I.SH'
+                    'label' => 'F.I.SH',
+                    'value' => function ($model) {
+                        return $model->pupil->first_name . ' ' . $model->pupil->last_name;
+                    }
                 ],
-                'group_id',
+                [
+                    'attribute' => 'group_id',
+                    'value' => 'group.name'
+                ],
                 // 'teacher_id',
                 [
                     'attribute' => 'how_much',
+                    'value' => function ($model) {
+                        return number_format($model->how_much, '0', ' ', ' ') . ' So\'m';
+                    }
                 ],
-                'type',
                 [
-                    'attribute' => 'created_at'
+                    'attribute' => 'type',
+                    'value' => 'typeLabel',
+                    'format' => 'html'
+                ],
+                [
+                    'attribute' => 'created_at',
+                    'format' => 'date'
                 ],
                 [
                     'class' => ActionColumn::class,
                     'urlCreator' => function ($action, Bil $model, $key, $index, $column) {
                         return Url::toRoute([$action, 'id' => $model->id]);
-                    }
+                    },
+                    'template' => '{update} {delete}',
                 ],
+
             ],
         ]); ?>
     </div>
