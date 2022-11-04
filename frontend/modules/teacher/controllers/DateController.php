@@ -3,6 +3,7 @@
 namespace frontend\modules\teacher\controllers;
 
 use app\models\Coursegroupdate;
+use frontend\modules\control\controllers\BaseController;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -13,40 +14,9 @@ use yii\helpers\VarDumper;
 /**
  * DateController implements the CRUD actions for Coursegroupdate model.
  */
-class DateController extends Controller
+class DateController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
-    /**
-     * Lists all Coursegroupdate models.
-     *
-     * @return string
-     */
- 
-
-    /**
-     * Displays a single Coursegroupdate model.
-     * @param int $id ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    
     /**
      * Creates a new Coursegroupdate model.
      * If creation is successful, the browser will be redirected to the 'view' page.

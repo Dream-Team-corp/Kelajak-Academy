@@ -71,7 +71,7 @@ class GroupController extends BaseController
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index']);
+                return $this->redirect(['/teacher/date/create', 'id' => $model->id, 'course_id' => $model->course_id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -117,11 +117,9 @@ class GroupController extends BaseController
     }
 
     /**
-     * It takes the id of a group and adds a pupil to that group.
-     * 
-     * @param id the id of the group
-     * 
-     * @return The return value of the action is the response object.
+     * @param $id
+     * @return false|string|\yii\web\Response
+     * @throws \Symfony\Component\CssSelector\Exception\InternalErrorException
      */
     public function actionAddPupil($id)
     {
