@@ -40,6 +40,7 @@ use yii\helpers\Url;
                     ['label' => 'Guruhlarim', 'icon' => 'users', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/group/index']],
                     ['label' => 'Kurs reklamalari', 'icon' => 'ad', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/course/index']],
                     ['label' => 'To\'lovlar', 'icon' => 'money-bill-wave', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/bil/index']],
+                    ['label' => 'O\'quvchilar natijasi', 'icon' => 'poll', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/pupil-result/index']],
                     ['label' => 'Chat', 'icon' => 'comments', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                     ['label' => 'Yordam', 'icon' => 'question-circle', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                 ],
