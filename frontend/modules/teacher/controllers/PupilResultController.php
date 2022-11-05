@@ -2,7 +2,10 @@
 
 namespace frontend\modules\teacher\controllers;
 
+use common\models\Group;
 use common\models\PupilResult;
+use frontend\modules\control\controllers\BaseController;
+use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -11,25 +14,8 @@ use yii\filters\VerbFilter;
 /**
  * PupilResultController implements the CRUD actions for PupilResult model.
  */
-class PupilResultController extends Controller
+class PupilResultController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
     /**
      * Lists all PupilResult models.
@@ -39,7 +25,7 @@ class PupilResultController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => PupilResult::find(),
+            'query' => Group::find()->where(['teacher_id'=>Yii::$app->user->id]),
             /*
             'pagination' => [
                 'pageSize' => 50

@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\widgets\ListView;
 
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -20,29 +21,18 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
 
-    <div class="table-responsive">
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
-
-                'id',
-                'pupil_id',
-                'teacher_id',
-                'group_id',
-                'numbers_of_question',
-                'correct_answer',
-                'incorrect_answer',
-                'created_at',
-                [
-                    'class' => ActionColumn::class,
-                    'urlCreator' => function ($action, PupilResult $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id' => $model->id]);
-                    }
-                ],
-            ],
-        ]); ?>
-    </div>
+    <?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemView' => '_groupItem',
+        'layout' => "{items}",
+        'options' => [
+            'class' => 'row fade-left'
+        ],
+        'itemOptions' => [
+            'class' => 'col-12 col-md-6'
+        ],
+        'emptyText' => ''
+    ]); ?>
 
 
 </div>

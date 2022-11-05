@@ -6,6 +6,7 @@ use app\models\Coursegroupdate;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "group".
@@ -83,7 +84,11 @@ class Group extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Course::class, ['id' => 'course_id']);
     }
-
+    public function getResult(){
+        return $abs = new ActiveDataProvider([
+            'query'=> PupilResult::find()->where(['group_id'=>$this->id])
+        ]);
+    }
     /**
      * Gets query for [[GroupPupilLists]].
      *

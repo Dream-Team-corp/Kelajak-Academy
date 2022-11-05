@@ -81,6 +81,23 @@ class PupilResult extends \yii\db\ActiveRecord
         return $this->hasOne(Member::class, ['id' => 'pupil_id']);
     }
 
+    public function getResults()
+    {
+        $answer = ($this->correct_answer * 100) / $this->numbers_of_question;
+        return $answer;
+    }
+
+    public function getRating()
+    {
+        if ($this->results >= 90) {
+            return '<span class="badge badge-success">Alo</span>';
+        } elseif ($this->results >= 80) {
+            return '<span class="badge badge-warning">Yaxshi</span>';
+        } else {
+            return '<span class="badge badge-danger">Qoniqarsiz</span>';
+        }
+    }
+
     /**
      * Gets query for [[Teacher]].
      *
