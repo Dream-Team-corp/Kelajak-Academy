@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Course;
 use common\models\CourseCategory;
-use frontend\models\Contact;
+use common\models\Contact;
 use yii\data\ActiveDataProvider;
 
 class MainController extends \yii\web\Controller

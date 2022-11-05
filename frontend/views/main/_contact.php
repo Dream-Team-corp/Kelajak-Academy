@@ -1,3 +1,7 @@
+<?php
+
+use kartik\widgets\StarRating;
+?>
 
 
 
@@ -14,6 +18,14 @@
                                         <p class="name"><?=$model->username?></p>
                                         <span class="position"><?=$model->title?></span>
                                     </div>
+                                    <div class="pl-2">
+                                        <?php for ($i=0; $i < $model->rating; $i+=2) { 
+                                            echo '<i class="fa fa-star text-warning" aria-hidden="true"></i>';
+                                        } 
+                                        
+                                        ?>    
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

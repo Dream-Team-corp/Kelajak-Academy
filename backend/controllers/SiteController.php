@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use backend\models\UserForm;
-use frontend\models\Contact;
+use common\models\Contact;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
@@ -30,7 +30,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users', 'setting', 'help'],
+                        'actions' => ['logout', 'index', 'users', 'setting', 'help','delete','update'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -80,7 +80,29 @@ class SiteController extends Controller
         $help = new ActiveDataProvider([
             'query' => Contact::find()->where(['status'=> 0]),
         ]);
+        
         return $this->render('help', ['help'=>$help]);
+    }
+    public function actionUpdate($id){
+        $model = Contact::findOne($id);
+
+        if ($this->request->isPost && $model->load($this->request->post())) {
+                if ($model->save()) {
+                    return $this->redirect(['help']);
+                }
+        }
+        $help = new ActiveDataProvider([
+            'query' => Contact::find()->where(['status'=> 0]),
+        ]);
+        return $this->render('help', [
+            'help' => $help,
+        ]);
+    }
+    public function actionDelete($id)
+    {
+        Contact::findOne($id)->delete();
+
+        return $this->redirect(['help']);
     }
     /**
      * Login action.

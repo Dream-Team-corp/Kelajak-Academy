@@ -4,7 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
-
+use common\models\Contact;
 /**
  * ContactForm is the model behind the contact form.
  */

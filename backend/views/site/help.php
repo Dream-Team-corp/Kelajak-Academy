@@ -13,5 +13,6 @@ echo ListView::widget([
     'itemOptions' => [
         'class' => 'col-6 col-md-4 col-lg-3'
     ]
+    
 ]);
 ?>
