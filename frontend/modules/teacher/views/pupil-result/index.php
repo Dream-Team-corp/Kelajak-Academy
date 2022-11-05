@@ -15,12 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card card-outline card-primary p-1">
 
-
-    <p>
-        <?= Html::a('Yangi qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_groupItem',

@@ -12,11 +12,17 @@ use yii\helpers\VarDumper;
 <div class="card card-default">
     <div class="card-header d-flex justify-content-between">
         <h2 class="card-title"><?= $model->name ?></h2>
+        <a class="btn btn-sm btn-primary" href="<?= Url::to(['pupil-result/create', 'group_id' => $model->id]) ?>">
+            Yangi natija
+        </a>
     </div>
-    <div class="card-body">
+    <div class="card-body p-0">
         <?=
         \yii\grid\GridView::widget([
             'dataProvider' => $model->result,
+            'tableOptions' => [
+                'class' => 'table'
+            ],
             'summary' => '',
             'columns' => [
                 [
@@ -38,7 +44,5 @@ use yii\helpers\VarDumper;
         ])
         ?>
     </div>
-    <div class="d-flex justify-content-between p-3">
-        <b>Ochilgan sanasi: </b> <span> <?= date('d/m/Y', $model->created_at) ?></span>
-    </div>
+
 </div>
