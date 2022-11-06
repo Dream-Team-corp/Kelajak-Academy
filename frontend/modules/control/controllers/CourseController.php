@@ -1,11 +1,9 @@
 <?php
 
-namespace frontend\modules\teacher\controllers;
+namespace frontend\modules\control\controllers;
 
 use common\models\Course;
 use common\models\search\CourseQuery;
-use frontend\modules\control\controllers\BaseController;
-use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -22,9 +20,8 @@ class CourseController extends BaseController
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Course::find()->where(['user_id' => \Yii::$app->user->id])
-        ]);
+        $searchModel = new CourseQuery();
+        $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
