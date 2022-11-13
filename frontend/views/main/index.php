@@ -3,6 +3,7 @@
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use common\models\Member;
+
 /**
  * @var $model \common\models\CourseCategory
  * @var $course \yii\data\ActiveDataProvider
@@ -18,7 +19,7 @@ $this->title = Yii::$app->name;
         <div class="row justify-content-center pb-4">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <span class="subheading">Bugundan o'qishni boshlang</span>
-                <h2 class="mb-4">O'zingizga yoqqan katalogni tanlang</h2>
+                <h2 class="mb-4">O'zingizga kerakli katalogni tanlang</h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -100,7 +101,41 @@ $this->title = Yii::$app->name;
         </div>
     </div>
 </section>
-<br><br>
+<section class="ftco-section ftco-about img">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 about-intro">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div class="d-flex about-wrap">
+                            <div class="img d-flex align-items-center justify-content-center"
+                                 style="background-image:url(<?= Yii::getAlias('@defaultImage') ?>/about-1.jpg);">
+                            </div>
+                            <div class="img-2 d-flex align-items-center justify-content-center"
+                                 style="background-image:url(<?= Yii::getAlias('@defaultImage') ?>/about.jpg);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-md-5 py-5">
+                        <div class="row justify-content-start pb-3">
+                            <div class="col-md-12 heading-section ftco-animate">
+                                <h2 class="mb-4">Kelajakka xush kelibsiz!</h2>
+                                <p>Kelajakda kim bo'lishingiz bugungi harakatingizga bog'liq. Agar siz shifokor
+                                    bo'lmoqchi bo'lsangiz albatta biologiya, kimyo fanlarini yaxshi bilishingiz kerak.
+                                    IT mutaxassisi bo'lishni istasangiz, buni avvalo kompyuter savodxonligidan
+                                    boshlashingiz kerak. Xo'sh, bu bilim va ko'nikmalarni qayerda o'rganish mumkin
+                                    deysizmi?
+                                    Albatta Kelajak Academyda!</p>
+                                <p><a href="<?= Url::to(['course/index']) ?>" class="btn btn-primary mt-2">O'z
+                                        kursingizni tanlang</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="ftco-section testimony-section bg-light">
     <div class="overlay" style="background-image: url(images/bg_2.jpg)"></div>
     <div class="container">
