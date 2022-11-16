@@ -16,7 +16,11 @@ class UseMember extends Member
             return 'Ota-ona';
         }
     }
-    public function getStatusLabel()
+
+    /**
+     * @return string
+     */
+    public function getStatusLabel(): string
     {
         if ($this->status == self::STATUS_ACTIVE) {
             return '<span class="badge badge-success">Faol</span>';
@@ -26,12 +30,13 @@ class UseMember extends Member
             return '<span class="badge badge-danger">O\'chirilgan</span>';
         }
     }
-    public function getImage()
+
+    public function getImage(): string
     {
         return '<img src="' . Yii::getAlias('@getAdminImg') . "/" . $this->photo . '" width="30px" style="height:30px" class="border rounded-circle border-2 border-primary">';
     }
 
-    public function signUp()
+    public function signUp(): bool
     {
         $this->generateAuthKey();
 
@@ -48,6 +53,28 @@ class UseMember extends Member
         }
         $this->photo = 'user.png';
 
-        return $this->save() ? true : false;
+        return $this->save() && $this->othersInfo();
+    }
+
+    /**
+     * @return bool
+     */
+    private function othersInfo(): bool
+    {
+        $info = new OnlineApply();
+        $info->user_id = $this->id;
+        $info->location = 'a ';
+        $info->course_id = 1;
+
+        return $info->save();
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+
+    public function getOtherInfo(): \yii\db\ActiveQuery
+    {
+        return $this->hasOne(OnlineApply::class, ['user_id' => 'id']);
     }
 }
