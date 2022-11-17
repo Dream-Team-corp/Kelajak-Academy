@@ -1,7 +1,8 @@
 <?php
 
-$this->title = "Biz haqimizda";
+use common\models\Member;
 
+$this->title = "Biz haqimizda";
 $this->params['breadcrumbs'][] = $this->title;
 $teacher = Member::find()->where(['type' => Member::TEACHER])->count();
 $pupils = Member::find()->where(['type' => Member::PUPIL])->count();
