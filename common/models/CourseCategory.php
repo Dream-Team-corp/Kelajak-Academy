@@ -67,6 +67,10 @@ class CourseCategory extends \yii\db\ActiveRecord
     {
         return new \common\models\search\CourseCategoryQuery(get_called_class());
     }
+
+    /**
+     * @return string
+     */
     public function getStatus(){
         if($this->status == 1){
             return '<span class="badge badge-success">Faol</span>';
@@ -76,6 +80,10 @@ class CourseCategory extends \yii\db\ActiveRecord
         }
         
     }
+
+    /**
+     * @return string
+     */
     public function getImage(){
         if($this->image != ''){
             return '<img src="'.Yii::getAlias('@defaultImage').'/'.$this->image.'" style="width: 120px;height:100px;">';
@@ -83,6 +91,10 @@ class CourseCategory extends \yii\db\ActiveRecord
         else{
             return 'Qiymatlanmagan';
         }
+    }
+
+    public function getCourse(){
+        return $this->hasMany(Course::class, ['category_id' => 'id']);
     }
 }
 ?>

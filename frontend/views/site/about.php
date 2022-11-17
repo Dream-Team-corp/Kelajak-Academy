@@ -1,11 +1,11 @@
 <?php
 
-use yii\widgets\ListView;
-
 $this->title = "Biz haqimizda";
 
 $this->params['breadcrumbs'][] = $this->title;
-
+$teacher = Member::find()->where(['type' => Member::TEACHER])->count();
+$pupils = Member::find()->where(['type' => Member::PUPIL])->count();
+$course = \common\models\Course::find()->where(['status' => \common\models\Course::STATUS_ACTIVE])->count();
 ?>
 
 
@@ -16,19 +16,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
                     <div class="col-md-6 d-flex">
                         <div class="d-flex about-wrap">
-                            <div class="img d-flex align-items-center justify-content-center" style="background-image:url(images/about-1.jpg);">
+                            <div class="img d-flex align-items-center justify-content-center"
+                                 style="background-image:url(<?= Yii::getAlias('@defaultImage') ?>/about-1.jpg);">
                             </div>
-                            <div class="img-2 d-flex align-items-center justify-content-center" style="background-image:url(images/about.jpg);">
+                            <div class="img-2 d-flex align-items-center justify-content-center"
+                                 style="background-image:url(<?= Yii::getAlias('@defaultImage') ?>/about.jpg);">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 pl-md-5 py-5">
                         <div class="row justify-content-start pb-3">
                             <div class="col-md-12 heading-section ftco-animate">
-                                <span class="subheading">Enhanced Your Skills</span>
-                                <h2 class="mb-4">Learn Anything You Want Today</h2>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                                <p><a href="#" class="btn btn-primary">Get in touch with us</a></p>
+                                <h2 class="mb-4">Kelajakka xush kelibsiz!</h2>
+                                <p>Kelajakda kim bo'lishingiz bugungi harakatingizga bog'liq. Agar siz shifokor
+                                    bo'lmoqchi bo'lsangiz albatta biologiya, kimyo fanlarini yaxshi bilishingiz kerak.
+                                    IT mutaxassisi bo'lishni istasangiz, buni avvalo kompyuter savodxonligidan
+                                    boshlashingiz kerak. Xo'sh, bu bilim va ko'nikmalarni qayerda o'rganish mumkin
+                                    deysizmi?
+                                    Albatta Kelajak Academyda!</p>
+                                <p><a href="<?= Url::to(['course/index']) ?>" class="btn btn-primary mt-2">O'z
+                                        kursingizni tanlang</a></p>
                             </div>
                         </div>
                     </div>
@@ -38,43 +45,35 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);">
+<section class="ftco-section ftco-counter img" id="section-counter"
+         style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/bg_4.jpg);">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
                 <div class="block-18 d-flex align-items-center">
                     <div class="icon"><span class="flaticon-online"></span></div>
                     <div class="text">
-                        <strong class="number" data-number="400">0</strong>
-                        <span>Online Courses</span>
+                        <strong class="number" data-number="<?= $course ?>">0</strong>
+                        <span>Dan Ortiq kurslar</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
                 <div class="block-18 d-flex align-items-center">
                     <div class="icon"><span class="flaticon-graduated"></span></div>
                     <div class="text">
-                        <strong class="number" data-number="4500">0</strong>
-                        <span>Students Enrolled</span>
+                        <strong class="number" data-number="<?= $pupils ?>">0</strong>
+                        <span>dan ortiq o'quvchilar</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
                 <div class="block-18 d-flex align-items-center">
                     <div class="icon"><span class="flaticon-instructor"></span></div>
                     <div class="text">
-                        <strong class="number" data-number="1200">0</strong>
-                        <span>Experts Instructors</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                <div class="block-18 d-flex align-items-center">
-                    <div class="icon"><span class="flaticon-tools"></span></div>
-                    <div class="text">
-                        <strong class="number" data-number="300">0</strong>
-                        <span>Hours Content</span>
+                        <strong class="number" data-number="<?= $teacher ?>">0</strong>
+                        <span>malakali o'qituvchilar</span>
                     </div>
                 </div>
             </div>
@@ -84,7 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <section class="ftco-section testimony-section bg-light">
-    <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div>
+    <div class="overlay" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/bg_2.jpg);"></div>
     <div class="container">
         <div class="row pb-4">
             <div class="col-md-7 heading-section ftco-animate">
@@ -107,6 +106,70 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </p>
+                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
+                                    and Consonantia, there live the blind texts.</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="text">
+                                <p class="star">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </p>
+                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="text">
+                                <p class="star">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </p>
+                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="text">
+                                <p class="star">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </p>
                                 <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                 <div class="d-flex align-items-center">
                                     <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
@@ -118,19 +181,28 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <?=ListView::widget([
-                    'dataProvider' => $contact,
-                    'itemView' => '_contact',
-                    'emptyText'=> '',
-                    'layout' => "{items}",
-                    'options' => [
-                        'class' => 'carousel-testimony owl-carousel'
-                    ],
-                    'itemOptions' => [
-                        'class' => 'item'
-                    ]
-                ]);?>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="text">
+                                <p class="star">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </p>
+                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -140,7 +212,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
-                <div class="img" style="background-image: url(images/bg_4.jpg);">
+                <div class="img" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/bg_4.jpg);">
                     <div class="overlay"></div>
                     <h2>We Are StudyLab An Online Learning Center</h2>
                     <p>We can manage your dream building A small river named Duden flows by their place</p>
@@ -156,15 +228,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row d-flex">
             <div class="col-md-6 heading-section pr-md-5 ftco-animate d-flex align-items-center">
                 <div class="w-100 mb-4 mb-md-0">
-                    <span class="subheading">Welcome to StudyLab</span>
-                    <h2 class="mb-4">We Are StudyLab An Online Learning Center</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                    <span class="subheading">Kelajakka xush kelibsiz!</span>
+                    <h2 class="mb-4">Kelajak Academy - ishonchli va sifatli ta'lim!</h2>
+                    <p>Malakali ustozlardan ta'lim olishni istaysizmi? Ajoyib atmosferada rivojlanishnichi? Sifatli
+                        bilim va ko'nikmalarni qayerdan topish mumkin deb o'ylaysiz?
+                        ✅ Albatta Kelajak Academyda!</p>
+                    <p>Eng yaxshi bilimlarni olishni istasangiz, kelajakda "Katta" odam bo'lishni xohlasangiz Kelajak
+                        Academyga kelavering!</p>
                     <div class="d-flex video-image align-items-center mt-md-4">
-                        <a href="#" class="video img d-flex align-items-center justify-content-center" style="background-image: url(images/about.jpg);">
+                        <a href="#" class="video img d-flex align-items-center justify-content-center"
+                           style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/about.jpg);">
                             <span class="fa fa-play-circle"></span>
                         </a>
-                        <h4 class="ml-4">Learn anything from StudyLab, Watch video</h4>
+                        <h4 class="ml-4">Kelajagingizni Kelajak Academy bilan quring! <br> <small><a href="#">Videoni ko'rish</a></small></h4>
                     </div>
                 </div>
             </div>
@@ -172,7 +248,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
                     <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                         <div class="services">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tools"></span></div>
+                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-tools"></span></div>
                             <div class="media-body">
                                 <h3 class="heading mb-3">Top Quality Content</h3>
                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -181,7 +258,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                         <div class="services">
-                            <div class="icon icon-2 d-flex align-items-center justify-content-center"><span class="flaticon-instructor"></span></div>
+                            <div class="icon icon-2 d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-instructor"></span></div>
                             <div class="media-body">
                                 <h3 class="heading mb-3">Highly Skilled Instructor</h3>
                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -190,7 +268,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                         <div class="services">
-                            <div class="icon icon-3 d-flex align-items-center justify-content-center"><span class="flaticon-quiz"></span></div>
+                            <div class="icon icon-3 d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-quiz"></span></div>
                             <div class="media-body">
                                 <h3 class="heading mb-3">World Class &amp; Quiz</h3>
                                 <p>A small river named Duden flows by their place and supplies</p>
@@ -199,7 +278,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                         <div class="services">
-                            <div class="icon icon-4 d-flex align-items-center justify-content-center"><span class="flaticon-browser"></span></div>
+                            <div class="icon icon-4 d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-browser"></span></div>
                             <div class="media-body">
                                 <h3 class="heading mb-3">Get Certified</h3>
                                 <p>A small river named Duden flows by their place and supplies</p>

@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'first_name',
             'last_name',
-            'username',
+//            'username',
             // 'auth_key',
             //'password_hash',
             'tel_number',
@@ -51,7 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => ActionColumn::class,
                 'urlCreator' => function ($action, UseMember $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
-                }
+                },
+                'template' => "{view}",
             ],
         ],
     ]); ?>

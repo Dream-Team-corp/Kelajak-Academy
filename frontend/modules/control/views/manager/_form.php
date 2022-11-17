@@ -1,5 +1,6 @@
 <?php
 
+use kartik\widgets\SwitchInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'username', ['enableAjaxValidation' => true])->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'username', ['enableAjaxValidation' => true])->textInput(['maxlength' => true])->label("Xodim ism-sharifi") ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->widget(SwitchInput::class) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Saqlash', ['class' => 'btn btn-success']) ?>

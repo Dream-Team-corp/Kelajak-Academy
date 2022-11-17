@@ -11,16 +11,6 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="card card-outline card-info p-3">
-    <p>
-        <?= Html::a('Tahrirlash', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('O\'chirish', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -31,14 +21,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'first_name',
             'last_name',
-            'username',
-            [
-                'attribute' => 'password_hash',
-                'value' => $model->username,
-
-            ],
 
             'tel_number',
+            [
+                'attribute' => 'location',
+                'value' => $model->otherInfo->location,
+                'label' => "Yashash xududi"
+            ],
+            [
+                'attribute' => 'course',
+                'label' => "Tanlagan kursi",
+                'format' => 'html',
+                'value' => function ($model) {
+                    return "<a target='_blank' href='" . Yii::$app->params['courseLink'] . $model->otherInfo->course->id . "'>" . $model->otherInfo->course->title . "</a>";
+                }
+            ],
             [
                 'attribute' => 'status',
                 'value' => $model->statusLabel,

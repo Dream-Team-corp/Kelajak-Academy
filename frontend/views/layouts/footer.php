@@ -10,13 +10,13 @@
                     </p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                         <li class="ftco-animate">
-                            <a href="#"><span class="fa fa-twitter"></span></a>
+                            <a href="#"><span class="fab fa-telegram"></span></a>
                         </li>
                         <li class="ftco-animate">
-                            <a href="#"><span class="fa fa-facebook"></span></a>
+                            <a href="#"><span class="fab fa-facebook"></span></a>
                         </li>
                         <li class="ftco-animate">
-                            <a href="#"><span class="fa fa-instagram"></span></a>
+                            <a href="#"><span class="fab fa-instagram"></span></a>
                         </li>
                     </ul>
                 </div>
@@ -74,15 +74,13 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
                     </script>
-                    All rights reserved | This template is made with
+                    All rights reserved | This website is made with
                     <i class="fa fa-heart" aria-hidden="true"></i> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <a href="https://t.me/dreamteamcorp" target="_blank">Dream Team Corp</a>
                 </p>
             </div>
         </div>

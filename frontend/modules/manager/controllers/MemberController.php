@@ -2,6 +2,8 @@
 
 namespace frontend\modules\manager\controllers;
 
+use common\models\Course;
+use common\models\OnlineApply;
 use common\models\UseMember;
 use frontend\modules\control\controllers\BaseController;
 use yii\data\ActiveDataProvider;
@@ -47,7 +49,7 @@ class MemberController extends BaseController
             $model->type = $model::PUPIL;
             $model->status = $model::STATUS_INACTIVE;
             if ($model->signUp()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['info', 'id' => $model->id]);
             } else {
                 $model->loadDefaultValues();
             }
@@ -56,6 +58,20 @@ class MemberController extends BaseController
         return $this->render('create', [
             'model' => $model
         ]);
+    }
+
+    public function actionInfo($id) {
+        $model = OnlineApply::findOne(['user_id' => $id]);
+
+        if (Yii::$app->request->isPost && $model->load($this->request->post())){
+            $teacher = Course::findOne(['id' => $model->course_id]);
+            $model->teacher_id = $teacher->user_id;
+            return $model->save() ? $this->redirect(['view', 'id' => $id]) : throw new NotFoundHttpException('Sahifa topilmadi!');
+        }
+
+        $model->course_id = '';
+        $model->location = '';
+        return $this->render('info', compact('model'));
     }
 
     /**
