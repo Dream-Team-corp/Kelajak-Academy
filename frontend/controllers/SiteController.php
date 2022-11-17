@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Contact;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -15,6 +16,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -153,7 +155,12 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $contact = new ActiveDataProvider(
+            [
+                'query' => Contact::find()->where(['status' => 1])->orderBy(['id' => SORT_DESC]),
+            ]
+        );
+        return $this->render('about', compact('contact'));
     }
 
     /**
