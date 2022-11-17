@@ -77,11 +77,13 @@ class SiteController extends Controller
     }
     public function actionHelp()
     {
-        $help = new ActiveDataProvider([
+        $inactive = new ActiveDataProvider([
             'query' => Contact::find()->where(['status'=> 0]),
         ]);
-        
-        return $this->render('help', ['help'=>$help]);
+        $active = new ActiveDataProvider([
+            'query' => Contact::find()->where(['status'=> 1]),
+        ]);
+        return $this->render('help', ['help'=>$inactive, 'active'=>$active]);
     }
     public function actionUpdate($id){
         $model = Contact::findOne($id);
@@ -94,8 +96,8 @@ class SiteController extends Controller
         $help = new ActiveDataProvider([
             'query' => Contact::find()->where(['status'=> 0]),
         ]);
-        return $this->render('help', [
-            'help' => $help,
+        return $this->render('update', [
+            'model' => $model,
         ]);
     }
     public function actionDelete($id)
