@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Kurslar', 'url' => ['course/index'
                         Kurs narxi: <b class="text-dark"><?= number_format($model->price, '0', ' ', ' ') ?> so'm</b>
                     </p>
                 </div>
-                <a href="" class="btn btn-block btn-flat btn-outline-primary mt-3">Qabulga yozilish</a>
+                <a href="<?= Url::to(['/course/online-apply', 'id' => $model->id, 't_id' => $model->user->id]) ?>" class="btn btn-block btn-flat btn-outline-primary mt-3">Qabulga yozilish</a>
             </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate pl-md-4 py-md-5 mt-5">
                 <div class="sidebar-box ftco-animate">
