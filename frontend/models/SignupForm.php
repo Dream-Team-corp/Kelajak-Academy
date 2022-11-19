@@ -2,6 +2,8 @@
 
 namespace frontend\models;
 
+use common\models\OnlineApply;
+use common\models\UseMember;
 use Yii;
 use yii\base\Model;
 use common\models\User;
@@ -11,9 +13,10 @@ use common\models\User;
  */
 class SignupForm extends Model
 {
-    public $username;
-    public $email;
-    public $password;
+    public $name;
+    public $surname;
+    public $location;
+    public $phone;
 
 
     /**
@@ -22,19 +25,9 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['username', 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
-
-            ['email', 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
-
-            ['password', 'required'],
-            ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            [['name', 'surname'], 'trim'],
+            [['name', 'surname', 'location', 'phone'], 'required', 'message' => "\"{attribute}\" maydonini to'ldirish shart!"],
+            [['name', 'surname', 'location', 'phone'], 'string', 'min' => 2, 'max' => 255],
         ];
     }
 
@@ -43,20 +36,39 @@ class SignupForm extends Model
      *
      * @return bool whether the creating new account was successful and email was sent
      */
-    public function signup()
+    public function signup($course_id, $teacher_id)
     {
         if (!$this->validate()) {
             return null;
         }
-        
-        $user = new User();
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        $user->generateEmailVerificationToken();
 
-        return $user->save() && $this->sendEmail($user);
+        $user = new UseMember();
+
+        $user->first_name = $this->name;
+        $user->last_name = $this->surname;
+        $user->tel_number = $this->phone;
+        $user->type = $user::PUPIL;
+        $user->status =  $user::STATUS_INACTIVE;
+
+        if ($user->signUp()) {
+            $info = OnlineApply::findOne(['user_id' => $user->id]);
+
+            $info->location = $this->location;
+            $info->course_id = $course_id;
+            $info->teacher_id = $teacher_id;
+
+            return $info->save();
+        }
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'name' => 'Ism',
+            'surname' => 'Familiya',
+            'location' => 'Yashash joyi',
+            'phone' => 'Telefon raqam'
+        ];
     }
 
     /**

@@ -113,6 +113,22 @@ class Bil extends \yii\db\ActiveRecord
         return $this->hasOne(Member::class, ['id' => 'teacher_id']);
     }
 
+    public function getSplitDate(){
+        return date('m', $this->created_at);
+    }
+
+    public function getLabels(){
+        return [
+            'ID',
+            'F.I.SH',
+            'Guruh nomi',
+            'O\'qituvchisi',
+            'To\'lov summasi',
+            'To\'lov turi',
+            'To\'lov vaqti',
+        ];
+    }
+
     /**
      * {@inheritdoc}
      * @return \common\models\search\BilQuery the active query used by this AR class.

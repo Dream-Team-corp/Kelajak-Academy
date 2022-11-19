@@ -63,7 +63,7 @@ class UseMember extends Member
     {
         $info = new OnlineApply();
         $info->user_id = $this->id;
-        $info->location = 'a ';
+        $info->location = 'a';
         $info->course_id = 1;
 
         return $info->save();

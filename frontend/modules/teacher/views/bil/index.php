@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Bil;
+use frontend\component\widgets\SplitDate;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -62,7 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'created_at',
-                    'format' => 'date'
+                    'format' => 'html',
+                    'value' => 'splitDate'
                 ],
                 [
                     'class' => ActionColumn::class,
@@ -75,6 +77,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]); ?>
     </div>
+
+    <?php
+        echo SplitDate::widget([
+            'model' =>  $dataProvider
+        ]);
+    ?>
 
 
 </div>
