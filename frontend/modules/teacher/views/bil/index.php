@@ -79,7 +79,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <?php
-        echo SplitDate::widget();
+        echo SplitDate::widget([
+            'model' =>  $dataProvider
+        ]);
     ?>
 
 

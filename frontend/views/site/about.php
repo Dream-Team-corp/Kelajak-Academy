@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Member;
+use yii\helpers\Url;
 
 $this->title = "Biz haqimizda";
 $this->params['breadcrumbs'][] = $this->title;
@@ -96,7 +97,7 @@ $course = \common\models\Course::find()->where(['status' => \common\models\Cours
     <div class="container container-2">
         <div class="row ftco-animate">
             <div class="col-md-12">
-                <!-- <div class="carousel-testimony owl-carousel">
+                 <div class="carousel-testimony owl-carousel">
                     <div class="item">
                         <div class="testimony-wrap py-4">
                             <div class="text">

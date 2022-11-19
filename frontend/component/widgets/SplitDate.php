@@ -14,7 +14,9 @@ class SplitDate extends Widget{
         parent::init();
 
         if($this->model !== null){
-            return $this->render('_table', compact('model'));
+            return $this->render('_table', [
+                'model' => $this->model
+            ]);
         } else{
             throw new InvalidArgumentException("Model massiv bo'lishi kerak");
         }

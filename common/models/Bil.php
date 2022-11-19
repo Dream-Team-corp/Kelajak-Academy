@@ -117,6 +117,18 @@ class Bil extends \yii\db\ActiveRecord
         return date('m', $this->created_at);
     }
 
+    public function getLabels(){
+        return [
+            'ID',
+            'F.I.SH',
+            'Guruh nomi',
+            'O\'qituvchisi',
+            'To\'lov summasi',
+            'To\'lov turi',
+            'To\'lov vaqti',
+        ];
+    }
+
     /**
      * {@inheritdoc}
      * @return \common\models\search\BilQuery the active query used by this AR class.
