@@ -1,6 +1,8 @@
 <?php
 $this->title = 'Yordam';
 $this->params['breadcrumbs'][] = $this->title;
+
+use yii\widgets\LinkPager;
 use yii\widgets\ListView;
 
 ?>
@@ -15,14 +17,27 @@ use yii\widgets\ListView;
             'layout' => "{items}",
             'emptyText' => '',
             'options' => [
-                'class' => 'carousel-testimony owl-carousel'
+                'class' => 'row'
             ],
             'itemOptions' => [
-                'class' => 'item'
+                'class' => 'col-6 col-md-4 col-lg-3'
             ]
             
         ]);
-        ?>    
+        ?> 
+        <div class="text-center">
+            <?=LinkPager::widget([
+                'pagination'=>$help->pagination,
+                'firstPageLabel' => 'Boshi',
+                'lastPageLabel' => 'Oxiri',
+                'options'=>[
+                    'class'=>'btn-group'
+                ],
+                'linkContainerOptions'=>[
+                    'class'=>'btn btn-outline-info'
+                ],
+            ])?>
+        </div>   
     </div>
     <div>
         <div class="h4 my-3">
@@ -41,5 +56,18 @@ use yii\widgets\ListView;
             
         ]);
         ?> 
+         <div class="text-center">
+            <?=LinkPager::widget([
+                'pagination'=>$help->pagination,
+                'firstPageLabel' => 'Boshi',
+                'lastPageLabel' => 'Oxiri',
+                'options'=>[
+                    'class'=>'btn-group'
+                ],
+                'linkContainerOptions'=>[
+                    'class'=>'btn btn-outline-info'
+                ],
+            ])?>
+        </div> 
     </div>
 </div>

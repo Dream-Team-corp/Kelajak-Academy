@@ -16,7 +16,7 @@ use kartik\widgets\StarRating;
                                         ?>
                                     </div>
                                 </div>
-                                <p class="mb-4">
+                                <p class="mb-4 px-3" style="height: 120px; overflow-y: scroll; text-align:justify;">
                                     <?=$model->body?>
                                 </p>
                                 <div class="d-flex align-items-center">

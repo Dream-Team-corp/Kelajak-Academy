@@ -4,12 +4,15 @@ namespace backend\controllers;
 
 use backend\models\UserForm;
 use common\models\Contact;
+use common\models\Member;
+use common\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
+
 
 /**
  * Site controller
@@ -72,16 +75,36 @@ class SiteController extends Controller
     }
     public function actionUsers()
     {
-
-        return $this->render('users');
+        $teacher = new ActiveDataProvider([
+            'query'=> Member::find()->where(['status'=>10, 'type'=>10]),
+            'pagination'=>[
+                'pageSize'=>4
+            ]
+        ]);
+        $parents = new ActiveDataProvider([
+            'query'=> Member::find()->where(['status'=>10, 'type'=>0]),
+        ]);
+        $child = new ActiveDataProvider([
+            'query'=> Member::find()->where(['status'=>10, 'type'=>5]),
+            'pagination'=>[
+                'pageSize'=>4
+            ]
+        ]);
+        return $this->render('users', compact('teacher','parents','child'));
     }
     public function actionHelp()
     {
         $inactive = new ActiveDataProvider([
             'query' => Contact::find()->where(['status'=> 0]),
+            'pagination'=>[
+                'pageSize'=>4
+            ]
         ]);
         $active = new ActiveDataProvider([
             'query' => Contact::find()->where(['status'=> 1]),
+            'pagination'=>[
+                'pageSize'=>4
+            ]
         ]);
         return $this->render('help', ['help'=>$inactive, 'active'=>$active]);
     }
@@ -93,9 +116,6 @@ class SiteController extends Controller
                     return $this->redirect(['help']);
                 }
         }
-        $help = new ActiveDataProvider([
-            'query' => Contact::find()->where(['status'=> 0]),
-        ]);
         return $this->render('update', [
             'model' => $model,
         ]);

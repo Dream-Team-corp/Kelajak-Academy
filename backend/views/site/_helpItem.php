@@ -3,6 +3,8 @@
           use kartik\widgets\SwitchInput;
           use yii\bootstrap4\ActiveForm;
           use yii\bootstrap4\Html;
+          use yii\helpers\StringHelper;
+
         ?>
                         
                         <div class="p-3 rounded bg-white card card-outline card-info">
@@ -19,8 +21,8 @@
                                      Html::a('<i class="fa fa-trash" aria-hidden="true"></i>', ['delete','id' => $model->id,],[  'data-method'=> 'post', 'class'=> 'btn btn-danger'])
                                     .'</div>';
                                     echo '</div>
-                                    <p class="h5 border rounded p-2">
-                                        '.$model->body.'
+                                    <p class="h5 border rounded p-2" style="height: 145px;">
+                                        '.StringHelper::truncate($model->body, 124, '...') .'
                                     </p>
                                     '.$star.'<br>';
 
@@ -44,3 +46,4 @@
                             <span class="h5">Sarlavhasi: '.$model->title.'</span>
                         </div>
                     </div> -->
+                    
