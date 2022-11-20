@@ -20,7 +20,7 @@ use yii\widgets\ListView;
     ])?>
         <div class="text-center">
             <?=LinkPager::widget([
-                'pagination'=>$help->pagination,
+                'pagination'=>$teacher->pagination,
                 'firstPageLabel' => 'Boshi',
                 'lastPageLabel' => 'Oxiri',
                 'options'=>[
@@ -48,7 +48,7 @@ use yii\widgets\ListView;
     ])?>
         <div class="text-center">
             <?=LinkPager::widget([
-                'pagination'=>$help->pagination,
+                'pagination'=>$child->pagination,
                 'firstPageLabel' => 'Boshi',
                 'lastPageLabel' => 'Oxiri',
                 'options'=>[
