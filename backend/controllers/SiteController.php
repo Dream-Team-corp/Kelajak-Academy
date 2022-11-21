@@ -5,6 +5,7 @@ namespace backend\controllers;
 use backend\models\UserForm;
 use common\models\Contact;
 use common\models\Member;
+use common\models\TeacherAbout;
 use common\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -33,7 +34,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users', 'setting', 'help','delete','update'],
+                        'actions' => ['logout', 'index', 'users', 'setting', 'help','delete','update', 'user'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -161,5 +162,10 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    public function actionUser($id){
+        $user = Member::findOne($id);
+        $teacherabout = TeacherAbout::findOne(['teacher_id'=>$id]);
+        return $this->render('user', compact('user','teacherabout'));
     }
 }

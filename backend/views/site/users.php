@@ -2,13 +2,13 @@
 
 use yii\widgets\LinkPager;
 use yii\widgets\ListView;
-
+$this->title = 'Foydalanuvchilar';
 ?>
 <div>
     <div class="h4">O'qituvchilar</div>
     <?=ListView::widget([
         'dataProvider'=>$teacher,
-        'itemView' => '_teacherItem',
+        'itemView' => '_users',
         'layout' => "{items}",
         'emptyText' => '',
         'options' => [
@@ -36,7 +36,7 @@ use yii\widgets\ListView;
     <div class="h4">O'quchilar</div>
     <?=ListView::widget([
         'dataProvider'=>$child,
-        'itemView' => '_teacherItem',
+        'itemView' => '_users',
         'layout' => "{items}",
         'emptyText' => '',
         'options' => [

@@ -1,9 +1,14 @@
 <?php
+
+use yii\bootstrap5\Html;
+use yii\helpers\Url;
+
+
 ?>
 <div class="card">
   <img class="" src="<?=Yii::getAlias('@defaultImage').'/'.$model->photo?>" alt="Card image">
   <div class="card-body">
     <h4 class="h4"><?=$model->first_name.' '.$model->last_name?></h4><br>
-    <a href="#" class="btn btn-primary">To'liq malumot</a>
+    <?=Html::a('To\'liq malumot', Url::to(['user', 'id'=>$model->id]),['class'=>'btn btn-primary'])?>
   </div>
 </div>
