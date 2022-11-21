@@ -4,6 +4,7 @@ use hail812\adminlte3\yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\VarDumper;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
@@ -13,6 +14,7 @@ $this->title = 'O\'quvchilar ro\'yhati';
 $this->params['breadcrumbs'][] = ['label' => 'Guruhlarim', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
 ?>
 <style>
     .select2-selection__choice {
@@ -25,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?=
     GridView::widget([
         'dataProvider' => $model,
-        'summary' => '',
+        'summary' => false,
         'tableOptions' => [
             'class' => 'table table-bordered',
             'id' => 'all-pupil'
@@ -43,10 +45,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Telefon Raqami',
                 'value' => 'pupil.tel_number'
             ],
-            'created_at:datetime',
+
             [
-                'class' => ActionColumn::class
-            ]
+                'attribute' => 'username',
+                'label' => 'Foydalanuvchi nomi',
+                'value' => 'pupil.username'
+            ],
+            [
+                'attribute' => 'password',
+                'label' => 'Parol',
+                'value' => 'pupil.username'
+            ],
+            'created_at:datetime'
 
         ]
     ])

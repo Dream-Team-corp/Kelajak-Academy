@@ -7,6 +7,8 @@ use common\models\GroupPupilList;
 use common\models\search\BilQuery;
 use frontend\modules\control\controllers\BaseController;
 use Yii;
+use yii\data\ActiveDataProvider;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -24,11 +26,11 @@ class BilController extends BaseController
      */
     public function actionIndex()
     {
-        $searchModel = new BilQuery();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Bil::find()
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }

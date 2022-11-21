@@ -2,6 +2,8 @@
 /* @var $content string */
 
 use yii\bootstrap4\Breadcrumbs;
+use yii\helpers\Url;
+
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -23,6 +25,10 @@ use yii\bootstrap4\Breadcrumbs;
                     <?php
                     echo Breadcrumbs::widget([
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        'homeLink' => [
+                            'label' => 'Asosiy',
+                            'url' => Url::to(['/teacher/default/index']),
+                        ],
                         'options' => [
                             'class' => 'breadcrumb float-sm-right'
                         ]

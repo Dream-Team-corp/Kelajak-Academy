@@ -5,6 +5,7 @@ namespace frontend\modules\teacher\controllers;
 use common\models\Course;
 use common\models\search\CourseQuery;
 use frontend\modules\control\controllers\BaseController;
+use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 
@@ -23,7 +24,7 @@ class CourseController extends BaseController
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Course::find()->where(['user_id' => \Yii::$app->user->id])
+            'query' => Course::find()->where(['user_id' => \Yii::$app->user->id])->andFilterWhere(['category_id' => Yii::$app->request->get('caty_id')])
         ]);
 
         return $this->render('index', [

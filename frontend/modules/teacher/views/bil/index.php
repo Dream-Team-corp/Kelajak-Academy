@@ -6,6 +6,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\VarDumper;
 
 /** @var yii\web\View $this */
 /** @var common\models\search\BilQuery $searchModel */
@@ -13,6 +14,21 @@ use yii\grid\GridView;
 
 $this->title = 'To\'lovlar tarixi';
 $this->params['breadcrumbs'][] = $this->title;
+
+$november = [];
+
+foreach ($dataProvider->models as $k) {
+    if ($k->splitDate == 11) {
+        $november[] = $k->id;
+    }
+}
+$data = [];
+for ($i = 0; $i < count($november); $i++) {
+    $data[] = Bil::findOne(['id' => $november[$i]]);
+}
+
+// VarDumper::dump($data, 10, true);
+
 ?>
 <div class="card card-outline card-primary p-2">
 
@@ -20,14 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Yangi to\'lov', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <div class="row">
-        <div class="col-md-3">
-            <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
-        </div>
-    </div>
     <div class="table-responsive">
 
-        <?= GridView::widget([
+
+        <?php  echo GridView::widget([
             'dataProvider' => $dataProvider,
             'summary' => false,
             'tableOptions' => [
@@ -77,12 +89,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]); ?>
     </div>
-
-    <?php
-        echo SplitDate::widget([
-            'model' =>  $dataProvider
-        ]);
-    ?>
 
 
 </div>

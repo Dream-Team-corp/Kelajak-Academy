@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
 ?>
@@ -11,12 +12,12 @@ use yii\helpers\Url;
     <div class="card-body p-0">
         <div class="ribbon-wrapper ribbon-lg ribbon">
             <div class="ribbon bg-warning text-sm">
-                <?= $model->category->title ?>
+                <a href="<?= Url::to(['index', 'caty_id' => $model->category->id]) ?>"><?= $model->category->title ?></a>
             </div>
         </div>
         <img src="<?= Yii::getAlias('@defaultImage') . '/' . $model->image ?>" class="card-img img-fluid" alt="<?= $model->title ?>">
         <div class="p-1">
-            <p><?= $model->description ?></p>
+            <p><?= StringHelper::truncateWords($model->description, 10, '...', true) ?></p>
             <p><b>Narxi:</b> <?= number_format($model->price, 0, ' ', ' ') ?> so'm</p>
         </div>
     </div>

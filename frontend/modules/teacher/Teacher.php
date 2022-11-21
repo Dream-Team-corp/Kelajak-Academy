@@ -2,6 +2,7 @@
 
 namespace frontend\modules\teacher;
 
+
 /**
  * teacher module definition class
  */
@@ -18,7 +19,6 @@ class Teacher extends \yii\base\Module
     public function init()
     {
         parent::init();
-
-        // custom initialization code goes here
+        
     }
 }
