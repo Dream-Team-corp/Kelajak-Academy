@@ -241,12 +241,9 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
-    /**
-     * {@inheritdoc}
-     * @return MemberQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new MemberQuery(get_called_class());
+
+    public function getTeacherInfo(){
+        return TeacherAbout::findOne(['teacher_id' => $this->id]);
     }
+
 }

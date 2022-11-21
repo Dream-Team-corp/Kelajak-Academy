@@ -34,7 +34,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users', 'setting', 'help','delete','update', 'user'],
+                        'actions' => ['logout', 'index', 'users', 'setting', 'help', 'delete', 'update', 'user'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -77,45 +77,46 @@ class SiteController extends Controller
     public function actionUsers()
     {
         $teacher = new ActiveDataProvider([
-            'query'=> Member::find()->where(['status'=>10, 'type'=>10]),
-            'pagination'=>[
-                'pageSize'=>4
+            'query' => Member::find()->where(['status' => Member::STATUS_ACTIVE, 'type' => Member::TEACHER]),
+            'pagination' => [
+                'pageSize' => 4
             ]
         ]);
         $parents = new ActiveDataProvider([
-            'query'=> Member::find()->where(['status'=>10, 'type'=>0]),
+            'query' => Member::find()->where(['status' => Member::STATUS_ACTIVE, 'type' => Member::PARENT]),
         ]);
         $child = new ActiveDataProvider([
-            'query'=> Member::find()->where(['status'=>10, 'type'=>5]),
-            'pagination'=>[
-                'pageSize'=>4
+            'query' => Member::find()->where(['status' => Member::STATUS_ACTIVE, 'type' => Member::PUPIL]),
+            'pagination' => [
+                'pageSize' => 4
             ]
         ]);
-        return $this->render('users', compact('teacher','parents','child'));
+        return $this->render('users', compact('teacher', 'parents', 'child'));
     }
     public function actionHelp()
     {
         $inactive = new ActiveDataProvider([
-            'query' => Contact::find()->where(['status'=> 0]),
-            'pagination'=>[
-                'pageSize'=>4
+            'query' => Contact::find()->where(['status' => 0]),
+            'pagination' => [
+                'pageSize' => 4
             ]
         ]);
         $active = new ActiveDataProvider([
-            'query' => Contact::find()->where(['status'=> 1]),
-            'pagination'=>[
-                'pageSize'=>4
+            'query' => Contact::find()->where(['status' => 1]),
+            'pagination' => [
+                'pageSize' => 4
             ]
         ]);
-        return $this->render('help', ['help'=>$inactive, 'active'=>$active]);
+        return $this->render('help', ['help' => $inactive, 'active' => $active]);
     }
-    public function actionUpdate($id){
+    public function actionUpdate($id)
+    {
         $model = Contact::findOne($id);
 
         if ($this->request->isPost && $model->load($this->request->post())) {
-                if ($model->save()) {
-                    return $this->redirect(['help']);
-                }
+            if ($model->save()) {
+                return $this->redirect(['help']);
+            }
         }
         return $this->render('update', [
             'model' => $model,
@@ -163,9 +164,10 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-    public function actionUser($id){
+    public function actionUser($id)
+    {
         $user = Member::findOne($id);
-        $teacherabout = TeacherAbout::findOne(['teacher_id'=>$id]);
-        return $this->render('user', compact('user','teacherabout'));
+        $teacherabout = TeacherAbout::findOne(['teacher_id' => $id]);
+        return $this->render('user', compact('user', 'teacherabout'));
     }
 }
