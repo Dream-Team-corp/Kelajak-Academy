@@ -2,9 +2,12 @@
 
 namespace frontend\modules\teacher\controllers;
 
+use common\models\Bil;
+use common\models\Group;
 use common\models\TeacherAbout;
 use frontend\modules\control\controllers\BaseController;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\helpers\VarDumper;
 
 /**
@@ -22,8 +25,16 @@ class DefaultController extends BaseController
         if (empty($about)) {
             return $this->redirect(['profile-setting']);
         }
+        
+        $bill = new ActiveDataProvider([
+            'query' => Bil::find()->limit(5)->orderBy(['id' => SORT_DESC])
+        ]);
 
-        return $this->render('index', compact('about'));
+        $groups = new ActiveDataProvider([
+            'query' => Group::find()->where(['teacher_id' => Yii::$app->user->id])->orderBy(['id' => SORT_DESC])
+        ]);
+
+        return $this->render('index', compact('about', 'bill', 'groups'));
     }
 
     public function actionProfileSetting()

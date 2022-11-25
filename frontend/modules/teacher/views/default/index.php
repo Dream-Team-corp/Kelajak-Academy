@@ -1,22 +1,27 @@
 <?php
 
+use yii\bootstrap4\Html;
+use yii\grid\GridView;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
+use yii\grid\ActionColumn;
 
 $this->title = "O'qituvchi - " . Yii::$app->user->identity->first_name;
 $assetDir = Yii::getAlias('@defaultImage');;
 
 ?>
 <style>
-    .fpos{
+    .fpos {
         position: relative !important;
     }
-    .pos{
+
+    .pos {
         position: absolute !important;
         top: 0;
         right: 0;
     }
-    .fsx{
+
+    .fsx {
         font-size: 25px !important;
     }
 </style>
@@ -66,6 +71,98 @@ $assetDir = Yii::getAlias('@defaultImage');;
                 <div class="row justify-content-around mt-3">
                     <?= $about->socialLink ?>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-outline card-success">
+            <div class="card-header d-flex justify-content-between">
+                <h3 class="card-title">Oxirgi to'lovlar</h3>
+
+                <a href="<?= Url::to(['/teacher/bil/index']) ?>" class="btn btn-sm btn-flat btn-primary">Barchasi</a>
+            </div>
+            <?=
+            GridView::widget([
+                'dataProvider' => $bill,
+                'summary' => false,
+                'tableOptions' => [
+                    'class' => 'table',
+                ],
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+
+                    // 'id',
+                    [
+                        'attribute' => 'pupil_id',
+                        'label' => 'F.I.SH',
+                        'value' => function ($model) {
+                            return $model->pupil->first_name . ' ' . $model->pupil->last_name;
+                        }
+                    ],
+                    [
+                        'attribute' => 'group_id',
+                        'value' => 'group.name'
+                    ],
+                    // 'teacher_id',
+                    [
+                        'attribute' => 'how_much',
+                        'value' => function ($model) {
+                            return number_format($model->how_much, '0', ' ', ' ') . ' So\'m';
+                        }
+                    ],
+                    // [
+                    //     'attribute' => 'type',
+                    //     'value' => 'typeLabel',
+                    //     'format' => 'html'
+                    // ],
+                    [
+                        'attribute' => 'created_at',
+                        'format' => 'date',
+                    ],
+                    [
+                        'class' => ActionColumn::class,
+                        'urlCreator' => function ($action, $model, $key, $index, $column) {
+                            return Url::toRoute([$action, 'id' => $model->id]);
+                        },
+                        'template' => '{update} {delete}',
+                    ],
+
+                ],
+            ])
+            ?>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card card-outline card-primary">
+            <div class="card-header d-flex justify-content-between">
+                <h3 class="card-title">Guruhlar ro'yhati</h3>
+
+                <a href="<?= Url::to(['/teacher/group/index']) ?>" class="btn btn-sm btn-flat btn-primary">Barchasi</a>
+            </div>
+            <div class="card-body">
+                <?php
+                    echo  GridView::widget([
+                        'dataProvider' => $groups,
+                        'tableOptions' => [
+                            'class' => 'table',
+                        ],
+                        'summary'=>false,
+                        'columns'=>[
+                            'name',
+                            [
+                                'attribute' => 'course_id',
+                                'format' => 'html',
+                                'value' => function($model){
+                                    return Html::a($model->course->title, Url::to(['/teacher/course/view', 'id' => $model->course_id]));
+                                }
+                            ],
+                            'created_at:date'
+                        ]
+                    ]);
+                ?>
             </div>
         </div>
     </div>
