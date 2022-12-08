@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
 
         "css/flaticon.css",
         "css/style.css",
-        'css/site.css'
+        // 'css/site.css'
     ];
     public $js = [
         "js/jquery-migrate-3.0.1.min.js",

@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Course;
 use common\models\TeacherAbout;
 use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 
 class TeachersController extends \yii\web\Controller
@@ -15,7 +16,6 @@ class TeachersController extends \yii\web\Controller
         $teachers = new ActiveDataProvider([
             'query' => TeacherAbout::find()->orderBy(['id' => SORT_DESC])
         ]);
-
         return $this->render('index', compact('teachers'));
     }
 
