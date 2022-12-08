@@ -24,6 +24,9 @@ return [
         'teacher' => [
             'class' => 'frontend\modules\teacher\Teacher',
         ],
+        'family' => [
+            'class' => 'frontend\modules\family\Family',
+        ],
     ],
     'components' => [
         'reCaptcha' => [

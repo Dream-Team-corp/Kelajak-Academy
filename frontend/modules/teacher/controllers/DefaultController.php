@@ -27,7 +27,7 @@ class DefaultController extends BaseController
         }
         
         $bill = new ActiveDataProvider([
-            'query' => Bil::find()->limit(5)->orderBy(['id' => SORT_DESC])
+            'query' => Bil::find()->limit(5)->orderBy(['id' => SORT_DESC])->where(['teacher_id' => Yii::$app->user->id])
         ]);
 
         $groups = new ActiveDataProvider([

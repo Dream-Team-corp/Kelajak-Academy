@@ -27,7 +27,7 @@ class BilController extends BaseController
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Bil::find()
+            'query' => Bil::find()->where(['teacher_id' => Yii::$app->user->id])
         ]);
 
         return $this->render('index', [

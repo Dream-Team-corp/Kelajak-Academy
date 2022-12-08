@@ -39,8 +39,8 @@ class AppAsset extends AssetBundle
         "js/jquery.animateNumber.min.js",
         "js/bootstrap-datepicker.js",
         "js/scrollax.min.js",
-        "js/google-map.js",
         "js/main.js",
+        // "js/script.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',

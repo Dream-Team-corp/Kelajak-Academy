@@ -7,7 +7,7 @@ $(function () {
       ordering: true,
       autoWidth: false,
       responsive: true,
-      info:false,
+      info: false,
       buttons: ["excel", "pdf", "print"],
     })
     .buttons()
