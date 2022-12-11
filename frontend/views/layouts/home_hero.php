@@ -10,10 +10,7 @@ use yii\helpers\Url;
             <div class="col-md-7 ftco-animate">
                 <span class="subheading">Keljak Academy ga xush kelibsiz!</span>
                 <h1 class="mb-4">Kelajagingizni Kelajak Academy bilan quring</h1>
-                <p class="caps">
-                    Far far away, behind the word mountains, far from the countries
-                    Vokalia and Consonantia
-                </p>
+                
                 <p class="mb-0">
                     <a href="<?= Url::to(['course/index']) ?>" class="btn btn-primary">Bizning kurslarimiz</a>
                 </p>

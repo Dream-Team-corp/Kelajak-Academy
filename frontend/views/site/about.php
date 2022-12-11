@@ -133,7 +133,7 @@ $course = \common\models\Course::find()->where(['status' => \common\models\Cours
 <section class="ftco-section services-section">
     <div class="container">
         <div class="row d-flex">
-            <div class="col-md-6 heading-section pr-md-5 ftco-animate d-flex align-items-center">
+            <div class="col-md-8 heading-section pr-md-5 ftco-animate d-flex align-items-center">
                 <div class="w-100 mb-4 mb-md-0">
                     <span class="subheading">Kelajakka xush kelibsiz!</span>
                     <h2 class="mb-4">Kelajak Academy - ishonchli va sifatli ta'lim!</h2>
@@ -151,7 +151,7 @@ $course = \common\models\Course::find()->where(['status' => \common\models\Cours
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                         <div class="services">
@@ -194,7 +194,7 @@ $course = \common\models\Course::find()->where(['status' => \common\models\Cours
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
