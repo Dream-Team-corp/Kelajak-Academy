@@ -48,7 +48,7 @@ class Bil extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['how_much'], 'required'],
+            [['how_much', 'pupil_id'], 'required'],
             [['pupil_id', 'group_id', 'teacher_id', 'how_much', 'type', 'created_at'], 'integer'],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::class, 'targetAttribute' => ['group_id' => 'id']],
             [['pupil_id'], 'exist', 'skipOnError' => true, 'targetClass' => Member::class, 'targetAttribute' => ['pupil_id' => 'id']],
