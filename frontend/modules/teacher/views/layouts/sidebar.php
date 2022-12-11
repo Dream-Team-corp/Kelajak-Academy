@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Url;
-$image = Yii::$app->user->identity->teacherInfo->image;
+$image = (empty(Yii::$app->user->identity->teacherInfo->image)) ? Yii::$app->user->identity->photo : Yii::$app->user->identity->teacherInfo->image;
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -14,7 +14,7 @@ $image = Yii::$app->user->identity->teacherInfo->image;
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= Yii::getAlias('@defaultImage') .'/'. ($image == null) ? Yii::$app->user->identity->photo : $image  ?>" class="img-circle elevation-2" width="250" height="250">
+                <img src="<?= Yii::getAlias('@defaultImage') .'/'. $image  ?>" class="img-circle elevation-2" width="250" height="250">
             </div>
             <div class="info">
                 <a href="#" class="d-block text-uppercase ml-1"><?= Yii::$app->user->identity->first_name ?></a>
