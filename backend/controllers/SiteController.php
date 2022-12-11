@@ -5,12 +5,14 @@ namespace backend\controllers;
 use backend\models\UserForm;
 use common\models\Contact;
 use common\models\Member;
+use common\models\MetaTag;
 use common\models\TeacherAbout;
 use common\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -72,7 +74,16 @@ class SiteController extends Controller
     }
     public function actionSetting()
     {
-        return $this->render('setting');
+
+        $model = (empty(MetaTag::find()->orderBy(['id' => SORT_DESC])->one())) ?  $model = new MetaTag() : MetaTag::find()->orderBy(['id' => SORT_DESC])->one();
+        
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) &&  $model->save()){
+
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+
+        return $this->render('setting', compact('model'));
     }
     public function actionUsers()
     {

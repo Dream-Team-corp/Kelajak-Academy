@@ -25,6 +25,8 @@ use yii\data\ActiveDataProvider;
  */
 class Group extends \yii\db\ActiveRecord
 {
+    const ACTIVE = 1;
+    const INACTIVE = 0;
     /**
      * {@inheritdoc}
      */

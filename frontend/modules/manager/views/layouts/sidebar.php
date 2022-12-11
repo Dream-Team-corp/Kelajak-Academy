@@ -34,8 +34,9 @@ use yii\helpers\Url;
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
                     ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/manager/default/index']],
-                    ['label' => 'Aktiv o\'qituvchilar' , 'icon' => 'circle', 'iconClassAdded' => 'text-info', 'url' => ['/manager/member/index']],
+                    ['label' => 'Faol o\'qituvchilar' , 'icon' => 'circle', 'iconClassAdded' => 'text-info', 'url' => ['/manager/member/index']],
                     ['label' => 'Qabuldagi o\'quvchilar' , 'icon' => 'circle', 'iconClassAdded' => 'text-warning', 'url' => ['/manager/member/in-active']],
+                    ['label' => 'To\'lovlar',  'icon' => 'circle', 'iconClassAdded' => 'text-primary', 'url' => ['/manager/bil/index']]
                 ],
             ]);
             ?>
