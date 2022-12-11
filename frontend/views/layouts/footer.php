@@ -23,9 +23,9 @@
             </div>
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                    <h2 class="ftco-heading-2">Help Desk</h2>
+                    <h2 class="ftco-heading-2">Salom</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Customer Care</a></li>
+                        <li><a href="#" class="py-2 d-block">Salom</a></li>
                         <li><a href="#" class="py-2 d-block">Legal Help</a></li>
                         <li><a href="#" class="py-2 d-block">Services</a></li>
                         <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>

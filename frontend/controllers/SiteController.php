@@ -89,20 +89,16 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest && Yii::$app->user->identity->type == 10) {
             return $this->redirect(['/teacher']);
         } elseif (!Yii::$app->user->isGuest && Yii::$app->user->identity->type == 5) {
-            return $this->redirect(['/pupil']);
-        } elseif (!Yii::$app->user->isGuest && Yii::$app->user->identity->type == 0) {
-            return $this->redirect(['/parents']);
-        }
+            return $this->redirect(['/family']);
+        } 
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             if (Yii::$app->user->identity->type == 10) {
                 return $this->redirect(['/teacher']);
             } elseif (Yii::$app->user->identity->type == 5) {
-                return $this->redirect(['/pupil']);
-            } elseif (Yii::$app->user->identity->type == 0) {
-                return $this->redirect(['/parents']);
-            }
+                return $this->redirect(['/family']);
+            } 
         }
 
         $model->password = '';

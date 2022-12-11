@@ -1,7 +1,11 @@
 <?php
 
 namespace frontend\modules\family\controllers;
-
+use Yii;
+use common\models\Member;
+use common\models\User;
+use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 
 /**
@@ -15,6 +19,7 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        
         return $this->render('index');
     }
 }
