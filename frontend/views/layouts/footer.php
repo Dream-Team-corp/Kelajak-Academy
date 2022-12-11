@@ -3,7 +3,7 @@
         <div class="row mb-5">
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">About</h2>
+                    <h2 class="ftco-heading-2">Biz haqimizda</h2>
                     <p>
                         Far far away, behind the word mountains, far from the countries
                         Vokalia and Consonantia, there live the blind texts.
