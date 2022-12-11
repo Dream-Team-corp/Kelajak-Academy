@@ -32,7 +32,7 @@ class ContactForm extends Model
             [['rating'], 'integer', 'min'=>0, 'max'=>10],
             [
                 ['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::class,
-                'secret' => '6Lez8qkiAAAAADheVglZC8kgMbYpJJigYS5GX7gM',
+                'secret' => '6LcCjW8jAAAAAAgxSj-A57TYSMGWgfJzQFa4p72c',
                 'uncheckedMessage' => 'Iltimos robot emasligingizni tasdiqlang!'
             ],
         ];

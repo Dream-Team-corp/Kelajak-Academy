@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'verifyCode')->widget(ReCaptcha2::class, [
-                                            'siteKey' => '6Lez8qkiAAAAAEI1iklQ2bZQ29fQmeeXdMWoL-Oc'
+                                            'siteKey' => '6LcCjW8jAAAAAC4PBY1F6q6KBv_CZ6BjsGQqp4Ao'
                                         ])->label('Tasdiqlash kodi:') ?>
                                         
                                     </div>
