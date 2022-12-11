@@ -116,7 +116,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="col-md-12 mt-5">
-            <iframe class="bg-white" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1826.5133481303533!2d71.74062129922618!3d40.65984657658428!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb6f6d630931cd%3A0xe441e0f6f7f4a2d9!2sTo&#39;yhona%20KELAJAK%20(Yoshlar%20Markazi)!5e1!3m2!1suz!2s!4v1666962086661!5m2!1suz!2s" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="bg-white" src="https://yandex.uz/map-widget/v1/-/CCUnQFcXxC" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
