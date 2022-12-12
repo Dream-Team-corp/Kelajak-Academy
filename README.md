@@ -11,7 +11,7 @@
 
 
 ````
-git clone https://github.com/Dream-Team-corp/KelajakEdu.git
+git clone https://github.com/Dream-Team-corp/Kelajak-Academy.git
 
 cd KelajakEdu
 
