@@ -23,6 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
+        'options' => [
+            'class' => 'table table-bordered'
+        ],
         'model' => $model,
         'attributes' => [
             'id',
