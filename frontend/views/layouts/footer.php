@@ -5,66 +5,65 @@
                 <div class="ftco-footer-widget pt-md-5 mb-4">
                     <h2 class="ftco-heading-2">Biz haqimizda</h2>
                     <p>
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
+                        Agar siz shifokor bo'lmoqchi bo'lsangiz albatta biologiya, kimyo fanlarini yaxshi bilishingiz kerak.
+                        Xo'sh, bu bilim va ko'nikmalarni qayerda o'rganish mumkin deysizmi? Albatta Kelajak Academyda!
                     </p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                         <li class="ftco-animate">
-                            <a href="#"><span class="fab fa-telegram"></span></a>
+                            <a href="https://t.me/kelajakacademy"><span class="fab fa-telegram"></span></a>
                         </li>
-                        <li class="ftco-animate">
+                        <!-- <li class="ftco-animate">
                             <a href="#"><span class="fab fa-facebook"></span></a>
                         </li>
                         <li class="ftco-animate">
                             <a href="#"><span class="fab fa-instagram"></span></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                    <h2 class="ftco-heading-2">Device</h2>
+                    <h2 class="ftco-heading-2">Batafsil</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Lend for</a></li>
-                        <li><a href="#" class="py-2 d-block">Legal Help</a></li>
-                        <li><a href="#" class="py-2 d-block">Services</a></li>
-                        <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                        <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-                        <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                        <li><a href="#" class="py-2 d-block">Biz haqimizda</a></li>
+                        <li><a href="#" class="py-2 d-block">Kurslar</a></li>
+                        <li><a href="#" class="py-2 d-block">O'quvchilar</a></li>
+                        <li><a href="#" class="py-2 d-block">Bo'g'lanish</a></li>
+                        <li><a href="#" class="py-2 d-block">Ro'yxaddan o'tish</a></li>
+                        <li><a href="#" class="py-2 d-block">Profilim</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">Recent Courses</h2>
+                    <h2 class="ftco-heading-2">Oxirgi kurslar</h2>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#" class="py-2 d-block">Computer Engineering</a>
+                            <a href="#" class="py-2 d-block">Matematika</a>
                         </li>
-                        <li><a href="#" class="py-2 d-block">Web Design</a></li>
-                        <li><a href="#" class="py-2 d-block">Business Studies</a></li>
-                        <li><a href="#" class="py-2 d-block">Civil Engineering</a></li>
+                        <li><a href="#" class="py-2 d-block">Fizika</a></li>
+                        <li><a href="#" class="py-2 d-block">Ingiliz tili</a></li>
+                        <li><a href="#" class="py-2 d-block">Rus tili</a></li>
                         <li>
-                            <a href="#" class="py-2 d-block">Computer Technician</a>
+                            <a href="#" class="py-2 d-block">Kompyuter savodxonligi</a>
                         </li>
-                        <li><a href="#" class="py-2 d-block">Web Developer</a></li>
+                        <li><a href="#" class="py-2 d-block">Veb dasturchilik</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <h2 class="ftco-heading-2">Savollaringiz bormi?</h2>
                     <div class="block-23 mb-3">
                         <ul>
                             <li>
-                                <span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California,
-                                    USA</span>
+                                <span class="icon fa fa-map-marker"></span><span class="text">Farg‘ona viloyati, Yozyovon tumani, Yozyovon shahar posyolkasi</span>
                             </li>
                             <li>
-                                <a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a>
+                                <a href="#"><span class="icon fa fa-phone"></span><span class="text">+998 99 691 22 30</span></a>
                             </li>
                             <li>
-                                <a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a>
+                                <a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">aaa_22_30@mail.ru</span></a>
                             </li>
                         </ul>
                     </div>
