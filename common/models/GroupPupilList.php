@@ -85,7 +85,7 @@ class GroupPupilList extends \yii\db\ActiveRecord
             } else {
                 throw new InternalErrorException("Serverning ichki xatosi!!!", 500);
             }
-        } else{
+        } else {
             $this->pupil_id = $pupil->id;
             $this->group_id = $gr_id;
             if ($this->save()) {
@@ -103,11 +103,12 @@ class GroupPupilList extends \yii\db\ActiveRecord
      */
     public function getPupil()
     {
-        return $this->hasOne(Member::class, ['id' => 'pupil_id']);
+        return $this->hasOne(UseMember::class, ['id' => 'pupil_id']);
     }
 
     public function getPupilList()
     {
-        return  Member::findAll(['type' => Member::PUPIL]);
+        return  UseMember::findAll(['type' => Member::PUPIL]);
     }
+
 }

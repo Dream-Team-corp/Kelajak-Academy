@@ -1,11 +1,6 @@
 <?php
 
-use hail812\adminlte3\yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\helpers\VarDumper;
-use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
 /** @var common\models\Group $model */
@@ -56,7 +51,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Parol',
                 'value' => 'pupil.username'
             ],
-            'created_at:datetime'
+            'created_at:date',
+            [
+                'attribute' => 'bill',
+                'label' => 'Oxirgi to\'lov',
+                'value' => 'pupil.bill.created_at',
+                'format' => 'Date'
+            ]
 
         ]
     ])

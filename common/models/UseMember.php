@@ -77,4 +77,8 @@ class UseMember extends Member
     {
         return $this->hasOne(OnlineApply::class, ['user_id' => 'id']);
     }
+
+    public function getBill(){
+        return Bil::find()->orderBy(['id' => SORT_DESC])->one();
+    }
 }

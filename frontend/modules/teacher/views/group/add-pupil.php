@@ -14,6 +14,7 @@ $id = Yii::$app->request->get('id');
                     <div class="form-group">
                         <label>Barcha o'quvchilar</label>
                         <select class="form-control select2 select2-primary" name="pupil" data-dropdown-css-class="select2-primary" style="width: 100%">
+                            <option>O'quvchini tanlang:</option>
                             <?php foreach ($model->pupilList as $k) :  ?>
                                 <option value="<?= $k->id ?>">
                                     <?= $k->first_name . ' ' . $k->last_name ?>
