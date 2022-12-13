@@ -3,7 +3,7 @@
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
-$img = ($model->teacherInfo->image != '') ? $model->teacherInfo->image : 'user.png';
+$img = ($model->teacherInfo->image != '') ? $model->teacherInfo->image : $model->photo;
 ?>
 <div class="card p-2">
     <img class="" src="<?= Yii::getAlias('@defaultImage') . '/' . $img ?>" alt="Card image">
