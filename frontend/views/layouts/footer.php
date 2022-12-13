@@ -1,3 +1,7 @@
+<?php
+
+use yii\helpers\Url;
+?>
 <footer class="ftco-footer ftco-no-pt">
     <div class="container">
         <div class="row mb-5">
@@ -23,34 +27,16 @@
             </div>
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                    <h2 class="ftco-heading-2">Batafsil</h2>
+                    <h2 class="ftco-heading-2">Asosiy bo'limlarimiz</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Biz haqimizda</a></li>
-                        <li><a href="#" class="py-2 d-block">Kurslar</a></li>
-                        <li><a href="#" class="py-2 d-block">O'quvchilar</a></li>
-                        <li><a href="#" class="py-2 d-block">Bo'g'lanish</a></li>
-                        <li><a href="#" class="py-2 d-block">Ro'yxaddan o'tish</a></li>
-                        <li><a href="#" class="py-2 d-block">Profilim</a></li>
+                        <li><a href="<?= Url::to(['/main/about']) ?>" class="py-2 d-block">Biz haqimizda</a></li>
+                        <li><a href="<?= Url::to(['/course/index']) ?>" class="py-2 d-block">Kurslar</a></li>
+                        <li><a href="<?= Url::to(['/teachers/index']) ?>" class="py-2 d-block">O'qituvchilar</a></li>
+                        <li><a href="<?= Url::to(['/main/contact']) ?>" class="py-2 d-block">Fikringiz</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md pt-5">
-                <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">Oxirgi kurslar</h2>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#" class="py-2 d-block">Matematika</a>
-                        </li>
-                        <li><a href="#" class="py-2 d-block">Fizika</a></li>
-                        <li><a href="#" class="py-2 d-block">Ingiliz tili</a></li>
-                        <li><a href="#" class="py-2 d-block">Rus tili</a></li>
-                        <li>
-                            <a href="#" class="py-2 d-block">Kompyuter savodxonligi</a>
-                        </li>
-                        <li><a href="#" class="py-2 d-block">Veb dasturchilik</a></li>
-                    </ul>
-                </div>
-            </div>
+
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4">
                     <h2 class="ftco-heading-2">Savollaringiz bormi?</h2>
@@ -60,10 +46,10 @@
                                 <span class="icon fa fa-map-marker"></span><span class="text">Farg‘ona viloyati, Yozyovon tumani, Yozyovon shahar posyolkasi</span>
                             </li>
                             <li>
-                                <a href="#"><span class="icon fa fa-phone"></span><span class="text">+998 99 691 22 30</span></a>
+                                <a href="tel:+998996912230"><span class="icon fa fa-phone"></span><span class="text">+998 99 691 22 30</span></a>
                             </li>
                             <li>
-                                <a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">aaa_22_30@mail.ru</span></a>
+                                <a href="mailto:aaa_22_30@mail.ru"><span class="icon fa fa-paper-plane"></span><span class="text">aaa_22_30@mail.ru</span></a>
                             </li>
                         </ul>
                     </div>

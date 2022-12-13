@@ -26,7 +26,7 @@ $route = Yii::$app->controller->route;
                     <a href="<?= Url::to(['/teachers/index']) ?>" class="nav-link">O'qituvchilar</a>
                 </li>
                 <li class="nav-item <?= ($route == 'site/contact') ? 'active' : '' ?>">
-                    <a href="<?= Url::to(['/site/contact']) ?>" class="nav-link">Bo'g'lanish</a>
+                    <a href="<?= Url::to(['/site/contact']) ?>" class="nav-link">Fikringiz</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= Url::to(['/site/login']) ?>" class="nav-link">

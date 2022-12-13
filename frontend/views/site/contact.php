@@ -5,13 +5,10 @@
 /** @var \frontend\models\ContactForm $model */
 
 use himiklab\yii2\recaptcha\ReCaptcha2;
-use kartik\file\FileInput;
 use kartik\rating\StarRating as RatingStarRating;
-use yii\bootstrap5\Html;
 use yii\bootstrap4\ActiveForm;
-use yii\captcha\Captcha;
 
-$this->title = 'Biz bilan Bog\'lanish';
+$this->title = 'Fikringiz';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <section class="ftco-section">
@@ -22,11 +19,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="row no-gutters">
                         <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
                             <div class="contact-wrap w-100 p-md-5 p-4">
-                                <h3 class="mb-4">Aloqa qiling</h3>
+                                <h3 class="mb-4">O'z fikringizni qoldiring</h3>
                                 <?php $form = ActiveForm::begin(['id' => 'contact-form', 'class' => 'contactForm']); ?>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <?= $form->field($model, 'name')->textInput(['autofocus' => true])->label('Ismingiz:') ?>
+                                        <?= $form->field($model, 'name')->textInput()->label('Ismingiz:') ?>
                                     </div>
                                     <div class="col-md-6">
                                         <?= $form->field($model, 'email')->label('Elektron pochta:') ?>
@@ -43,8 +40,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'min' => 0,
                                             'max' => 10,
                                             'step' => 2,
-                                            'size' => 'lg',
+                                            'size' => 'sm',
                                             'starClear' => '',
+                                            'showClear' => false,
                                             'starCaptions' => [
                                                 0 => 'Reting berilmadi!!!',
                                                 2 => 'Juda yomon',
@@ -67,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="col-md-12">
                                         <?= $form->field($model, 'verifyCode')->widget(ReCaptcha2::class, [
                                             'siteKey' => '6LcCjW8jAAAAAC4PBY1F6q6KBv_CZ6BjsGQqp4Ao'
-                                        ])->label('Tasdiqlash kodi:') ?>
+                                        ])->label('Tasdiqlash testi:') ?>
                                         
                                     </div>
                                     <div class="col-md-12">
