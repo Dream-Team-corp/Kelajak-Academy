@@ -16,6 +16,7 @@ $route = Yii::$app->controller->route;
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-site-verification" content="2EC3f7cGZopB7rPrOumPl0K8MGGC6CWVWJ2bknj1UdA" />
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>

@@ -101,8 +101,6 @@ class Bil extends \yii\db\ActiveRecord
         return $this->hasOne(Member::class, ['id' => 'pupil_id']);
     }
 
-
-
     /**
      * Gets query for [[Teacher]].
      *
@@ -128,7 +126,16 @@ class Bil extends \yii\db\ActiveRecord
             'To\'lov vaqti',
         ];
     }
+    public function getTeacherList(){
+        $list =  Member::findAll(['type' => Member::TEACHER]);
+        $out = [];
 
+        foreach ($list as $account) {
+            $out[] = ['id' => $account->id, 'name' => "$account->first_name $account->last_name"];
+        }
+
+        return $out;
+    }
     /**
      * {@inheritdoc}
      * @return \common\models\search\BilQuery the active query used by this AR class.

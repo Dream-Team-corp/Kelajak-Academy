@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Course;
 use common\models\CourseCategory;
 use common\models\Contact;
+use common\models\MetaTag;
 use yii\data\ActiveDataProvider;
 
 class MainController extends \yii\web\Controller
@@ -24,10 +25,10 @@ class MainController extends \yii\web\Controller
         $course = new ActiveDataProvider([
             'query' => Course::find()->where(['status' => Course::STATUS_ACTIVE])->orderBy(['id' => SORT_DESC])->limit(6)
         ]);
-        foreach ($model->getModels() as $k) {
-            $this->view->registerMetaTag(['name' => 'keywords', 'content' => $k->tag]);
-        }
+        $metaTag = MetaTag::find()->orderBy(['id' => SORT_DESC])->one();
+        $this->view->registerMetaTag(['name' => 'keywords', 'content' => $metaTag->keyword]);
+        $this->view->registerMetaTag(['name' => 'description', 'content' => $metaTag->description]);
 
-        return $this->render('index', ['model' => $model, 'course' => $course, 'contact'=> $contact]);
+        return $this->render('index', ['model' => $model, 'course' => $course, 'contact' => $contact]);
     }
 }

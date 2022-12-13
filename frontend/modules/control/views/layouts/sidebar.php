@@ -1,6 +1,10 @@
+<?php
+
+use yii\helpers\Url;
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?= Url::home() ?>" class="brand-link">
         <span class="brand-text font-weight-light ml-2"><strong><?= Yii::$app->name ?></strong></span>
     </a>
 
