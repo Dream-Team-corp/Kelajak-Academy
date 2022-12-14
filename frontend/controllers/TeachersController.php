@@ -37,7 +37,7 @@ class TeachersController extends \yii\web\Controller
     private function findModel($id)
     {
         if ($id != null) {
-            return TeacherAbout::findOne($id);
+            return TeacherAbout::findOne(['teacher_id' => $id]);
         } else {
             throw new NotFoundHttpException("Bunday o'qituvchi mavjud emas!", 404);
         }
