@@ -9,7 +9,7 @@ use yii\helpers\Url;
         <div class="img align-self-stretch" style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/<?= $model->image ?>);"></div>
     </div>
     <div class="text pt-3">
-        <h3><a href="<?= Url::to(['/teachers/view', 'id' => $model->id]) ?>"><?= $model->teacher->first_name . ' ' . $model->teacher->last_name ?></a></h3>
+        <h3><a href="<?= Url::to(['/teachers/view', 'id' => $model->teacher_id]) ?>"><?= $model->teacher->first_name . ' ' . $model->teacher->last_name ?></a></h3>
         <span class="position mb-2 text-capitalize"><?= $model->job ?></span>
         <div class="faded">
             <p><?= substr($model->about, 0, 100) ?>...</p>
