@@ -146,7 +146,7 @@ $assetDir = Yii::getAlias('@defaultImage');;
             <div class="card-body">
                 <div class="table-responsive">
                     <?php
-                    /* echo  GridView::widget([
+                     echo  GridView::widget([
                         'dataProvider' => $groups,
                         'tableOptions' => [
                             'class' => 'table',
@@ -154,16 +154,14 @@ $assetDir = Yii::getAlias('@defaultImage');;
                         'summary' => false,
                         'columns' => [
                             'name',
+                            'created_at:date',
                             [
-                                'attribute' => 'course_id',
-                                'format' => 'html',
-                                'value' => function ($model) {
-                                    return Html::a($model->course->title, Url::to(['/teacher/course/view', 'id' => $model->course_id]));
-                                }
-                            ],
-                            'created_at:date'
+                                'attribute' => 'pupil_count',
+                                'value' => 'pupilCount',
+                                'label' => 'O\'quvchilar soni'
+                            ]
                         ]
-                    ]); */
+                    ]); 
                     ?>
                 </div>
 

@@ -111,6 +111,17 @@ class Group extends \yii\db\ActiveRecord
         return $this->hasOne(Member::class, ['id' => 'teacher_id']);
     }
 
+    public function getPupilCount(){
+        $count = GroupPupilList::find()->where(['group_id' => $this->id])->count();
+
+        if($count != 0){
+            return "$count  nafar";
+        } else{
+            return "O'quvchilar qo'shilmagan!";
+        }
+
+    }
+
     public function getCourseList()
     {
         return Course::findAll(['status' => Course::STATUS_ACTIVE, 'user_id' => Yii::$app->user->id]);
