@@ -86,9 +86,10 @@ class Group extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Course::class, ['id' => 'course_id']);
     }
-    public function getResult(){
+    public function getResult()
+    {
         return $abs = new ActiveDataProvider([
-            'query'=> PupilResult::find()->where(['group_id'=>$this->id])
+            'query' => PupilResult::find()->where(['group_id' => $this->id])
         ]);
     }
     /**
@@ -111,70 +112,70 @@ class Group extends \yii\db\ActiveRecord
         return $this->hasOne(Member::class, ['id' => 'teacher_id']);
     }
 
-    public function getPupilCount(){
+    public function getPupilCount()
+    {
         $count = GroupPupilList::find()->where(['group_id' => $this->id])->count();
 
-        if($count != 0){
+        if ($count != 0) {
             return "$count  nafar";
-        } else{
+        } else {
             return "O'quvchilar qo'shilmagan!";
         }
-
     }
 
     public function getCourseList()
     {
         return Course::findAll(['status' => Course::STATUS_ACTIVE, 'user_id' => Yii::$app->user->id]);
     }
-    public function getDate(){
-        
-        $date = Coursegroupdate::find()->where(['group_id'=> $this->id])->one();
+    public function getDate()
+    {
+
+        $date = Coursegroupdate::find()->where(['group_id' => $this->id])->one();
         $days = '';
         $days .= '<table class="table">';
         if ($date->dushanba != "") {
             $days .= '<tr>
                         <th>Dushanba</th>
-                        <td>'.$date->dushanba.'</td>
+                        <td>' . $date->dushanba . '</td>
                       </tr>';
         }
         if ($date->seshanba != "") {
             $days .= '<tr>
                         <th>Seshanba</th>
-                        <td>'.$date->seshanba.'</td>
+                        <td>' . $date->seshanba . '</td>
                       </tr>';
         }
         if ($date->chorshanba != "") {
             $days .= '<tr>
                         <th>Chorshanba</th>
-                        <td>'.$date->chorshanba.'</td>
+                        <td>' . $date->chorshanba . '</td>
                       </tr>';
         }
         if ($date->payshanba != "") {
             $days .= '<tr>
                         <th>Payshanba</th>
-                        <td>'.$date->payshanba.'</td>
+                        <td>' . $date->payshanba . '</td>
                       </tr>';
         }
         if ($date->juma != "") {
             $days .= '<tr>
                         <th>Juma</th>
-                        <td>'.$date->juma.'</td>
+                        <td>' . $date->juma . '</td>
                       </tr>';
         }
         if ($date->shanba != "") {
             $days .= '<tr>
                         <th>Shanba</th>
-                        <td>'.$date->shanba.'</td>
+                        <td>' . $date->shanba . '</td>
                       </tr>';
         }
         if ($date->yakshanba != "") {
             $days .= '<tr>
                         <th>Yakshanba</th>
-                        <td>'.$date->yakshanba.'</td>
+                        <td>' . $date->yakshanba . '</td>
                       </tr>';
         }
         $days .= '</table>';
         return $days;
-        
     }
 }

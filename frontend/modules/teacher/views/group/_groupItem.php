@@ -13,14 +13,14 @@ use yii\helpers\VarDumper;
     </div>
     <div class="card-body">
         <b>Kurs vaqtlari</b>
-        <?=$model->date?>
+        <?= $model->date ?>
         <a href="<?= Url::to(['view', 'id' => $model->id]) ?>" class="btn btn-block btn-primary btn-flat mt-3">
             O'quvchilar ro'yhati <i class="fas fa-angle-right ml-1"></i>
         </a>
     </div>
     <div class="card-footer d-flex justify-content-between">
         <a href="<?= Url::to(['update', 'id' => $model->id]) ?>" class="btn btn-info btn-sm"><i class="fa fa-pen"></i></a>
-        <a href="<?=Url::to([($model->date == '') ? 'date/create' : 'date/update', 'id'=>$model->id, 'course_id'=> $model->course_id])?>" class="btn btn-primary btn-sm"><i class="fa fa-calendar-plus" aria-hidden="true"></i></a>
+        <a href="<?= Url::to([($model->date == '') ? 'date/create' : 'date/update', 'id' => $model->id, 'course_id' => $model->course_id]) ?>" class="btn btn-primary btn-sm"><i class="fa fa-calendar-plus" aria-hidden="true"></i></a>
         <?= Html::a('<i class="fa fa-trash"></i>', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm',
             'data' => [
