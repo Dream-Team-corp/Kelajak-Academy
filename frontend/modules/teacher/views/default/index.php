@@ -3,7 +3,6 @@
 use yii\bootstrap4\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
-use yii\helpers\VarDumper;
 use yii\grid\ActionColumn;
 
 $this->title = "O'qituvchi - " . Yii::$app->user->identity->first_name;
@@ -84,55 +83,57 @@ $assetDir = Yii::getAlias('@defaultImage');;
 
                 <a href="<?= Url::to(['/teacher/bil/index']) ?>" class="btn btn-sm btn-flat btn-primary">Barchasi</a>
             </div>
-            <?=
-            GridView::widget([
-                'dataProvider' => $bill,
-                'summary' => false,
-                'tableOptions' => [
-                    'class' => 'table',
-                ],
-                'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
+            <div class="table-responsive">
+                <?=
+                GridView::widget([
+                    'dataProvider' => $bill,
+                    'summary' => false,
+                    'tableOptions' => [
+                        'class' => 'table',
+                    ],
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
 
-                    // 'id',
-                    [
-                        'attribute' => 'pupil_id',
-                        'label' => 'F.I.SH',
-                        'value' => function ($model) {
-                            return $model->pupil->first_name . ' ' . $model->pupil->last_name;
-                        }
-                    ],
-                    [
-                        'attribute' => 'group_id',
-                        'value' => 'group.name'
-                    ],
-                    // 'teacher_id',
-                    [
-                        'attribute' => 'how_much',
-                        'value' => function ($model) {
-                            return number_format($model->how_much, '0', ' ', ' ') . ' So\'m';
-                        }
-                    ],
-                    // [
-                    //     'attribute' => 'type',
-                    //     'value' => 'typeLabel',
-                    //     'format' => 'html'
-                    // ],
-                    [
-                        'attribute' => 'created_at',
-                        'format' => 'date',
-                    ],
-                    [
-                        'class' => ActionColumn::class,
-                        'urlCreator' => function ($action, $model, $key, $index, $column) {
-                            return Url::toRoute([$action, 'id' => $model->id]);
-                        },
-                        'template' => '{update} {delete}',
-                    ],
+                        // 'id',
+                        [
+                            'attribute' => 'pupil_id',
+                            'label' => 'F.I.SH',
+                            'value' => function ($model) {
+                                return $model->pupil->first_name . ' ' . $model->pupil->last_name;
+                            }
+                        ],
+                        [
+                            'attribute' => 'group_id',
+                            'value' => 'group.name'
+                        ],
+                        // 'teacher_id',
+                        [
+                            'attribute' => 'how_much',
+                            'value' => function ($model) {
+                                return number_format($model->how_much, '0', ' ', ' ') . ' So\'m';
+                            }
+                        ],
+                        // [
+                        //     'attribute' => 'type',
+                        //     'value' => 'typeLabel',
+                        //     'format' => 'html'
+                        // ],
+                        [
+                            'attribute' => 'created_at',
+                            'format' => 'date',
+                        ],
+                        [
+                            'class' => ActionColumn::class,
+                            'urlCreator' => function ($action, $model, $key, $index, $column) {
+                                return Url::toRoute([$action, 'id' => $model->id]);
+                            },
+                            'template' => '{update} {delete}',
+                        ],
 
-                ],
-            ])
-            ?>
+                    ],
+                ])
+                ?>
+            </div>
         </div>
     </div>
     <div class="col-md-6">
@@ -143,26 +144,29 @@ $assetDir = Yii::getAlias('@defaultImage');;
                 <a href="<?= Url::to(['/teacher/group/index']) ?>" class="btn btn-sm btn-flat btn-primary">Barchasi</a>
             </div>
             <div class="card-body">
-                <?php
-                    echo  GridView::widget([
+                <div class="table-responsive">
+                    <?php
+                    /* echo  GridView::widget([
                         'dataProvider' => $groups,
                         'tableOptions' => [
                             'class' => 'table',
                         ],
-                        'summary'=>false,
-                        'columns'=>[
+                        'summary' => false,
+                        'columns' => [
                             'name',
                             [
                                 'attribute' => 'course_id',
                                 'format' => 'html',
-                                'value' => function($model){
+                                'value' => function ($model) {
                                     return Html::a($model->course->title, Url::to(['/teacher/course/view', 'id' => $model->course_id]));
                                 }
                             ],
                             'created_at:date'
                         ]
-                    ]);
-                ?>
+                    ]); */
+                    ?>
+                </div>
+
             </div>
         </div>
     </div>
