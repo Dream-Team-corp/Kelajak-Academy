@@ -13,7 +13,7 @@ use yii\helpers\Url;
         <span class="position mb-2 text-capitalize"><?= $model->job ?></span>
         <div class="faded">
             <p><?= substr($model->about, 0, 50) ?>...</p>
-            <ul class="ftco-social text-center">
+            <ul class="ftco-social text-center bg-white <?= (!empty($model->socialLinkFront)) ? '' : 'd-none' ?>">
                 <?= $model->socialLinkFront ?>
             </ul>
         </div>
