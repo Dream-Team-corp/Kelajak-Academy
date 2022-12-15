@@ -245,5 +245,13 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
     public function getTeacherInfo(){
         return TeacherAbout::findOne(['teacher_id' => $this->id]);
     }
+    public function getType(){
+        if ($this->type == $this::PUPIL){
+            return 'O\'quvchi';
+        } 
+        else{
+            return 'Hacker';
+        }
+    }
 
 }
