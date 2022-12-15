@@ -109,9 +109,7 @@ class GroupPupilList extends \yii\db\ActiveRecord
 
     public function getPupilList()
     {
-        $pupils = UseMember::findAll(['type' => Member::PUPIL]);
-        $result = ArrayHelper::map($pupils, 'id', 'username');
-
+        $result = UseMember::findAll(['type' => Member::PUPIL]);
         return $result;
     }
 
