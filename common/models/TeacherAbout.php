@@ -116,13 +116,15 @@ class TeacherAbout extends \yii\db\ActiveRecord
             'instagram' => $this->instagram,
             'youtube' => $this->youtube,
             'telegram' => $this->telegram,
-            'google' => $this->email,
         ];
         $arr = [];
         foreach ($contact as $k => $v) {
             if (!empty($contact[$k])) {
                 $arr[] = "<a href='" . $v . "' target='_blank'><i class='fab fsx fa-" . $k . "'> </i></a>\n";
             }
+        }
+        if (!empty($this->email)) {
+            array_push($arr, "<a href='mailto:" . $this->email . "' target='_blank'><i class='fab fsx fa-google'> </i></a>\n");
         }
         return implode(' ', $arr);
     }
@@ -135,13 +137,15 @@ class TeacherAbout extends \yii\db\ActiveRecord
             'instagram' => $this->instagram,
             'youtube' => $this->youtube,
             'telegram' => $this->telegram,
-            'google' => $this->email,
         ];
         $arr = [];
         foreach ($contact as $k => $v) {
             if (!empty($contact[$k])) {
                 $arr[] = "<li class='ftco-animate'><a href='" . $v . "' target='_blank'><i class='fab fsx fa-" . $k . "'> </i></a></li>\n";
             }
+        }
+        if (!empty($this->email)) {
+            array_push($arr, "<li class='ftco-animate'><a href='mailto:" . $this->email . "' target='_blank'><i class='fab fsx fa-google'> </i></a></li>\n");
         }
         return implode(' ', $arr);
     }

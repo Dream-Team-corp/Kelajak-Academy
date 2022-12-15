@@ -129,8 +129,7 @@ class GroupController extends BaseController
             if ($model->add($id, $pupil_id)) {
                 return $this->redirect(Yii::$app->request->referrer);
             } else {
-                VarDumper::dump($model->errors);
-                return false;
+                return $this->redirect(Yii::$app->request->referrer);
             }
         }
         return $this->render('add-pupil', compact('model'));

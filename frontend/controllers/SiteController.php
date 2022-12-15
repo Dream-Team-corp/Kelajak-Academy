@@ -14,7 +14,7 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
+use common\models\TeacherAbout;
 use frontend\models\ContactForm;
 use yii\data\ActiveDataProvider;
 
@@ -87,18 +87,28 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest && Yii::$app->user->identity->type == 10) {
-            return $this->redirect(['/teacher']);
+            $about = TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]);
+            if (empty($about)) {
+                return $this->redirect(['profile']);
+            } else {
+                return $this->redirect(['/teacher']);
+            }
         } elseif (!Yii::$app->user->isGuest && Yii::$app->user->identity->type == 5) {
             return $this->redirect(['/family']);
-        } 
+        }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $about = TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]);
             if (Yii::$app->user->identity->type == 10) {
-                return $this->redirect(['/teacher']);
+                if (empty($about)) {
+                    return $this->redirect(['profile']);
+                } else {
+                    return $this->redirect(['/teacher']);
+                }
             } elseif (Yii::$app->user->identity->type == 5) {
                 return $this->redirect(['/family']);
-            } 
+            }
         }
 
         $model->password = '';
@@ -159,22 +169,19 @@ class SiteController extends Controller
         return $this->render('about', compact('contact'));
     }
 
-    /**
-     * Signs user up.
-     *
-     * @return mixed
-     */
-    public function actionSignup()
+    public function actionProfile()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-            return $this->goHome();
-        }
+        $model = (empty(TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]))) ? new TeacherAbout() : TeacherAbout::findOne(['teacher_id' => Yii::$app->user->id]);
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+            $model->image = $model->saveImage();
+            if ($model->save()) {
+                return $this->redirect(['/teacher']);
+            } else {
+                $model->loadDefaultValues();
+            }
+        }
+        return $this->render('profile', compact('model'));
     }
 
     /**

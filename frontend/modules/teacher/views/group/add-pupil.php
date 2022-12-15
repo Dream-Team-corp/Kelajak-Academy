@@ -18,6 +18,7 @@ $id = Yii::$app->request->get('id');
                             <?php foreach ($model->pupilList as $k) :  ?>
                                 <option value="<?= $k->id ?>">
                                     <?= $k->first_name . ' ' . $k->last_name ?>
+                                    <?= ($k->status == 10) ? 'Aktiv' : 'Qabulda' ;  ?>
                                     <?= (!empty(GroupPupilList::findOne(['pupil_id' => $k->id, 'group_id' => $id]))) ? "allaqachon qo'shilgan" : '' ?>
                                 </option>
                             <?php endforeach; ?>

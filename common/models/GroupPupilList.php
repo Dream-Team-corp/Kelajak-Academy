@@ -5,6 +5,7 @@ namespace common\models;
 use Symfony\Component\CssSelector\Exception\InternalErrorException;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "group_pupil_list".
@@ -108,7 +109,10 @@ class GroupPupilList extends \yii\db\ActiveRecord
 
     public function getPupilList()
     {
-        return  UseMember::findAll(['type' => Member::PUPIL]);
+        $pupils = UseMember::findAll(['type' => Member::PUPIL]);
+        $result = ArrayHelper::map($pupils, 'id', 'username');
+
+        return $result;
     }
 
 }
