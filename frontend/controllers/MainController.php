@@ -14,7 +14,7 @@ class MainController extends \yii\web\Controller
     {
         $model = new ActiveDataProvider(
             [
-                'query' => CourseCategory::find()->where(['status' => 1])->orderBy(['id' => SORT_DESC]),
+                'query' => CourseCategory::find()->where(['status' => 1])->orderBy(['id' => SORT_DESC])->limit(6),
             ]
         );
         $contact = new ActiveDataProvider(
