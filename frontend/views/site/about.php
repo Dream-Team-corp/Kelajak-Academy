@@ -143,11 +143,11 @@ $course = \common\models\Course::find()->where(['status' => \common\models\Cours
                     <p>Eng yaxshi bilimlarni olishni istasangiz, kelajakda "Katta" odam bo'lishni xohlasangiz Kelajak
                         Academyga kelavering!</p>
                     <div class="d-flex video-image align-items-center mt-md-4">
-                        <a href="#" class="video img d-flex align-items-center justify-content-center"
+                        <a href="https://youtu.be/lIym9DS-HLI" target="_blank" class="video img d-flex align-items-center justify-content-center"
                            style="background-image: url(<?= Yii::getAlias('@defaultImage') ?>/about.jpg);">
                             <span class="fa fa-play-circle"></span>
                         </a>
-                        <h4 class="ml-4">Kelajagingizni Kelajak Academy bilan quring! <br> <small><a href="#">Videoni ko'rish</a></small></h4>
+                        <h4 class="ml-4">Kelajagingizni Kelajak Academy bilan quring! <br> <small><a target="_blank" href="https://youtu.be/lIym9DS-HLI">Videoni ko'rish</a></small></h4>
                     </div>
                 </div>
             </div>
