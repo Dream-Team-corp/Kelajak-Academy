@@ -56,6 +56,25 @@ class UseMember extends Member
         return $this->save() && $this->othersInfo();
     }
 
+    public function createMember(){
+        $this->generateAuthKey();
+
+        if (!empty($this->first_name) && !empty($this->last_name)) {
+
+            $username = $this->first_name . '_' . $this->last_name;
+
+            if (empty($this->findByUsername($username))) {
+                $this->username = $username;
+            } else {
+                $this->username = $username . rand(1000, 9999);
+            }
+            $this->setPassword($this->username);
+        }
+        $this->photo = 'user.png';
+
+        return $this->save();
+    }
+
     /**
      * @return bool
      */

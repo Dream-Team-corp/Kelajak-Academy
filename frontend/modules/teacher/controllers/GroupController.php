@@ -142,7 +142,7 @@ class GroupController extends BaseController
         if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
             $model->type = $model::PUPIL;
             $model->status = $model::STATUS_ACTIVE;
-            if ($model->signUp() && $group->add($id, $model->id)) {
+            if ($model->createMember() && $group->add($id, $model->id)) {
                 return $this->redirect(['view', 'id' => $id]);
             } else {
                 $model->loadDefaultValues();
