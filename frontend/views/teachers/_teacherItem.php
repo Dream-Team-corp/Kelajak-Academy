@@ -12,7 +12,7 @@ use yii\helpers\Url;
         <h3><a href="<?= Url::to(['/teachers/view', 'id' => $model->teacher_id]) ?>"><?= $model->teacher->first_name . ' ' . $model->teacher->last_name ?></a></h3>
         <span class="position mb-2 text-capitalize"><?= $model->job ?></span>
         <div class="faded">
-            <p><?= substr($model->about, 0, 100) ?>...</p>
+            <p><?= substr($model->about, 0, 50) ?>...</p>
             <ul class="ftco-social text-center">
                 <?= $model->socialLinkFront ?>
             </ul>
