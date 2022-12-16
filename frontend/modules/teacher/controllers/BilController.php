@@ -113,20 +113,16 @@ class BilController extends BaseController
         if (isset($_POST['depdrop_parents'])) {
             $id = $_POST['depdrop_all_params']['bil-group_id'];
             $list = GroupPupilList::find()->where(['group_id' => $id])->all();
-            $selected = null;
             if ($id != null && count($list) > 0) {
                 $selected = '';
                 foreach ($list as $account) {
                     $out[] = ['id' => $account->pupil->id, 'name' => $account->pupil->username];
-                    if (count($account->pupil) == 0) {
-                        $selected = $account->pupil_id;
-                    }
                 }
                 // Shows how you can preselect a value
-                return ['output' => $out, 'selected' => $selected];
+                return ['output' => $out];
             }
         }
-        return ['output' => '', 'selected' => ''];
+        return ['output' => ''];
     }
 
     /**
