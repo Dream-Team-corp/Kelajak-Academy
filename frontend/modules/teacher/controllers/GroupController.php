@@ -154,6 +154,36 @@ class GroupController extends BaseController
         ]);
     }
 
+    public function actionUpdatePupil($pupil_id, $id)
+    {
+        $pupil = UseMember::findOne($pupil_id);
+
+        if (!empty($pupil)) {
+
+            if(Yii::$app->request->isPost && $pupil->load(Yii::$app->request->post()) && $pupil->save()){
+                return $this->redirect(['view', 'id' => $id]);
+            } else {
+                $pupil->loadDefaultValues();
+            }
+
+            return $this->render('_pupil-form', ['model' => $pupil]);
+        } else {
+            throw new NotFoundHttpException('O\'quvchi topilmadi!', 404);
+        }
+    }
+
+    public function actionDeletePupil($id, $group_id)
+    {
+        $pupil = GroupPupilList::findOne(['pupil_id' => $id, 'group_id' => $group_id]);
+
+        if (!empty($pupil)) {
+            $pupil->delete();
+            return $this->redirect(Yii::$app->request->referrer);
+        } else {
+            throw new NotFoundHttpException('O\'quvchi topilmadi!', 404);
+        }
+    }
+
     /**
      * Finds the Group model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

@@ -7,7 +7,7 @@ use yii\widgets\MaskedInput;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
-$this->title = 'Yangi o\'quvchi';
+$this->title = (isset($_GET['pupil_id'])) ? 'Tahrirlash' : 'Yangi o\'quvchi';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'first_name')->textInput() ?>
                 <?= $form->field($model, 'last_name')->textInput() ?>
                 <?= $form->field($model, 'tel_number')->widget(MaskedInput::class, ['mask' => '\+\9\9\8 99 999-99-99',]) ?>
+
                 <div class="form-group">
                     <?= Html::submitButton('Saqlash', ['class' => 'btn btn-success']) ?>
                 </div>

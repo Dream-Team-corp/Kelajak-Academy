@@ -34,6 +34,8 @@ class BaseController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
+                    'delete' => ['post'],
+                    'delete-pupil' => ['post']
                 ],
             ],
         ];

@@ -2,6 +2,9 @@
 
 use yii\grid\GridView;
 use common\models\Bil;
+use yii\grid\ActionColumn;
+use yii\helpers\Url;
+use yii\helpers\Html;
 
 /** @var yii\web\View $this */
 /** @var common\models\Group $model */
@@ -10,6 +13,7 @@ $this->title = 'O\'quvchilar ro\'yhati';
 $this->params['breadcrumbs'][] = ['label' => 'Guruhlarim', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
 
 ?>
 <style>
@@ -65,6 +69,23 @@ $this->params['breadcrumbs'][] = $this->title;
                         return (!empty($bill->created_at)) ? date('d / M / Y', $bill->created_at) : 'Qaydlar mavjud emas!';
                     },
                     'format' => 'html'
+                ],
+                [
+                    'class' => ActionColumn::class,
+                    'template' => '{update}{delete}',
+                    'header' => 'Amallar',
+                    'buttons' => [
+                        'update' => function ($url, $model) {
+                            $gr_id = Yii::$app->request->get('id');
+                            $url = Url::to(['/teacher/group/update-pupil', 'pupil_id' => $model->pupil->id, 'id' => $gr_id]);
+                            return Html::a('<span class="fa fa-pen"></span>', $url, ['title' => 'tahrirlash', 'class' => 'btn btn-primary btn-sm']);
+                        },
+                        'delete' => function ($url, $model) {
+                            $gr_id = Yii::$app->request->get('id');
+                            $url = Url::to(['/teacher/group/delete-pupil', 'id' => $model->pupil->id, 'group_id' => $gr_id]);
+                            return Html::a('<span class="fa fa-trash"></span>', $url, ['title' => 'o\'chirish', 'class' => 'btn btn-danger ml-md-1 btn-sm', 'data-method' => 'post']);
+                        },
+                    ]
                 ]
 
             ]
