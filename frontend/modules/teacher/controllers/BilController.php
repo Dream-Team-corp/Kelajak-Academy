@@ -118,7 +118,7 @@ class BilController extends BaseController
                 $selected = '';
                 foreach ($list as $account) {
                     $out[] = ['id' => $account->pupil->id, 'name' => $account->pupil->username];
-                    if (count($account) == 0) {
+                    if (count($account->pupil) == 0) {
                         $selected = $account->pupil_id;
                     }
                 }
