@@ -112,7 +112,7 @@ class BilController extends BaseController
         $out = [];
         if (isset($_POST['depdrop_parents'])) {
             $id = end($_POST['depdrop_parents']);
-            $list = GroupPupilList::find()->andWhere(['group_id' => $id])->all();
+            $list = GroupPupilList::find()->where(['group_id' => $id])->all();
             $selected = null;
             if ($id != null && count($list) > 0) {
                 $selected = '';

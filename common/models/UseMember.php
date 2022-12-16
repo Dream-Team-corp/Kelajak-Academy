@@ -98,6 +98,7 @@ class UseMember extends Member
     }
 
     public function getBill(){
-        return Bil::find()->orderBy(['id' => SORT_DESC])->one();
+        $bil = Bil::find()->where(['pupil_id' => $this->id])->orderBy(['id' => SORT_DESC])->all();
+        return $bil;
     }
 }
