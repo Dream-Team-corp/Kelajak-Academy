@@ -111,7 +111,7 @@ class BilController extends BaseController
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $out = [];
         if (isset($_POST['depdrop_parents'])) {
-            $id = end($_POST['depdrop_parents']);
+            $id = $_POST['depdrop_all_params']['bil-group_id'];
             $list = GroupPupilList::find()->where(['group_id' => $id])->all();
             $selected = null;
             if ($id != null && count($list) > 0) {
