@@ -114,7 +114,6 @@ class BilController extends BaseController
             $id = $_POST['depdrop_all_params']['bil-group_id'];
             $list = GroupPupilList::find()->where(['group_id' => $id])->all();
             if ($id != null && count($list) > 0) {
-                $selected = '';
                 foreach ($list as $account) {
                     $out[] = ['id' => $account->pupil->id, 'name' => $account->pupil->username];
                 }
