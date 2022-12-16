@@ -108,20 +108,15 @@ class BilController extends BaseController
         if (isset($_POST['depdrop_parents'])) {
             $id = end($_POST['depdrop_parents']);
             $list = GroupPupilList::find()->andWhere(['group_id' => $id])->all();
-            $selected = null;
             if ($id != null && count($list) > 0) {
-                $selected = '';
                 foreach ($list as $account) {
                     $out[] = ['id' => $account->pupil->id, 'name' => $account->pupil->username];
-                    if ($account == 0) {
-                        $selected = $account->pupil_id;
-                    }
                 }
                 // Shows how you can preselect a value
-                return ['output' => $out, 'selected' => $selected];
+                return ['output' => $out];
             }
         }
-        return ['output' => '', 'selected' => ''];
+        return ['output' => ''];
     }
 
     public function actionGroup()
@@ -131,20 +126,14 @@ class BilController extends BaseController
         if (isset($_POST['depdrop_parents'])) {
             $id = end($_POST['depdrop_parents']);
             $list = Group::find()->andWhere(['teacher_id' => $id])->all();
-            $selected = null;
             if ($id != null && count($list) > 0) {
-                $selected = '';
                 foreach ($list as $account) {
                     $out[] = ['id' => $account->id, 'name' => $account->name];
-                    if ($account == 0) {
-                        $selected = $account->id;
-                    }
                 }
-                // Shows how you can preselect a value
-                return ['output' => $out, 'selected' => $selected];
+                return ['output' => $out];
             }
         }
-        return ['output' => '', 'selected' => ''];
+        return ['output' => ''];
     }
 
     /**
