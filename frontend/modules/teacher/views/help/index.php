@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </style>
 
 <div class="row">
-    <div class="col-md-6 offset-md-3 text-center">
+    <div class="col-md-10 offset-md-1 text-center">
         <h2 class=" text-primary">
             Bo'lim tayyorlanmoqda
             <div class="spinner-border text-primary time" role="status">
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </h2>
         <p>
-            Bo'lim qurilish jarayonida...
+            <?= $this->render('_faq') ?>
         </p>
     </div>
 </div>
