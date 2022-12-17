@@ -5,6 +5,11 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 
+/** @var $bill \common\models\Bil
+ * * @var  $groups \common\models\Group
+ * * @var $about \common\models\TeacherAbout
+ */
+
 $this->title = "O'qituvchi - " . Yii::$app->user->identity->first_name;
 $assetDir = Yii::getAlias('@defaultImage');;
 
@@ -28,7 +33,8 @@ $assetDir = Yii::getAlias('@defaultImage');;
     <div class="col-md-12">
         <div class="card card-widget widget-user">
             <div class="widget-user-header bg-primary fpos">
-                <a href="<?= Url::to(['/teacher/default/profile-setting']) ?>" class="btn btn-warning btn-sm pos" title="tahrirlash"> <i class="fa fa-pen"></i> </a>
+                <a href="<?= Url::to(['/teacher/default/profile-setting']) ?>" class="btn btn-warning btn-sm pos"
+                   title="tahrirlash"> <i class="fa fa-pen"></i> </a>
                 <h3 class="widget-user-username">
                     <?= Yii::$app->user->identity->first_name ?>
                     <?= Yii::$app->user->identity->last_name ?>
@@ -146,14 +152,20 @@ $assetDir = Yii::getAlias('@defaultImage');;
             <div class="card-body">
                 <div class="table-responsive">
                     <?php
-                     echo  GridView::widget([
+                    echo GridView::widget([
                         'dataProvider' => $groups,
                         'tableOptions' => [
                             'class' => 'table',
                         ],
                         'summary' => false,
                         'columns' => [
-                            'name',
+                            [
+                                'attribute' => 'name',
+                                'value' => function($model) {
+                                    return Html::a($model->name, Url::to(['/teacher/group/view', 'id' => $model->id]), ['class' => 'nav-link']);
+                                },
+                                'format' => 'html'
+                            ],
                             'created_at:date',
                             [
                                 'attribute' => 'pupil_count',
@@ -161,7 +173,7 @@ $assetDir = Yii::getAlias('@defaultImage');;
                                 'label' => 'O\'quvchilar soni'
                             ]
                         ]
-                    ]); 
+                    ]);
                     ?>
                 </div>
 
