@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
+    <a href="kelajakedu.uz" target="_blank">
         <img src="https://github.com/Dream-Team-corp/KelajakEdu/blob/main/frontend/web/img/Logo%20K.png" height="100px">
     </a>
     <h1 align="center">Kelajak edu project</h1>
