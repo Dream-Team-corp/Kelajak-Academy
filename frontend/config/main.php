@@ -24,8 +24,8 @@ return [
         'teacher' => [
             'class' => 'frontend\modules\teacher\Teacher',
         ],
-        'family' => [
-            'class' => 'frontend\modules\family\Family',
+        'pupil' => [
+            'class' => 'frontend\modules\pupil\Pupil',
         ],
     ],
     'components' => [
