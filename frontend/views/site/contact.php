@@ -10,7 +10,7 @@ use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Fikringiz';
 $this->params['breadcrumbs'][] = $this->title;
-?>
+?> 
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">

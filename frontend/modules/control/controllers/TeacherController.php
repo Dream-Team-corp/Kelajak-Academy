@@ -23,10 +23,10 @@ class TeacherController extends BaseController
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => UseMember::find()->where(['type' => UseMember::TEACHER, 'status' => UseMember::STATUS_ACTIVE]),
+            'query' => UseMember::find()->where(['type' => UseMember::TEACHER]),
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'last_name' => SORT_ASC,
                 ]
             ],
 

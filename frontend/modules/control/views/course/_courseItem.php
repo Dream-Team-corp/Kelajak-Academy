@@ -16,7 +16,7 @@ use yii\helpers\Url;
         </div>
         <img src="<?= Yii::getAlias('@defaultImage') . '/' . $model->image ?>" class="card-img img-fluid" alt="<?= $model->title ?>">
         <div class="p-1">
-            <p><?= $model->description ?></p>
+            <p><?= substr($model->description, 0, 30) ?>...</p>
             <p><b>Narxi:</b> <?= number_format($model->price, 0, ' ', ' ') ?> so'm</p>
             <b>O'qituvchi: </b> <span><?= $model->user->first_name.' '.$model->user->last_name ?></span>
         </div>

@@ -6,42 +6,37 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var common\models\UseMember $model */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Use Members', 'url' => ['index']];
+$this->title = $model->first_name;
+$this->params['breadcrumbs'][] = ['label' => 'O\'quvchilar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="use-member-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
+<div class="card card-primary p-2">
     <?= DetailView::widget([
         'model' => $model,
+        'options' => [
+            'class' => 'table table-bordered'
+        ],
         'attributes' => [
             'id',
             'first_name',
             'last_name',
             'username',
-            'auth_key',
-            'password_hash',
+//            'auth_key',
+            [
+                'attribute' => 'password',
+                'value' => $model->username,
+                'format' => 'html',
+                'label' => 'Parol'
+            ],
             'tel_number',
-            'photo',
-            'status',
-            'type',
-            'token',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'status',
+                'value' => $model->statusLabel,
+                'format' => 'html'
+            ],
+            'created_at:date',
+            'updated_at:date',
         ],
     ]) ?>
 
