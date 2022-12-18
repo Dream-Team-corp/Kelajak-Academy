@@ -11,7 +11,7 @@ use yii\helpers\Url; ?>
         <h3><a href="<?= Url::to(['course/view', 'id' => $model->id]) ?>"><?= $model->title ?></a></h3>
         <p class="advisor">O'qituvchi: <span><a href="<?= Url::to(['teachers/view', 'id' => $model->user->id]) ?>"><?= $model->user->first_name ?></a></span></p>
         <ul class="d-flex justify-content-between">
-            <li class="price"><?= number_format($model->price, '0', ' ', ' ') ?> so'm</li>
+            <a href="<?= Url::to(['/course/online-apply', 'id' => $model->id, 't_id' => $model->user->id]) ?>">Qabulga yozilish</a>
         </ul>
     </div>
 </div>
