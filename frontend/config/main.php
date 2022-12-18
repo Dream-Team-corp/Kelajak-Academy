@@ -27,6 +27,10 @@ return [
         'pupil' => [
             'class' => 'frontend\modules\pupil\Pupil',
         ],
+        'restapi' => [
+            'class' => 'frontend\modules\restapi\Api',
+            'layout' => false
+        ],
     ],
     'components' => [
         'reCaptcha' => [
@@ -38,7 +42,10 @@ return [
         ],
         'request' => [
             'csrfParam' => '_csrf-kelajak-academy',
-            'baseUrl' => ''
+            'baseUrl' => '',
+            'parsers' => [
+                'application/json' => \yii\web\JsonParser::class
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\Member',
@@ -68,6 +75,12 @@ return [
             'scriptUrl' => '/index.php',
             'rules' => [
                 'main/<action>' => 'site/<action>',
+                [
+                    'class' => \yii\rest\UrlRule::class,
+                    'controller' => [
+                        'main'
+                    ]
+                ]
             ],
         ],
 
