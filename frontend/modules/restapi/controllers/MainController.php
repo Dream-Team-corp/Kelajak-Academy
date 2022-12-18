@@ -2,11 +2,11 @@
 
 namespace frontend\modules\restapi\controllers;
 
-use common\models\UseMember;
+use frontend\modules\restapi\models\UserModels;
 use yii\rest\ActiveController;
 
 class MainController extends ActiveController
 {
-    public $modelClass = UseMember::class;
+    public $modelClass = UserModels::class;
 
 }
