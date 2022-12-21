@@ -46,10 +46,10 @@ class Contact extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'username' => Yii::t('app', 'Username'),
-            'email' => Yii::t('app', 'Email'),
-            'title' => Yii::t('app', 'Title'),
-            'body' => Yii::t('app', 'Body'),
+            'username' => Yii::t('app', 'Ism'),
+            'email' => Yii::t('app', 'Elektron pochta'),
+            'title' => Yii::t('app', 'Sarlavha'),
+            'body' => Yii::t('app', 'Ma\'lumot'),
             'status' => Yii::t('app', 'Status'),
             'rating' => Yii::t('app', 'Rating'),
         ];
