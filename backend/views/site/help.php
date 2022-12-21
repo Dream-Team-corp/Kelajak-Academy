@@ -1,5 +1,5 @@
 <?php
-$this->title = 'Yordam';
+$this->title = 'Bog\'lanish';
 $this->params['breadcrumbs'][] = $this->title;
 
 use yii\widgets\LinkPager;

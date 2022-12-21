@@ -35,14 +35,15 @@ use yii\helpers\Url;
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <?php
+            <?php 
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
 
                     ['label' => 'Asosiy', 'url' => Url::to(['site/index']), 'icon' => 'fas fa-home',],
                     ['label' => 'Sozlamalar', 'url' => Url::to(['site/setting']), 'icon' => 'fas fa-cog',],
                     ['label' => 'Foydalanuvchilar', 'url' => Url::to(['site/users']), 'icon' => 'fas fa-user',],
-                    ['label' => 'Yordam', 'url' => Url::to(['site/help']), 'icon' => 'fas fa-plus',],
+                    ['label' => 'Bog\'lanish', 'url' => Url::to(['site/help']), 'icon' => 'fas fa-folder',],
+                    ['label' => 'Yordam', 'url' => Url::to(['site/faq']), 'icon' => 'fas fa-plus',],
                     ['label' => 'Katigoriyalar', 'url' => Url::to(['course-category/index']), 'icon' => 'fas fa-book-medical',],
                     ['label' => 'Login', 'url' => Url::to(['site/login']), 'icon' => 'fas fa-sign-out-alt',],
 

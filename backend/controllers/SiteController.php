@@ -8,6 +8,7 @@ use common\models\Member;
 use common\models\MetaTag;
 use common\models\TeacherAbout;
 use common\models\User;
+use frontend\models\Faq;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
@@ -36,7 +37,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users', 'setting', 'help', 'delete', 'update', 'user'],
+                        'actions' => ['logout', 'index', 'users', 'setting', 'help', 'delete', 'update', 'user','faq', 'javob'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -71,6 +72,31 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    public function actionJavob($id)
+    {
+        $model = Faq::findOne($id);
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            $model =new ActiveDataProvider([
+                'query'=> Faq::find()->orderBy(['id'=> SORT_DESC]),
+                'pagination' => [
+                    'pageSize' => 8
+                ]
+            ]);
+            return $this->render('faq',compact('model'));
+        }
+        return $this->render('javob', compact('model'));
+    }
+    public function actionFaq()
+    {
+        $model =new ActiveDataProvider([
+            'query'=> Faq::find()->orderBy(['id'=> SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 8
+            ]
+        ]);
+        
+        return $this->render('faq', compact('model'));
     }
     public function actionSetting()
     {

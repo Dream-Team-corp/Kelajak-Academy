@@ -15,10 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-md-10 offset-md-1 text-center">
         <h2 class=" text-primary">
-            Bo'lim tayyorlanmoqda
+            <!-- Bo'lim tayyorlanmoqda
             <div class="spinner-border text-primary time" role="status">
                 <span class="sr-only">Loading...</span>
-            </div>
+            </div> -->
 
         </h2>
         <p>
