@@ -78,4 +78,10 @@ class Faq extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Member::class, ['id' => 'user_id']);
     }
+    public function getYoutube(){
+        $video = '';
+        $v= explode('watch?v=', $this->video);
+        $video .= $v[0].'embed/'.end($v);
+        return $video;
+    }
 }

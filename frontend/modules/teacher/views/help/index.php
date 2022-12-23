@@ -1,9 +1,12 @@
 <?php
 
+use yii\helpers\Url;
+use yii\helpers\VarDumper;
+use yii\widgets\ListView;
+
 $this->title = "Yordam bo'limi";
 
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 
 <style>
@@ -22,7 +25,31 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </h2>
         <p>
-            <?= $this->render('_faq') ?>
+<section class="content">
+
+            <?= ListView::widget([
+                 'dataProvider' => $model,
+                 'itemView' => '_faq',
+                 'layout' => "{items}",
+                 'options' => [
+                     'class' => 'row'
+                 ],
+                 'itemOptions' => [
+                     'class' => 'col-12',
+                     'id'=> 'accordion'
+                 ],
+                 
+            ]) ?>
+            <div class="row">
+            <div class="col-12 mt-3 text-center">
+                <p class="lead">
+                    <a href="<?=Url::to('form')?>">Biz bilan bog'lanish</a>,
+                    Agar to'g'ri javob topmagan bo'lsangiz yoki boshqa savolingiz bo'lsa?<br />
+                </p>
+            </div>
+        </div>
+</section> 
+
         </p>
     </div>
 </div>

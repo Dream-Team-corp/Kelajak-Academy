@@ -76,14 +76,18 @@ class SiteController extends Controller
     public function actionJavob($id)
     {
         $model = Faq::findOne($id);
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            $model =new ActiveDataProvider([
-                'query'=> Faq::find()->orderBy(['id'=> SORT_DESC]),
-                'pagination' => [
-                    'pageSize' => 8
-                ]
-            ]);
-            return $this->render('faq',compact('model'));
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->video = $model->getYoutube();
+            if($model->save()){
+                $model =new ActiveDataProvider([
+                    'query'=> Faq::find()->orderBy(['id'=> SORT_DESC]),
+                    'pagination' => [
+                        'pageSize' => 8
+                    ]
+                ]);
+                return $this->render('faq',compact('model'));    
+            }
+            
         }
         return $this->render('javob', compact('model'));
     }

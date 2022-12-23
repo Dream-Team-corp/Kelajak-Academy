@@ -5,14 +5,21 @@ namespace frontend\modules\teacher\controllers;
 use frontend\models\Faq;
 use frontend\modules\control\controllers\BaseController;
 use Yii;
+use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 use yii\web\UploadedFile;
+
+use function PHPUnit\Framework\assertNotNull;
 
 class HelpController extends BaseController
 {
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new ActiveDataProvider([
+            'query' => Faq::find(),
+        ]);
+        return $this->render('index',compact('model'));
     }
     public function actionForm()
     {
