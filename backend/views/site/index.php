@@ -1,5 +1,9 @@
 <?php
-$this->title = 'Starter Page';
+
+use yii\helpers\Url;
+use yii\helpers\VarDumper;
+
+$this->title = 'Bosh sahifa';
 $this->params['breadcrumbs'] = [['label' => $this->title]];
 ?>
 <div class="container-fluid">
@@ -17,24 +21,25 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
     <div class="row">
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Messages',
-                'number' => '1,410',
+                'text' => '<a class="text-white" href='.Url::to(['faq']).'>Savollar</a>',
+                'number' => count($faq),
                 'icon' => 'far fa-envelope',
+                'theme'=> 'success'
             ]) ?>
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Bookmarks',
-                'number' => '410',
+                'text' => '<a class="text-white" href='.Url::to(['help']).'>Bog\'lanish</a>',
+                'number' => count($contact),
                  'theme' => 'success',
                 'icon' => 'far fa-flag',
             ]) ?>
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Uploads',
-                'number' => '13,648',
-                'theme' => 'gradient-warning',
+                'text' => '<a class="text-white" href='.Url::to(['faq']).'>Kurslar</a>',
+                'number' => count($kurs),
+                'theme' => 'success',
                 'icon' => 'far fa-copy',
             ]) ?>
         </div>
@@ -43,43 +48,30 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
     <div class="row">
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Bookmarks',
-                'number' => '41,410',
+                'text' => '<a class="text-white" href='.Url::to(['faq']).'>O\'qituvchilar</a>',
+                'number' => count($teacher),
                 'icon' => 'far fa-bookmark',
-                'progress' => [
-                    'width' => '70%',
-                    'description' => '70% Increase in 30 Days'
-                ]
+                'theme' => 'success'
             ]) ?>
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?php $infoBox = \hail812\adminlte\widgets\InfoBox::begin([
-                'text' => 'Likes',
-                'number' => '41,410',
+                'text' => '<a class="text-white" href='.Url::to(['faq']).'>O\'quvchilar</a>',
+                'number' => count($pupil),
                 'theme' => 'success',
                 'icon' => 'far fa-thumbs-up',
-                'progress' => [
-                    'width' => '70%',
-                    'description' => '70% Increase in 30 Days'
-                ]
+                
             ]) ?>
-            <?= \hail812\adminlte\widgets\Ribbon::widget([
-                'id' => $infoBox->id.'-ribbon',
-                'text' => 'Ribbon',
-            ]) ?>
+          
             <?php \hail812\adminlte\widgets\InfoBox::end() ?>
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Events',
-                'number' => '41,410',
-                'theme' => 'gradient-warning',
+                'text' => '<a class="text-white" href='.Url::to(['faq']).'>Kategoriyalar</a>',
+                'number' => count($kategory),
+                'theme' => 'success',
                 'icon' => 'far fa-calendar-alt',
-                'progress' => [
-                    'width' => '70%',
-                    'description' => '70% Increase in 30 Days'
-                ],
-                'loadingStyle' => true
+                
             ]) ?>
         </div>
     </div>

@@ -4,6 +4,8 @@ namespace backend\controllers;
 
 use backend\models\UserForm;
 use common\models\Contact;
+use common\models\Course;
+use common\models\CourseCategory;
 use common\models\Member;
 use common\models\MetaTag;
 use common\models\TeacherAbout;
@@ -71,7 +73,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $contact =  Contact::find()->where(['status'=>0])->all();
+        $faq = Faq::find()->where(['javob' => null])->all();
+        $kurs = Course::find()->all();
+        $teacher = Member::find()->where(['type'=>10])->all();
+        $pupil = Member::find()->where(['type'=>5])->all();
+        $kategory = CourseCategory::find()->where(['status'=>1])->all();
+        return $this->render('index',[
+            'faq'=> $faq,
+            'contact'=> $contact,
+            'kurs'=> $kurs,
+            'teacher'=> $teacher,
+            'pupil'=> $pupil,
+            'kategory'=> $kategory,
+        ]);
     }
     public function actionJavob($id)
     {

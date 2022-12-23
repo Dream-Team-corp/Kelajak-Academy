@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'row'
             ],
             'itemOptions' => [
-                'class' => 'col-12'
+                'class' => 'col-4'
             ]
     ])?>
 </div>

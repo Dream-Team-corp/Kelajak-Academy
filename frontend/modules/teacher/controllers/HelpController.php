@@ -29,7 +29,10 @@ class HelpController extends BaseController
             if ($model->image->saveAs(Yii::getAlias('@saveImage') . '/' . time().'.'.$model->image->extension, true)){
                 $model->image = time().'.'.$model->image->extension;
                 if($model->save()){
-                    return $this->render('index');
+                    $model = new ActiveDataProvider([
+                        'query' => Faq::find(),
+                    ]);
+                    return $this->render('index',compact('model'));
                 }
             } 
         }
