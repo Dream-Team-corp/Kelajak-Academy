@@ -1,3 +1,5 @@
-<h1>
-    Salom
-</h1>
+<?php
+$this->title = 'Bosh sahifa';
+
+?>
+

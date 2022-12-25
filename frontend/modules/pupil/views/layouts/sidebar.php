@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Url;
+
 $name = Yii::$app->user->identity->first_name. ' ' . Yii::$app->user->identity->last_name;
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -34,7 +35,11 @@ $name = Yii::$app->user->identity->first_name. ' ' . Yii::$app->user->identity->
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
                     ['label' => 'ASOSIY MENULAR', 'header' => true],
-                    ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/pupil/main/index']]
+                    ['label' => 'Bosh sahifa', 'icon' => 'home', 'url' => ['/pupil/main/index']],
+                    ['label' => 'Kurslarim', 'icon' => 'bookmark', 'url' => ['/pupil/main/course']],
+                    ['label' => 'Natijalarim', 'icon' => 'chevron-up', 'url' => ['/pupil/main/natija']],
+                    ['label' => 'Topshiriqlar', 'icon' => 'thumbtack', 'url' => ['/pupil/main/task']],
+                    ['label' => 'Akkauntni o\'zgartirish', 'icon' => 'pen', 'url' => ['/pupil/main/singin']]
                 ],
             ]);
             ?>

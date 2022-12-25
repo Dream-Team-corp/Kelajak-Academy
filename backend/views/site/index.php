@@ -48,7 +48,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
     <div class="row">
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => '<a class="text-white" href='.Url::to(['faq']).'>O\'qituvchilar</a>',
+                'text' => '<a class="text-white" href='.Url::to(['users']).'>O\'qituvchilar</a>',
                 'number' => count($teacher),
                 'icon' => 'far fa-bookmark',
                 'theme' => 'success'
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?php $infoBox = \hail812\adminlte\widgets\InfoBox::begin([
-                'text' => '<a class="text-white" href='.Url::to(['faq']).'>O\'quvchilar</a>',
+                'text' => '<a class="text-white" href='.Url::to(['users']).'>O\'quvchilar</a>',
                 'number' => count($pupil),
                 'theme' => 'success',
                 'icon' => 'far fa-thumbs-up',
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => '<a class="text-white" href='.Url::to(['faq']).'>Kategoriyalar</a>',
+                'text' => '<a class="text-white" href='.Url::to(['course-category/index']).'>Kategoriyalar</a>',
                 'number' => count($kategory),
                 'theme' => 'success',
                 'icon' => 'far fa-calendar-alt',
