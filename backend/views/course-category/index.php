@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var common\models\search\CourseCategory $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Kategoriyalar';
+$this->title = 'Kurs';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card card-outline card-success p-3">

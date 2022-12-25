@@ -37,7 +37,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => '<a class="text-white" href='.Url::to(['faq']).'>Kurslar</a>',
+                'text' => '<a class="text-white" href='.Url::to(['course-category/index']).'>Kurslar</a>',
                 'number' => count($kurs),
                 'theme' => 'success',
                 'icon' => 'far fa-copy',
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
         </div>
         <div class="col-md-4 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => '<a class="text-white" href='.Url::to(['course-category/index']).'>Kategoriyalar</a>',
+                'text' => '<a class="text-white" href='.Url::to(['category']).'>Kategoriyalar</a>',
                 'number' => count($kategory),
                 'theme' => 'success',
                 'icon' => 'far fa-calendar-alt',

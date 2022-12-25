@@ -39,7 +39,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users', 'setting', 'help', 'delete', 'update', 'user','faq', 'javob'],
+                        'actions' => ['logout', 'index', 'users', 'setting', 'help', 'delete', 'update', 'user','faq', 'javob', 'category'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -225,5 +225,12 @@ class SiteController extends Controller
         $user = Member::findOne($id);
         $teacherabout = TeacherAbout::findOne(['teacher_id' => $id]);
         return $this->render('user', compact('user', 'teacherabout'));
+    }
+    public function actionCategory()
+    {
+        $model =new ActiveDataProvider([
+            'query' => Course::find()->orderBy(['id'=>SORT_DESC]),
+        ]);
+        return $this->render('category', compact('model'));
     }
 }

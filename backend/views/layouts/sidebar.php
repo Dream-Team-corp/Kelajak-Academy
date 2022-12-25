@@ -44,7 +44,8 @@ use yii\helpers\Url;
                     ['label' => 'Foydalanuvchilar', 'url' => Url::to(['site/users']), 'icon' => 'fas fa-user',],
                     ['label' => 'Bog\'lanish', 'url' => Url::to(['site/help']), 'icon' => 'fas fa-folder',],
                     ['label' => 'Yordam', 'url' => Url::to(['site/faq']), 'icon' => 'fas fa-plus',],
-                    ['label' => 'Katigoriyalar', 'url' => Url::to(['course-category/index']), 'icon' => 'fas fa-book-medical',],
+                    ['label' => 'Kurslar', 'url' => Url::to(['course-category/index']), 'icon' => 'fas fa-book',],
+                    ['label' => 'Kategoriyalar', 'url' => Url::to(['site/category']), 'icon' => 'fas fa-book-medical',],
                     ['label' => 'Login', 'url' => Url::to(['site/login']), 'icon' => 'fas fa-sign-out-alt',],
 
                 ],
