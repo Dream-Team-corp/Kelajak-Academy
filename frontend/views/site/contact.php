@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <span class="fa fa-map-marker"></span>
                                     </div>
                                     <div class="text pl-3">
-                                        <p><span>Joylashuv:</span> MP5R+V64 To'yhona KELAJAK (Yoshlar Markazi), Karatepa, Oʻzbekiston</p>
+                                        <p><span>Joylashuv:</span> Farg‘ona viloyati, Yozyovon tumani, Yozyovon shahar pasyolkasi</p>
                                     </div>
                                 </div>
                                 <div class="dbox w-100 d-flex align-items-center">
@@ -96,7 +96,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <span class="fa fa-phone"></span>
                                     </div>
                                     <div class="text pl-3">
-                                        <p><span>Telefon raqamimiz:</span> <br><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                                        <p><span>Telefon raqamimiz:</span> <br><a href="tel://998996912230">+ 998 99 691 22 30</a></p>
                                     </div>
                                 </div>
                                 <div class="dbox w-100 d-flex align-items-center">
@@ -104,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <span class="fa fa-paper-plane"></span>
                                     </div>
                                     <div class="text pl-3">
-                                        <p><span>Elektron pochta:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                        <p><span>Elektron pochta:</span> <a href="mailto:aaa_22_30@mail.ru">aaa_22_30@mail.ru</a></p>
                                     </div>
                                 </div>
                             </div>

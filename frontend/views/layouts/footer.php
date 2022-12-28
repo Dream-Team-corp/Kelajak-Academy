@@ -43,7 +43,7 @@ use yii\helpers\Url;
                     <div class="block-23 mb-3">
                         <ul>
                             <li>
-                                <span class="icon fa fa-map-marker"></span><span class="text">Farg‘ona viloyati, Yozyovon tumani, Yozyovon shahar posyolkasi</span>
+                                <span class="icon fa fa-map-marker"></span><span class="text">Farg‘ona viloyati, Yozyovon tumani, Yozyovon shahar pasyolkasi</span>
                             </li>
                             <li>
                                 <a href="tel:+998996912230"><span class="icon fa fa-phone"></span><span class="text">+998 99 691 22 30</span></a>
