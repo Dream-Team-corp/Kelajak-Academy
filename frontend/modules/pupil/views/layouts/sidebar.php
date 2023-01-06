@@ -15,7 +15,7 @@ $name = Yii::$app->user->identity->first_name. ' ' . Yii::$app->user->identity->
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
-                <a href="#" class="d-block text-uppercase ml-1"><i class="fa fa-user mr-2"></i><?= substr($name, '0', 20)?>...</a>
+                <a href="#" class="d-block text-uppercase ml-1"><?=(Yii::$app->user->identity->photo != 'user.png')? '<img class="rounded-circle mr-2" src="'.Yii::getAlias('@defaultImage').'/'.Yii::$app->user->identity->photo.'" width="30px">'.substr($name, '0', 18): '<i class="fa fa-user mr-2"></i>'. substr($name, '0', 18)?>...</a>
             </div>
         </div>
         <div class="form-inline">
