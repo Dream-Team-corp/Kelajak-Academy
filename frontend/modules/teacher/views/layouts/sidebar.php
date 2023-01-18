@@ -41,6 +41,7 @@ $image = (empty(Yii::$app->user->identity->teacherInfo->image)) ? Yii::$app->use
                     ['label' => 'Kurs reklamalari', 'icon' => 'ad', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/course/index']],
                     ['label' => 'Guruhlarim', 'icon' => 'users', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/group/index']],
                     ['label' => 'To\'lovlar', 'icon' => 'money-bill-wave', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/bil/index']],
+                    ['label' => 'Topshiriqlar', 'icon' => '', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/task/index']],
                     // ['label' => 'O\'quvchilar natijasi', 'icon' => 'poll', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/pupil-result/index']],
                     // ['label' => 'Chat', 'icon' => 'comments', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/']],
                     ['label' => 'Yordam', 'icon' => 'question-circle', 'iconClassAdded' => 'text-info', 'url' => ['/teacher/help/index']],

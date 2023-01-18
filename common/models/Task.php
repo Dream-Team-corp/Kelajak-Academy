@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "task".
@@ -31,12 +32,20 @@ class Task extends \yii\db\ActiveRecord
         return 'task';
     }
 
+    public function behaviors()
+    {
+        return[
+            'class' => TimestampBehavior::class
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
+            ['text', 'required'],
             [['teacher_id', 'group_id', 'course_id', 'created_at', 'updated_at'], 'integer'],
             [['text'], 'string', 'max' => 512],
             [['image', 'video'], 'string', 'max' => 128],
@@ -52,15 +61,15 @@ class Task extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'text' => Yii::t('app', 'Text'),
-            'image' => Yii::t('app', 'Image'),
-            'video' => Yii::t('app', 'Video'),
-            'teacher_id' => Yii::t('app', 'Teacher ID'),
-            'group_id' => Yii::t('app', 'Group ID'),
-            'course_id' => Yii::t('app', 'Course ID'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => Yii::t('app', 'Tartib raqami'),
+            'text' => Yii::t('app', 'Topshiriq'),
+            'image' => Yii::t('app', 'Rasmi'),
+            'video' => Yii::t('app', 'Videoni YouTube linki'),
+            'teacher_id' => Yii::t('app', 'O\'qituvchi'),
+            'group_id' => Yii::t('app', 'Guruh'),
+            'course_id' => Yii::t('app', 'Kurs'),
+            'created_at' => Yii::t('app', 'Yaratilgan sanasi'),
+            'updated_at' => Yii::t('app', 'O\'zgartirilgan sanasi'),
         ];
     }
 
