@@ -92,11 +92,11 @@ class TaskController extends Controller
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $model->teacher_id = Yii::$app->user->identity->id;
-                $model->group_id = $model->l;
-                $model->course_id = $model->course;
+                $model->group_id = $_GET['id'];
+                $model->course_id = $_GET['course_id'];
                 $model->image = UploadedFile::getInstance($model, 'image');
-                if(($model->image != null) && $model->image->saveAs(Yii::getAlias('@saveImage').'/'.time().$model->image->extension,true)){
-                $model->image = time().$model->image->extension;
+                if(($model->image != null) && $model->image->saveAs(Yii::getAlias('@saveImage').'/'.time().'.'.$model->image->extension,true)){
+                $model->image = time().'.'.$model->image->extension;
                     if($model->save()){
                         return $this->redirect(['view', 'id' => $model->id]);
                     }
@@ -125,7 +125,14 @@ class TaskController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->image = UploadedFile::getInstance($model,'image');
+            if(($model->image != null) && $model->image->saveAs(Yii::getAlias('@saveImage').'/'.time().'.'.$model->image->extension,true)){
+                $model->image = time().'.'.$model->image->extension;
+                    if($model->save()){
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
