@@ -2,6 +2,7 @@
 
 namespace frontend\modules\teacher\controllers;
 
+use common\models\Group;
 use common\models\task;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -71,7 +72,14 @@ class TaskController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
+    public function actionTask($id)
+    {
+        $group = Group::find()->where(['course_id'=>$id])->all();
+        return $this->render('task', [
+            'model' => $group,
+            'course_id'=> $id
+        ]);
+    }
     /**
      * Creates a new task model.
      * If creation is successful, the browser will be redirected to the 'view' page.
