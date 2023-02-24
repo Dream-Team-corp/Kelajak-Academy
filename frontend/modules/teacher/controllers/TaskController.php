@@ -72,6 +72,12 @@ class TaskController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+    public function actionTaskview($id)
+    {
+        return $this->render('taskview', [
+            'model' => $this->findModel($id),
+        ]);
+    }
     public function actionTask($id)
     {
         $group = Group::find()->where(['course_id'=>$id])->all();
