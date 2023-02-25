@@ -74,8 +74,23 @@ class TaskController extends Controller
     }
     public function actionTaskview($id)
     {
+        $model = $this->findModel($id);
+        $img = $model->image;
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if(($model->image != null) && $model->image->saveAs(Yii::getAlias('@saveImage').'/'.time().'.'.$model->image->extension,true)){
+                $model->image = time().'.'.$model->image->extension;
+                if($model->save()){
+                    return $this->redirect(['index']);
+                }
+            }
+            else if($model->image = $img && $model->save()){
+                return $this->redirect(['index']);
+            }
+            
+        }
         return $this->render('taskview', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
     public function actionTask($id)

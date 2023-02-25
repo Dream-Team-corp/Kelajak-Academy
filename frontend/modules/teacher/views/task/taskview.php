@@ -15,7 +15,14 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'text')->textarea(['rows'=>6]) ?>
 
 
-    <?='<div class="row"> <img class="col-6 " style="height: 380px;widht:200px !important" src="'. Yii::getAlias('@defaultImage').'/'.$model->image.'" >'. '<div class="col-6">'. $form->field($model, 'image')->widget(FileInput::class).'</div></div>' ?>
+    <div class="row"> 
+        <div class="col-6">
+            <img class="w-50" src="<?= Yii::getAlias('@defaultImage').'/'.$model->image?>">
+        </div>
+        <div class="col-6">
+            <?=$form->field($model, 'image')->widget(FileInput::class) ?>
+        </div>
+    </div>
 
     <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
 
